@@ -12,7 +12,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>648,2480</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>636,2520</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Dynamic365_UpdatePaymentData_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -111,13 +111,13 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="Dynamic365_UpdatePaymentData" sap:VirtualizedContainerService.HintSize="646,2415" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Dynamic365_UpdatePaymentData" sap:VirtualizedContainerService.HintSize="646,2455" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch Dynamic365_UpdatePaymentData" sap:VirtualizedContainerService.HintSize="584,2304" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch Dynamic365_UpdatePaymentData" sap:VirtualizedContainerService.HintSize="584,2344" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -125,14 +125,14 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="546,1567" sap2010:WorkflowViewState.IdRef="Sequence_4">
+        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="546,1607" sap2010:WorkflowViewState.IdRef="Sequence_4">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Update Payment Data&quot;]" />
-          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: Update Payment Data" sap:VirtualizedContainerService.HintSize="484,1202" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="daf24825-0c13-47d0-ba0d-10d1c9419c51" Version="V2" WindowResize="Maximize">
+          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: Update Payment Data" sap:VirtualizedContainerService.HintSize="484,1242" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="daf24825-0c13-47d0-ba0d-10d1c9419c51" Version="V2" WindowResize="Maximize">
             <uix:NApplicationCard.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
@@ -148,13 +148,13 @@
                   <uix:NNavigateBrowser Action="Refresh" DisplayName="Navigate Browser - Refresh" sap:VirtualizedContainerService.HintSize="388,82" sap2010:WorkflowViewState.IdRef="NNavigateBrowser_1" Version="V3" />
                   <uix:NGetText DisplayName="Get Text out_StrFolioPayment" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="daf24825-0c13-47d0-ba0d-10d1c9419c51" TextString="[out_StrFolioPayment]" Version="V3">
                     <uix:NGetText.Target>
-                      <uix:TargetAnchorable BrowserURL="https://crm.bulkmatic.mx/BULKQA/?company=BDM&amp;page=61&amp;dc=0&amp;bookmark=12%3bFQAAAACHcmZr&amp;signInRedirected=1&amp;runinframe=1" CvType="AnyWordGroup" DesignTimeRectangle="472, 334, 67, 25" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'CP020197'" FullSelectorArgument="&lt;webctrl src='https://crm.bulkmatic.mx/BULKQA/*' tag='IFRAME' /&gt;&lt;webctrl aria-role='grid' tag='TABLE' /&gt;&lt;webctrl tableRow='3' tag='SPAN' aria-label='Folio Pago,*' /&gt;" Guid="b581164e-977d-4f6c-84d8-7ceb32a46437" InformativeScreenshot="68cf3b586c5b460e608f7bfaa2914612.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*Dynamics 365 Business Central*' /&gt;" SearchSteps="Selector" Version="V2" />
+                      <uix:TargetAnchorable BrowserURL="https://crm.bulkmatic.mx/BULKQA/?company=BDM&amp;page=61&amp;dc=0&amp;bookmark=12%3bFQAAAACHcmZr&amp;signInRedirected=1&amp;runinframe=1" CvType="AnyWordGroup" DesignTimeRectangle="472, 334, 67, 25" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'CP020197'" FullSelectorArgument="&lt;webctrl src='https://crm.bulkmatic.mx/*' tag='IFRAME' /&gt;&lt;webctrl aria-role='grid' tag='TABLE' /&gt;&lt;webctrl tableRow='3' tag='SPAN' aria-label='Folio Pago,*' /&gt;" Guid="b581164e-977d-4f6c-84d8-7ceb32a46437" InformativeScreenshot="68cf3b586c5b460e608f7bfaa2914612.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*Dynamics 365 Business Central*' /&gt;" SearchSteps="Selector" Version="V2" />
                     </uix:NGetText.Target>
                   </uix:NGetText>
                   <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Get Folio Payment &quot; + out_StrFolioPayment]" />
                   <uix:NGetText DisplayName="Get Text out_StrPACTaxInvoiceNumber" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="daf24825-0c13-47d0-ba0d-10d1c9419c51" TextString="[out_StrPACTaxInvoiceNumber]" Version="V3">
                     <uix:NGetText.Target>
-                      <uix:TargetAnchorable BrowserURL="https://crm.bulkmatic.mx/BULKQA/?company=BDM&amp;node=00000000-7fd0-0000-1521-5f00836bd2d2&amp;page=50200&amp;dc=0&amp;bookmark=12%3bFQAAAACHHFNv&amp;signInRedirected=1&amp;runinframe=1" CvType="AnyWordGroup" DesignTimeRectangle="934, 291, 178, 25" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'999BC77D-BD96-467C-B5FE…'" FullSelectorArgument="&lt;webctrl src='https://crm.bulkmatic.mx/BULKQA/*' tag='IFRAME' /&gt;&lt;webctrl aria-role='grid' tag='TABLE' /&gt;&lt;webctrl tableRow='3' tag='SPAN' aria-label='Número de factura fiscal de PAC*' /&gt;" Guid="01479217-7cec-46ed-bd71-eabb4f3bed45" InformativeScreenshot="99d6f4a22095b904b4521325cd9fe18d.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*Dynamics 365 Business Central*' /&gt;" SearchSteps="Selector" Version="V2" />
+                      <uix:TargetAnchorable BrowserURL="https://crm.bulkmatic.mx/BULKQA/?company=BDM&amp;node=00000000-7fd0-0000-1521-5f00836bd2d2&amp;page=50200&amp;dc=0&amp;bookmark=12%3bFQAAAACHHFNv&amp;signInRedirected=1&amp;runinframe=1" CvType="AnyWordGroup" DesignTimeRectangle="934, 291, 178, 25" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'999BC77D-BD96-467C-B5FE…'" FullSelectorArgument="&lt;webctrl src='https://crm.bulkmatic.mx/*' tag='IFRAME' /&gt;&lt;webctrl aria-role='grid' tag='TABLE' /&gt;&lt;webctrl tableRow='3' tag='SPAN' aria-label='Número de factura fiscal de PAC*' /&gt;" Guid="01479217-7cec-46ed-bd71-eabb4f3bed45" InformativeScreenshot="99d6f4a22095b904b4521325cd9fe18d.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*Dynamics 365 Business Central*' /&gt;" SearchSteps="Selector" Version="V2" />
                     </uix:NGetText.Target>
                   </uix:NGetText>
                   <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;PAC Tax Invoice Number &quot; + out_StrPACTaxInvoiceNumber]" />

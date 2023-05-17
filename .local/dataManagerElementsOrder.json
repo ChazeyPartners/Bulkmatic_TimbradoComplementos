@@ -397,7 +397,6 @@
       "SortBy": 0,
       "VariablesSectionElementsOrder": [],
       "ArgumentsSectionElementsOrder": [
-        "out_StrFolioPayment",
         "out_BooStampPayment",
         "out_StrExceptionMessage"
       ],
@@ -523,6 +522,43 @@
       "ArgumentsSectionElementsOrder": [
         "out_BooRequirePermits"
       ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Apps/Dynamic365/Dynamic365_Login.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "vSstPassword&Sequence_1",
+        "vStrUsername&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_StrDynamic365URL",
+        "in_StrOrchestratorFolderPath",
+        "in_StrOrchestratorAssetName",
+        "out_BooLogin"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/ProjectName.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "vStrProjectName&Sequence_1",
+        "vJsoProjectName&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "out_JsonProjectName"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/KillAllProcesses.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
     }

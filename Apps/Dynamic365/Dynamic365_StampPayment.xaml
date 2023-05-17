@@ -1,13 +1,12 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="Dynamic365_StampPayment" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="out_StrFolioPayment" Type="OutArgument(x:String)" />
     <x:Property Name="out_BooStampPayment" Type="OutArgument(x:Boolean)" />
     <x:Property Name="out_StrExceptionMessage" Type="OutArgument(x:String)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>682,2557</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>682,2228</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Dynamic365_StampPayment_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -108,13 +107,13 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="Dynamic365_StampPayment" sap:VirtualizedContainerService.HintSize="692,2492" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Dynamic365_StampPayment" sap:VirtualizedContainerService.HintSize="692,2163" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch Dynamic365_StampPayment" sap:VirtualizedContainerService.HintSize="630,2381" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch Dynamic365_StampPayment" sap:VirtualizedContainerService.HintSize="630,2052" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -122,20 +121,20 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="592,1644" sap2010:WorkflowViewState.IdRef="Sequence_4">
+        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="592,1315" sap2010:WorkflowViewState.IdRef="Sequence_4">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="530,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Stamp Payment&quot;]" />
-          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: Stamp Payment" sap:VirtualizedContainerService.HintSize="530,1401" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="daf24825-0c13-47d0-ba0d-10d1c9419c51" Version="V2" WindowResize="Maximize">
+          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: Stamp Payment" sap:VirtualizedContainerService.HintSize="530,1072" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="daf24825-0c13-47d0-ba0d-10d1c9419c51" Version="V2" WindowResize="Maximize">
             <uix:NApplicationCard.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="496,1184" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="496,855" sap2010:WorkflowViewState.IdRef="Sequence_3">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -144,21 +143,15 @@
                   <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Click Actions&quot;]" />
                   <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click Actions" sap:VirtualizedContainerService.HintSize="434,157" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="daf24825-0c13-47d0-ba0d-10d1c9419c51" Version="V3">
                     <uix:NClick.Target>
-                      <uix:TargetAnchorable BrowserURL="https://crm.bulkmatic.mx/BULKQA/?company=BDM&amp;page=61&amp;dc=0&amp;bookmark=12%3bFQAAAACHcmZr&amp;signInRedirected=1&amp;runinframe=1" CvType="Text" DesignTimeRectangle="783, 221, 81, 38" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Acciones'" FullSelectorArgument="&lt;webctrl src='https://crm.bulkmatic.mx/BULKQA/*' tag='IFRAME' /&gt;&lt;webctrl tag='A' aria-label='Acciones' /&gt;" Guid="f5527d88-488b-4edb-90e3-48795f9d5f85" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFUAAAAqCAYAAADCgRdOAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJwSURBVGhD7ZRLTtxAFEW9lV5HZw30EnoDZB7mZISYEtEwC1FGEfQAQ8IoDInSEgmwApIB5EM3n2ZW0bV0yaMou23kJ4F0LR3Zrvfqd+qTBT2tP9n52a8g2iW7md4G0S6S6oCkOiCpDkiqA5LqgKQ6IKkOSKoDkuqApDogqQ5IqgOS6oCkOlBb6vej49Dtvgif9/eT8Sac/vgZ5nq9Vtp6itSWurj4+o5UXPynllTsrPn5l+Ho+CT0+/1i16bynjOTyWWyPOb6Zhour66TMVJLKo4pdyjebzfePchBeafTKcDRxkKgnNcGY6j7+8/fYpHs8Uc5c5jHGPKQPxis3cXjE4McxtCfXXg7NrSD/m3di/E4rA9Ww+G3w3vlMZA5HG6FT3t7yTipJRWDogBO0A4McTvJnd2PhVRMDII5QZQhFkuFQLsQeNs7l8Iomgtl47Y+/jlG+43YwcGXB1IBylbfrJSKpdA8z4vdmsohM6ViAjjydsL2CojjFoi2O45Yqfbb5qAeFyoWA2zbcT/Ie7WwUIwNda3wKsrENhEKZkrFYHl0LFUTBmWy4li8SMS2m+qDItlWaozsG2/8x9dCCrRnxTYVCiql2snbcrs7vXYq/qsWzraN77h+CozVXkdlUOzX0aixUFAptUxYSgoFAN6piNvdgbLH3qlVUhEvO+Kbm1v3+k+dihToa3l5KeTb242EgkqpGLiVZcGEOFFK4rGzAjBhlgP8M5/S2F6cxxi+q6SCuD7zU/2zziwgs6lQMPNOFc2RVAck1QFJdUBSHZBUByTVAUl1QFIdkFQHJNUBSXVAUh2QVAey9x/yINokD/8A1/ez0e4svHgAAAAASUVORK5CYII=" InformativeScreenshot="93d016d19c176c82d0bcc96b39a91e07.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*Dynamics 365 Business Central*' /&gt;" SearchSteps="Selector" Version="V2" />
+                      <uix:TargetAnchorable BrowserURL="https://crm.bulkmatic.mx/BULKQA/?company=BDM&amp;page=61&amp;dc=0&amp;bookmark=12%3bFQAAAACHcmZr&amp;signInRedirected=1&amp;runinframe=1" CvType="Text" DesignTimeRectangle="783, 221, 81, 38" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Acciones'" FullSelectorArgument="&lt;webctrl src='https://crm.bulkmatic.mx/*' tag='IFRAME' /&gt;&lt;webctrl tag='A' aria-label='Acciones' /&gt;" Guid="f5527d88-488b-4edb-90e3-48795f9d5f85" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFUAAAAqCAYAAADCgRdOAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJwSURBVGhD7ZRLTtxAFEW9lV5HZw30EnoDZB7mZISYEtEwC1FGEfQAQ8IoDInSEgmwApIB5EM3n2ZW0bV0yaMou23kJ4F0LR3Zrvfqd+qTBT2tP9n52a8g2iW7md4G0S6S6oCkOiCpDkiqA5LqgKQ6IKkOSKoDkuqApDogqQ5IqgOS6oCkOlBb6vej49Dtvgif9/eT8Sac/vgZ5nq9Vtp6itSWurj4+o5UXPynllTsrPn5l+Ho+CT0+/1i16bynjOTyWWyPOb6Zhour66TMVJLKo4pdyjebzfePchBeafTKcDRxkKgnNcGY6j7+8/fYpHs8Uc5c5jHGPKQPxis3cXjE4McxtCfXXg7NrSD/m3di/E4rA9Ww+G3w3vlMZA5HG6FT3t7yTipJRWDogBO0A4McTvJnd2PhVRMDII5QZQhFkuFQLsQeNs7l8Iomgtl47Y+/jlG+43YwcGXB1IBylbfrJSKpdA8z4vdmsohM6ViAjjydsL2CojjFoi2O45Yqfbb5qAeFyoWA2zbcT/Ie7WwUIwNda3wKsrENhEKZkrFYHl0LFUTBmWy4li8SMS2m+qDItlWaozsG2/8x9dCCrRnxTYVCiql2snbcrs7vXYq/qsWzraN77h+CozVXkdlUOzX0aixUFAptUxYSgoFAN6piNvdgbLH3qlVUhEvO+Kbm1v3+k+dihToa3l5KeTb242EgkqpGLiVZcGEOFFK4rGzAjBhlgP8M5/S2F6cxxi+q6SCuD7zU/2zziwgs6lQMPNOFc2RVAck1QFJdUBSHZBUByTVAUl1QFIdkFQHJNUBSXVAUh2QVAey9x/yINokD/8A1/ez0e4svHgAAAAASUVORK5CYII=" InformativeScreenshot="93d016d19c176c82d0bcc96b39a91e07.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*Dynamics 365 Business Central*' /&gt;" SearchSteps="Selector" Version="V2" />
                     </uix:NClick.Target>
                   </uix:NClick>
                   <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Click Stamp&quot;]" />
                   <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="5" DisplayName="Click Stamp" sap:VirtualizedContainerService.HintSize="434,157" sap2010:WorkflowViewState.IdRef="NClick_2" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="daf24825-0c13-47d0-ba0d-10d1c9419c51" Version="V3">
                     <uix:NClick.Target>
-                      <uix:TargetAnchorable BrowserURL="https://crm.bulkmatic.mx/BULKQA/?company=BDM&amp;page=61&amp;dc=0&amp;bookmark=12%3bFQAAAACHcmZr&amp;signInRedirected=1&amp;runinframe=1" CvType="Text" DesignTimeRectangle="684, 259, 180, 38" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Timbrar...'" FullSelectorArgument="&lt;webctrl src='https://crm.bulkmatic.mx/BULKQA/*' tag='IFRAME' /&gt;&lt;webctrl tag='A' aria-label='Timbrar...' /&gt;" Guid="fffe4013-bf4b-4a8b-b7bb-4c32d0d479b4" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAALgAAAAqCAYAAAAAnZGPAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPNSURBVHhe7ZpNTxNRFIZH4/fS+Aeqa3Fv+BEs3bhgqwuWumCBiBFQjLgQXUgTo4kYY+JHN2IQIgTcuScqttNSPlpKgRoS5Np3zGnutLflWqB0xnfxZOaee86cpHl6czqps1H4pXTWNwo+1tY3SINxU2kVd1PEgkRy3gc+u1R6seSzJ7jInF9bV6v5NZVbzftYya2SBrKwlFFzcVd9n4uTGvz4mfCBzwySZ3N5z2dPcDmlNzc31fb2NiGBBy7DabjtPH/5Tj198UZtbf02JhMSNOAynIbbDsaSpeWMMZGQoAKn4baDmXtxadmYREhQgdNw28GPmvTCojGJkKACp+G2k13Jqfn0gjGJkKACp+G2k8muqGRq3phESFCB03DbWc5klZtMGZMICSpwGm57gifcpDGJkKACpz3B8TqFgpOwAafhtid4POEakwgJKnB6TwS//Xlane4bVE5Xn3fF2pRHSCPZE8EvPnmmWh4Oq5M9A+rYzbve9cJQ1Iub8glpFFaC41Q2MZ1Iqq5Pk+p8UW6J6fktQ8Oqf+pLxfMIaRTWgpvi4NzgY3Wm/0FJah3Ezxb3TXWENIJ/ErxcYMQwkgBZ6zWyp8cLhYLq6OhQkUikAsRd11VtbW1qZmbGV2cL6vAc9DHtk/+LfT/BI/cfGetAJpNR7e3tanZ21rhfDxSc6Oz6BO+emPJmbT0m94j3TVY/iSk42W+sBK/F6Lc531uUo913rN+imASXEUZGFBE2Go16Y0xra6uXj7iMNr29vaV6yR8bG/ONPiK89JTnoVZ6Sj5GJORVy5depPmxEvxqbFQdvtFfOpmPFCW+/nGitA/Ju8Ynje/Bv9b4h6Kt4BBrZGTEW+Oqi4ZaCCnPkHxdRNzLGj2Rr++jNhaLeffSX/qZ8klwsD7BIbUIXv7DsRa1cm0F10/gcqF3ypca9EE/U89yILf+hdgpnzQvVoJffv2+Inbp1duKmAl8IUxxUI/gqMEaV5v88hpTTwChcfILFDwcWJ/gh4qiHi+extdGx4371WgGwfF89EGNqSdklpEE8AQPD1aCX4l98K1rzeQS09FrdUzy7IXgOIFlLfv6TK33LK+XdS3BsSf7+j2eof9AJQeP9QkOUU/dulda1zuT65jkMQmLNeJSg7VIVC2/s7OzYtyQ+vKeqJFcvKVBrdSY8nWp9Xs8h4I3F9aC6+xmJiekkdQlOMBMjtP7RM+AN66Ycgg5aOoWnJAgQMFJqKHgJNRQcBJqKDgJNRSchBoKTkINBSehhoKTUEPBSaih4CTUUHASaig4CTV/Bc+oPyXefYSpWVa6AAAAAElFTkSuQmCC" InformativeScreenshot="6b69ac257f917089ed20172296d2ec41.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*Dynamics 365 Business Central*' /&gt;" SearchSteps="Selector" Version="V2" />
+                      <uix:TargetAnchorable BrowserURL="https://crm.bulkmatic.mx/BULKQA/?company=BDM&amp;page=61&amp;dc=0&amp;bookmark=12%3bFQAAAACHcmZr&amp;signInRedirected=1&amp;runinframe=1" CvType="Text" DesignTimeRectangle="684, 259, 180, 38" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Timbrar...'" FullSelectorArgument="&lt;webctrl src='https://crm.bulkmatic.mx/*' tag='IFRAME' /&gt;&lt;webctrl tag='A' aria-label='Timbrar...' /&gt;" Guid="fffe4013-bf4b-4a8b-b7bb-4c32d0d479b4" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAALgAAAAqCAYAAAAAnZGPAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPNSURBVHhe7ZpNTxNRFIZH4/fS+Aeqa3Fv+BEs3bhgqwuWumCBiBFQjLgQXUgTo4kYY+JHN2IQIgTcuScqttNSPlpKgRoS5Np3zGnutLflWqB0xnfxZOaee86cpHl6czqps1H4pXTWNwo+1tY3SINxU2kVd1PEgkRy3gc+u1R6seSzJ7jInF9bV6v5NZVbzftYya2SBrKwlFFzcVd9n4uTGvz4mfCBzwySZ3N5z2dPcDmlNzc31fb2NiGBBy7DabjtPH/5Tj198UZtbf02JhMSNOAynIbbDsaSpeWMMZGQoAKn4baDmXtxadmYREhQgdNw28GPmvTCojGJkKACp+G2k13Jqfn0gjGJkKACp+G2k8muqGRq3phESFCB03DbWc5klZtMGZMICSpwGm57gifcpDGJkKACpz3B8TqFgpOwAafhtid4POEakwgJKnB6TwS//Xlane4bVE5Xn3fF2pRHSCPZE8EvPnmmWh4Oq5M9A+rYzbve9cJQ1Iub8glpFFaC41Q2MZ1Iqq5Pk+p8UW6J6fktQ8Oqf+pLxfMIaRTWgpvi4NzgY3Wm/0FJah3Ezxb3TXWENIJ/ErxcYMQwkgBZ6zWyp8cLhYLq6OhQkUikAsRd11VtbW1qZmbGV2cL6vAc9DHtk/+LfT/BI/cfGetAJpNR7e3tanZ21rhfDxSc6Oz6BO+emPJmbT0m94j3TVY/iSk42W+sBK/F6Lc531uUo913rN+imASXEUZGFBE2Go16Y0xra6uXj7iMNr29vaV6yR8bG/ONPiK89JTnoVZ6Sj5GJORVy5depPmxEvxqbFQdvtFfOpmPFCW+/nGitA/Ju8Ynje/Bv9b4h6Kt4BBrZGTEW+Oqi4ZaCCnPkHxdRNzLGj2Rr++jNhaLeffSX/qZ8klwsD7BIbUIXv7DsRa1cm0F10/gcqF3ypca9EE/U89yILf+hdgpnzQvVoJffv2+Inbp1duKmAl8IUxxUI/gqMEaV5v88hpTTwChcfILFDwcWJ/gh4qiHi+extdGx4371WgGwfF89EGNqSdklpEE8AQPD1aCX4l98K1rzeQS09FrdUzy7IXgOIFlLfv6TK33LK+XdS3BsSf7+j2eof9AJQeP9QkOUU/dulda1zuT65jkMQmLNeJSg7VIVC2/s7OzYtyQ+vKeqJFcvKVBrdSY8nWp9Xs8h4I3F9aC6+xmJiekkdQlOMBMjtP7RM+AN66Ycgg5aOoWnJAgQMFJqKHgJNRQcBJqKDgJNRSchBoKTkINBSehhoKTUEPBSaih4CTUUHASaig4CTV/Bc+oPyXefYSpWVa6AAAAAElFTkSuQmCC" InformativeScreenshot="6b69ac257f917089ed20172296d2ec41.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*Dynamics 365 Business Central*' /&gt;" SearchSteps="Selector" Version="V2" />
                     </uix:NClick.Target>
                   </uix:NClick>
-                  <uix:NGetText DisplayName="Get Text out_StrFolioPayment" sap:VirtualizedContainerService.HintSize="434,157" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="daf24825-0c13-47d0-ba0d-10d1c9419c51" TextString="[out_StrFolioPayment]" Version="V3">
-                    <uix:NGetText.Target>
-                      <uix:TargetAnchorable BrowserURL="https://crm.bulkmatic.mx/BULKQA/?company=BDM&amp;page=61&amp;dc=0&amp;bookmark=12%3bFQAAAACHcmZr&amp;signInRedirected=1&amp;runinframe=1" CvType="AnyWordGroup" DesignTimeRectangle="472, 334, 67, 25" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'CP020197'" FullSelectorArgument="&lt;webctrl src='https://crm.bulkmatic.mx/BULKQA/*' tag='IFRAME' /&gt;&lt;webctrl aria-role='grid' tag='TABLE' /&gt;&lt;webctrl tableRow='3' tag='SPAN' aria-label='Folio Pago,*' /&gt;" Guid="b581164e-977d-4f6c-84d8-7ceb32a46437" InformativeScreenshot="68cf3b586c5b460e608f7bfaa2914612.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*Dynamics 365 Business Central*' /&gt;" SearchSteps="Selector" Version="V2" />
-                    </uix:NGetText.Target>
-                  </uix:NGetText>
-                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Get Folio Payment &quot; + out_StrFolioPayment]" />
                   <Assign DisplayName="Assign out_BooStampPayment" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_3">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:Boolean">[out_BooStampPayment]</OutArgument>

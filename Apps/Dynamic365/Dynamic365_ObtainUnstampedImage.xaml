@@ -7,7 +7,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>588,1511</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>630,1511</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Dynamic365_ObtainUnstampedImage_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -130,7 +130,7 @@
           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Obtain Unstamped Image&quot;]" />
           <uix:NTakeScreenshot DisplayName="Take Screenshot in_StrPathWithoutPictureStamp" FileName="[in_StrPathWithoutPictureStamp]" FileNameMode="None" sap:VirtualizedContainerService.HintSize="434,233" sap2010:WorkflowViewState.IdRef="NTakeScreenshot_1" Version="V3">
             <uix:NTakeScreenshot.Target>
-              <uix:TargetAnchorable BrowserURL="https://crm.bulkmatic.mx/BULKQA/?company=BDM&amp;node=00000000-7fd0-0000-1521-5f00836bd2d2&amp;page=50200&amp;dc=0&amp;bookmark=12%3bFQAAAACHk1Jv&amp;signInRedirected=1&amp;runinframe=1" DesignTimeRectangle="338, 329, 939, 384" DesignTimeScaleFactor="1" FriendlyName="'Payment Stamp'" FullSelectorArgument="&lt;webctrl src='https://crm.bulkmatic.mx/BULKQA/*' tag='IFRAME' /&gt;" FuzzySelectorArgument="&lt;webctrl src='https://crm.bulkmatic.mx/BULKQA/?company=BDM&amp;amp;node=00000000-7fd0-*' tag='IFRAME' /&gt;&lt;webctrl type='' class='ms-nav-scrollable thm-cont-g1-bgcolor' tag='DIV' aaname='' check:innerText='CTE0586&amp;#x9;&amp;#xD;&amp;#xA;&amp;#x9;CP020195&amp;#x9;16/03/2023&amp;#x9;Pago&amp;#x9;C23/0001095&amp;#x9;BASELL POLIOLEFINAS, S. DE R.L. DE C.V.&amp;#x9;USD&amp;#x9;-1,549' /&gt;" Guid="adeff589-6e65-4ff6-a85d-1bbb4a4a3fda" ImageBase64="" InformativeScreenshot="0acbc1d3e2cd5cb5f1878773b885556a.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*Dynamics 365 Business Central*' /&gt;" SearchSteps="Selector" Version="V2" />
+              <uix:TargetAnchorable BrowserURL="https://crm.bulkmatic.mx/BULKQA/?company=BDM&amp;node=00000000-7fd0-0000-1521-5f00836bd2d2&amp;page=50200&amp;dc=0&amp;bookmark=12%3bFQAAAACHk1Jv&amp;signInRedirected=1&amp;runinframe=1" DesignTimeRectangle="338, 329, 939, 384" DesignTimeScaleFactor="1" FriendlyName="'Payment Stamp'" FullSelectorArgument="&lt;webctrl src='https://crm.bulkmatic.mx/*' tag='IFRAME' /&gt;" Guid="adeff589-6e65-4ff6-a85d-1bbb4a4a3fda" ImageBase64="" InformativeScreenshot="0acbc1d3e2cd5cb5f1878773b885556a.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*Dynamics 365 Business Central*' /&gt;" SearchSteps="Selector" Version="V2" />
             </uix:NTakeScreenshot.Target>
           </uix:NTakeScreenshot>
           <Assign DisplayName="Assign out_BooObtainUnstampedImage" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_3">
