@@ -98,6 +98,7 @@
       "SortBy": 0,
       "VariablesSectionElementsOrder": [],
       "ArgumentsSectionElementsOrder": [
+        "out_StrExceptionMessage",
         "in_StrDynamic365Module",
         "out_BooSelectModule"
       ],
@@ -119,17 +120,17 @@
       "Path": "Apps/Dynamic365/Dynamic365_FilterListDateRegister.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
-        "vStrFilterDate&Sequence_1",
-        "vBooClearFilter&Sequence_1",
         "vStrFilterPanel&Sequence_1",
-        "vBooFilterPanel&Sequence_1"
+        "vBooFilterPanel&Sequence_1",
+        "vBooClearFilter&Sequence_1",
+        "vStrFilterDate&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
-        "out_BooFilterListDateRegister",
-        "in_IntSubtractFinalDays",
-        "in_IntSubtractInitialDays",
+        "in_StrFilterColumn",
         "in_StrDateFormat",
-        "in_StrFilterColumn"
+        "in_IntSubtractInitialDays",
+        "in_IntSubtractFinalDays",
+        "out_BooFilterListDateRegister"
       ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
@@ -214,16 +215,6 @@
       "AddedNamespaces": null
     },
     {
-      "Path": "Test.xaml",
-      "SortBy": 0,
-      "VariablesSectionElementsOrder": [
-        "vTspDelay&Sequence_1"
-      ],
-      "ArgumentsSectionElementsOrder": [],
-      "ConstantsSectionElementsOrder": [],
-      "AddedNamespaces": null
-    },
-    {
       "Path": "Framework/GetTransactionData.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [],
@@ -243,6 +234,11 @@
       "Path": "Framework/Process.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "vBooStampProcessDocument&Sequence_1",
+        "vBooPaymentStampError&Sequence_1",
+        "vBooSelectModule&Sequence_1",
+        "vBooMessageThereWereProblems&Sequence_1",
+        "vBooDynamic365Error&Sequence_1",
         "vBooObtainUnstamped&Sequence_1",
         "vBooValidateVerificationAttempts&Sequence_1",
         "vBooValidateFiscalInvoiceFolio&Sequence_1",
@@ -276,6 +272,7 @@
         "vStrFilterPanel&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
+        "out_BooDynamic365Error",
         "out_StrExceptionMessage",
         "out_BooSearchDocumentNumber",
         "in_StrFilterDocumentNumber",
@@ -332,6 +329,7 @@
       "SortBy": 0,
       "VariablesSectionElementsOrder": [],
       "ArgumentsSectionElementsOrder": [
+        "out_BooDynamic365Error",
         "out_StrExceptionMessage",
         "out_BooDownloadReconciledMovements",
         "in_StrDownloadPath"
@@ -397,6 +395,7 @@
       "SortBy": 0,
       "VariablesSectionElementsOrder": [],
       "ArgumentsSectionElementsOrder": [
+        "out_BooDynamic365Error",
         "out_BooStampPayment",
         "out_StrExceptionMessage"
       ],
@@ -408,6 +407,7 @@
       "SortBy": 0,
       "VariablesSectionElementsOrder": [],
       "ArgumentsSectionElementsOrder": [
+        "out_BooDynamic365Error",
         "in_TspDelay",
         "out_StrFolioPayment",
         "out_StrPACTaxInvoiceNumber",
@@ -464,6 +464,8 @@
       "SortBy": 0,
       "VariablesSectionElementsOrder": [],
       "ArgumentsSectionElementsOrder": [
+        "in_BooPaymentStampError",
+        "out_BooDynamic365Error",
         "out_StrExceptionMessage",
         "out_BooObtainUnstampedImage",
         "in_StrPathWithoutPictureStamp"
@@ -559,6 +561,42 @@
       "SortBy": 0,
       "VariablesSectionElementsOrder": [],
       "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Apps/Dynamic365/Dynamic365_ValidateMessageThereWereProblems.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "out_StrExceptionMessage",
+        "out_BooMessageThereWereProblems"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Apps/Dynamic365/Dynamic365_ValidatePaymentStampedErrorMessage.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "out_BooDynamic365Error",
+        "out_StrExceptionMessage",
+        "out_BooPaymentStampError"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Apps/File/File_ValidateStampedProcessDocument.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "out_StrExceptionMessage",
+        "out_BooStampProcessDocument",
+        "in_StrMessageStamp",
+        "in_StrPACTaxInvoiceNumber"
+      ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
     }

@@ -2,11 +2,12 @@
   <x:Members>
     <x:Property Name="out_BooStampPayment" Type="OutArgument(x:Boolean)" />
     <x:Property Name="out_StrExceptionMessage" Type="OutArgument(x:String)" />
+    <x:Property Name="out_BooDynamic365Error" Type="OutArgument(x:Boolean)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>682,2228</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>682,2350</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Dynamic365_StampPayment_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -107,13 +108,13 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="Dynamic365_StampPayment" sap:VirtualizedContainerService.HintSize="692,2163" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Dynamic365_StampPayment" sap:VirtualizedContainerService.HintSize="692,2285" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch Dynamic365_StampPayment" sap:VirtualizedContainerService.HintSize="630,2052" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch Dynamic365_StampPayment" sap:VirtualizedContainerService.HintSize="630,2174" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -176,10 +177,10 @@
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="596,394" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="596,516" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
@@ -187,7 +188,7 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Exception" sap:VirtualizedContainerService.HintSize="496,325" sap2010:WorkflowViewState.IdRef="Sequence_8">
+            <Sequence DisplayName="Exception" sap:VirtualizedContainerService.HintSize="496,447" sap2010:WorkflowViewState.IdRef="Sequence_8">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -200,6 +201,14 @@
                 </Assign.To>
                 <Assign.Value>
                   <InArgument x:TypeArguments="x:String">["Stamp Payment Exception Message " + exception.Source + " - " + exception.Message]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign DisplayName="Assign out_BooDynamic365Error" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_4">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Boolean">[out_BooDynamic365Error]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Boolean">True</InArgument>
                 </Assign.Value>
               </Assign>
             </Sequence>

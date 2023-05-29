@@ -215,20 +215,13 @@
                       </sap:WorkflowViewStateService.ViewState>
                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Apps\Dynamic365\Dynamic365_SelectCompanyName.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" UnSafe="False" WorkflowFileName="Apps\Dynamic365\Dynamic365_SelectCompanyName.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_StrCompanyName">
-                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;Dynamic365CompanyName&quot;).ToString.ToUpper" />
-                          </InArgument>
-                          <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooSelectCompanyName">
-                            <VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="vBooSelectCompanyName" />
-                          </OutArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_StrCompanyName">[in_Config("Dynamic365CompanyName").ToString.ToUpper]</InArgument>
+                          <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooSelectCompanyName">[vBooSelectCompanyName]</OutArgument>
                         </ui:InvokeWorkflowFile.Arguments>
                       </ui:InvokeWorkflowFile>
                     </Sequence>
                     <FlowStep.Next>
-                      <FlowDecision x:Name="__ReferenceID19" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_7">
-                        <FlowDecision.Condition>
-                          <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="vBooSelectCompanyName" />
-                        </FlowDecision.Condition>
+                      <FlowDecision x:Name="__ReferenceID19" Condition="[vBooSelectCompanyName]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_7">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -255,17 +248,12 @@
                               </sap:WorkflowViewStateService.ViewState>
                               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Apps\Dynamic365\Dynamic365_ValidatePermitsCompanyName.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_16" UnSafe="False" WorkflowFileName="Apps\Dynamic365\Dynamic365_ValidatePermitsCompanyName.xaml">
                                 <ui:InvokeWorkflowFile.Arguments>
-                                  <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooRequirePermits">
-                                    <VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="vBooRequirePermits" />
-                                  </OutArgument>
+                                  <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooRequirePermits">[vBooRequirePermits]</OutArgument>
                                 </ui:InvokeWorkflowFile.Arguments>
                               </ui:InvokeWorkflowFile>
                             </Sequence>
                             <FlowStep.Next>
-                              <FlowDecision x:Name="__ReferenceID22" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_8">
-                                <FlowDecision.Condition>
-                                  <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="vBooRequirePermits" />
-                                </FlowDecision.Condition>
+                              <FlowDecision x:Name="__ReferenceID22" Condition="[vBooRequirePermits]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_8">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -291,30 +279,14 @@
                                       </sap:WorkflowViewStateService.ViewState>
                                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Apps\Mail\Mail_SendNotifications.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_17" UnSafe="False" WorkflowFileName="Apps\Mail\Mail_SendNotifications.xaml">
                                         <ui:InvokeWorkflowFile.Arguments>
-                                          <InArgument x:TypeArguments="scg:IEnumerable(x:String)" x:Key="in_CstAttachmentsCollection">
-                                            <VisualBasicValue x:TypeArguments="scg:IEnumerable(x:String)" ExpressionText="Nothing" />
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="in_StrTemplate">
-                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Path.Combine(in_Config(&quot;RutaFormatos&quot;).ToString, in_Config(&quot;AlertTemplate&quot;).ToString)" />
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="in_StrBody">
-                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;BodyValidatePermitsCompanyName&quot;).ToString" />
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="in_StrSubject">
-                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SubjectValidatePermitsCompanyName&quot;).ToString" />
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="in_StrTo">
-                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;ToMailNotification&quot;).ToString" />
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="in_StrBcc">
-                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Nothing" />
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="x:String" x:Key="in_SrtCc">
-                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Nothing" />
-                                          </InArgument>
-                                          <InArgument x:TypeArguments="x:Boolean" x:Key="in_BooAlert">
-                                            <Literal x:TypeArguments="x:Boolean" Value="True" />
-                                          </InArgument>
+                                          <InArgument x:TypeArguments="scg:IEnumerable(x:String)" x:Key="in_CstAttachmentsCollection">[Nothing]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="in_StrTemplate">[Path.Combine(in_Config("RutaFormatos").ToString, in_Config("AlertTemplate").ToString)]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="in_StrBody">[in_Config("BodyValidatePermitsCompanyName").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="in_StrSubject">[in_Config("SubjectValidatePermitsCompanyName").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="in_StrTo">[in_Config("ToMailNotification").ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="in_StrBcc">[Nothing]</InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="in_SrtCc">[Nothing]</InArgument>
+                                          <InArgument x:TypeArguments="x:Boolean" x:Key="in_BooAlert">True</InArgument>
                                         </ui:InvokeWorkflowFile.Arguments>
                                       </ui:InvokeWorkflowFile>
                                     </Sequence>
@@ -337,8 +309,15 @@
                                       </sap:WorkflowViewStateService.ViewState>
                                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Apps\Dynamic365\Dynamic365_SelectModule.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Apps\Dynamic365\Dynamic365_SelectModule.xaml">
                                         <ui:InvokeWorkflowFile.Arguments>
-                                          <InArgument x:TypeArguments="x:String" x:Key="in_StrDynamic365Module">[in_Config("Dynamic365Module").ToString]</InArgument>
-                                          <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooSelectModule">[vBooSelectModule]</OutArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="in_StrDynamic365Module">
+                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;Dynamic365Module&quot;).ToString" />
+                                          </InArgument>
+                                          <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooSelectModule">
+                                            <VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="vBooSelectModule" />
+                                          </OutArgument>
+                                          <OutArgument x:TypeArguments="x:String" x:Key="out_StrExceptionMessage">
+                                            <VisualBasicReference x:TypeArguments="x:String" ExpressionText="vStrExceptionMessage" />
+                                          </OutArgument>
                                         </ui:InvokeWorkflowFile.Arguments>
                                       </ui:InvokeWorkflowFile>
                                     </Sequence>
@@ -681,30 +660,14 @@
                               </sap:WorkflowViewStateService.ViewState>
                               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Apps\Mail\Mail_SendNotifications.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_15" UnSafe="False" WorkflowFileName="Apps\Mail\Mail_SendNotifications.xaml">
                                 <ui:InvokeWorkflowFile.Arguments>
-                                  <InArgument x:TypeArguments="scg:IEnumerable(x:String)" x:Key="in_CstAttachmentsCollection">
-                                    <VisualBasicValue x:TypeArguments="scg:IEnumerable(x:String)" ExpressionText="Nothing" />
-                                  </InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrTemplate">
-                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Path.Combine(in_Config(&quot;RutaFormatos&quot;).ToString, in_Config(&quot;AlertTemplate&quot;).ToString)" />
-                                  </InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrBody">
-                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;BodySelectCompanyName&quot;).ToString" />
-                                  </InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrSubject">
-                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SubjectSelectCompanyName&quot;).ToString" />
-                                  </InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrTo">
-                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;ToMailNotification&quot;).ToString" />
-                                  </InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrBcc">
-                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Nothing" />
-                                  </InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_SrtCc">
-                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Nothing" />
-                                  </InArgument>
-                                  <InArgument x:TypeArguments="x:Boolean" x:Key="in_BooAlert">
-                                    <Literal x:TypeArguments="x:Boolean" Value="True" />
-                                  </InArgument>
+                                  <InArgument x:TypeArguments="scg:IEnumerable(x:String)" x:Key="in_CstAttachmentsCollection">[Nothing]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrTemplate">[Path.Combine(in_Config("RutaFormatos").ToString, in_Config("AlertTemplate").ToString)]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrBody">[in_Config("BodySelectCompanyName").ToString]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrSubject">[in_Config("SubjectSelectCompanyName").ToString]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrTo">[in_Config("ToMailNotification").ToString]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrBcc">[Nothing]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_SrtCc">[Nothing]</InArgument>
+                                  <InArgument x:TypeArguments="x:Boolean" x:Key="in_BooAlert">True</InArgument>
                                 </ui:InvokeWorkflowFile.Arguments>
                               </ui:InvokeWorkflowFile>
                             </Sequence>

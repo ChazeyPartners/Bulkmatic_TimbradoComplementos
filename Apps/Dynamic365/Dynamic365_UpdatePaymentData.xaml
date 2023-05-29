@@ -5,6 +5,7 @@
     <x:Property Name="out_BooUpdatePaymentData" Type="OutArgument(x:Boolean)" />
     <x:Property Name="out_StrExceptionMessage" Type="OutArgument(x:String)" />
     <x:Property Name="in_TspDelay" Type="InArgument(x:TimeSpan)" />
+    <x:Property Name="out_BooDynamic365Error" Type="OutArgument(x:Boolean)" />
   </x:Members>
   <this:Dynamic365_UpdatePaymentData.in_TspDelay>
     <InArgument x:TypeArguments="x:TimeSpan" />
@@ -12,7 +13,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>636,2520</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>636,2602</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Dynamic365_UpdatePaymentData_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -111,13 +112,13 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="Dynamic365_UpdatePaymentData" sap:VirtualizedContainerService.HintSize="646,2455" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Dynamic365_UpdatePaymentData" sap:VirtualizedContainerService.HintSize="646,2537" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch Dynamic365_UpdatePaymentData" sap:VirtualizedContainerService.HintSize="584,2344" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch Dynamic365_UpdatePaymentData" sap:VirtualizedContainerService.HintSize="584,2426" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -125,14 +126,14 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="546,1607" sap2010:WorkflowViewState.IdRef="Sequence_4">
+        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="546,1567" sap2010:WorkflowViewState.IdRef="Sequence_4">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Update Payment Data&quot;]" />
-          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: Update Payment Data" sap:VirtualizedContainerService.HintSize="484,1242" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="daf24825-0c13-47d0-ba0d-10d1c9419c51" Version="V2" WindowResize="Maximize">
+          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: Update Payment Data" sap:VirtualizedContainerService.HintSize="484,1202" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="daf24825-0c13-47d0-ba0d-10d1c9419c51" Version="V2" WindowResize="Maximize">
             <uix:NApplicationCard.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
@@ -182,10 +183,10 @@
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="550,394" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="550,516" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
@@ -193,7 +194,7 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Exception" sap:VirtualizedContainerService.HintSize="496,325" sap2010:WorkflowViewState.IdRef="Sequence_10">
+            <Sequence DisplayName="Exception" sap:VirtualizedContainerService.HintSize="496,447" sap2010:WorkflowViewState.IdRef="Sequence_10">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -206,6 +207,14 @@
                 </Assign.To>
                 <Assign.Value>
                   <InArgument x:TypeArguments="x:String">["Update Payment Data Exception Message " + exception.Source + " - " + exception.Message]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign DisplayName="Assign out_BooDynamic365Error" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_7">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Boolean">[out_BooDynamic365Error]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Boolean">True</InArgument>
                 </Assign.Value>
               </Assign>
             </Sequence>

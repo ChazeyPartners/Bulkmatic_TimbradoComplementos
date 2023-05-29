@@ -3,11 +3,13 @@
     <x:Property Name="in_StrPathWithoutPictureStamp" Type="InArgument(x:String)" />
     <x:Property Name="out_BooObtainUnstampedImage" Type="OutArgument(x:Boolean)" />
     <x:Property Name="out_StrExceptionMessage" Type="OutArgument(x:String)" />
+    <x:Property Name="out_BooDynamic365Error" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="in_BooPaymentStampError" Type="InArgument(x:Boolean)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>630,1511</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>658,2430</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Dynamic365_ObtainUnstampedImage_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -107,13 +109,13 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="Dynamic365_ObtainUnstampedImage" sap:VirtualizedContainerService.HintSize="598,1446" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Dynamic365_ObtainUnstampedImage" sap:VirtualizedContainerService.HintSize="668,2365" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch Dynamic365_ObtainUnstampedImage" sap:VirtualizedContainerService.HintSize="536,1335" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch Dynamic365_ObtainUnstampedImage" sap:VirtualizedContainerService.HintSize="606,2254" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -121,19 +123,63 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="496,598" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="568,1395" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Obtain Unstamped Image&quot;]" />
-          <uix:NTakeScreenshot DisplayName="Take Screenshot in_StrPathWithoutPictureStamp" FileName="[in_StrPathWithoutPictureStamp]" FileNameMode="None" sap:VirtualizedContainerService.HintSize="434,233" sap2010:WorkflowViewState.IdRef="NTakeScreenshot_1" Version="V3">
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="506,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Obtain Unstamped Image&quot;]" />
+          <uix:NTakeScreenshot DisplayName="Take Screenshot in_StrPathWithoutPictureStamp" FileName="[in_StrPathWithoutPictureStamp]" FileNameMode="None" sap:VirtualizedContainerService.HintSize="506,233" sap2010:WorkflowViewState.IdRef="NTakeScreenshot_1" Version="V3">
             <uix:NTakeScreenshot.Target>
               <uix:TargetAnchorable BrowserURL="https://crm.bulkmatic.mx/BULKQA/?company=BDM&amp;node=00000000-7fd0-0000-1521-5f00836bd2d2&amp;page=50200&amp;dc=0&amp;bookmark=12%3bFQAAAACHk1Jv&amp;signInRedirected=1&amp;runinframe=1" DesignTimeRectangle="338, 329, 939, 384" DesignTimeScaleFactor="1" FriendlyName="'Payment Stamp'" FullSelectorArgument="&lt;webctrl src='https://crm.bulkmatic.mx/*' tag='IFRAME' /&gt;" Guid="adeff589-6e65-4ff6-a85d-1bbb4a4a3fda" ImageBase64="" InformativeScreenshot="0acbc1d3e2cd5cb5f1878773b885556a.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*Dynamics 365 Business Central*' /&gt;" SearchSteps="Selector" Version="V2" />
             </uix:NTakeScreenshot.Target>
           </uix:NTakeScreenshot>
-          <Assign DisplayName="Assign out_BooObtainUnstampedImage" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_3">
+          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: Payment Stamped Error Message" sap:VirtualizedContainerService.HintSize="506,757" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="daf24825-0c13-47d0-ba0d-10d1c9419c51" Version="V2" WindowResize="Maximize">
+            <uix:NApplicationCard.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="472,540" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If Condition="[in_BooPaymentStampError]" DisplayName="If in_BooPaymentStampError" sap:VirtualizedContainerService.HintSize="410,427" sap2010:WorkflowViewState.IdRef="If_1">
+                    <If.Then>
+                      <Sequence sap:VirtualizedContainerService.HintSize="376,245" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click Back Start" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="daf24825-0c13-47d0-ba0d-10d1c9419c51" Version="V3">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable BrowserURL="https://crm.bulkmatic.mx/BLKMX_PROD/?company=BDM&amp;node=00000000-b798-0000-1558-7100836bd2d2&amp;page=50200&amp;dc=0&amp;bookmark=12%3bFQAAAACHJO11&amp;runinframe=1" CvElementArea="794, 633, 95, 36" CvTextArea="815, 644, 53, 16" CvType="Button" DesignTimeRectangle="796, 635, 91, 32" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Aceptar'" FullSelectorArgument="&lt;webctrl src='https://crm.bulkmatic.mx/*' tag='IFRAME' /&gt;&lt;webctrl tag='BUTTON' aaname='Aceptar' /&gt;" Guid="4c7d5791-e9b3-4d32-8321-354dac38c551" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAF8AAAAkCAYAAADvqeb3AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAQCSURBVGhD7ZrbS1VBFMb9B/oPei7oPeill96ixwgiKiIIqrd6CHqLiO4RRdidOto9S1NLulgkmre0NG+pXUjN0uPteC6al9X6PpjNTgeCOHNO2XzwLT171sw5+zez18zDzhGvrMnDz6IC+Ldb22Vp7kXJOXDE26HBGKyhAL4HnzmDNRTAtyV5uzOZM6psCd7uTOaMKluCtzuTOaPKluDtzmTOqLIleLszmTOqbAne7kzmjCpbgrc7kzmjypbg7c5kzqiyJXi7M5kzqmwJ6fSNljaZ1e/pjcVkVf5Na87/ZDJnVNkS0uUluReka3hYBhIJSU5NyeGqGmueC19papbBRFL2VVRa27NlMmdU2RLS5b3PX0rixw/Jb26R7/GEVPX0WvNc+NmnzzI5PS37K6qs7dkymTOqbAnpcmlXtwwlU7LuXpE09H8L/jfti46elNN1r3kdpWl6dlbutnWwbWNRibwfGuI1uG0wKqtv3mGbAZunk9oXG2ff4VRKTtbWs71Vc8NCydtcVCrFnV0yPjnJaxjzVU+fLDt3KeiDNlybmpnhd+B6ug05hw9Q3+JxaVTogHymvoE3dbbhTZBz+W0TIXwaHZUjr2rkatM7ufaulX17xmIyOjEhByur5eKbJklp2ar/2s+xAGZG+0WTSbnQ+JZG7khqQraVlsmaW3el8ksvJyj3daOsLSjUawVS1/dVTtTUyfZHj6U9GuWk4Tfgt5gJa/4+ICuu5Ae/Md2GnMNHfcfNm5vbUFjM1dkyMEiAyy9HCB37AeCE+55XmJiU8EThyQFgjGPgh9tvtbYTJvri8+/KDq6j3axwwMe+tKf8xbzcdJrMGVW2hHQYsGzCo72z7AkhAiZuem5fALEppn03PSi1gr2kTweEv2aMcM7iU7kS0ScLT1Rc9yFMFBSGb8Y3Y7ow5BS+WeW4UdRlY2y4uGms0pWR62xHaTK13BirFyUKJxbAMF5//wEhAhjaj1fXBX2wv+BpQHnD57nwceTF01TW/VG2ljySY9W181b+goCPcoAbxQ2Hr28pfihjE5MsNyg72AAB7MPIyC81H3AweTgqokbjc0F7R7AZAxgmEScowEU/gAtP5OMPHzk2YJ/T31Or9R6fSzq7ZdeTcm7m0IKCj7N9R3QoKC/hNtR61HxsnjiGYhUXdnQGJxBcB3zk7n5aHpxkYEwGTkZoM6u6XP+iL9qRu0M3UvNdmLD+8TiG5eQeqqoOxkMf9F2QK9+1Dfxwzf9XTOaMKlvC324PP4v28L3/yGTOqLIleLszmTOqbAne7kzmjCpbgrc7kzmjypbg7c5kzqiyJXi7M5kzqvyLspnzvBdl/SvimTEYz3tF3CvzyrkaiYh35h3Jy5Ofhd5DXqus7CIAAAAASUVORK5CYII=" InformativeScreenshot="b4727549c117a184785ffa3575f570ae.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Dynamics 365 Business Central - Dynamics 365 Business Central' /&gt;" SearchSteps="Selector" Version="V2" />
+                          </uix:NClick.Target>
+                        </uix:NClick>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence sap2010:WorkflowViewState.IdRef="Sequence_11" />
+                    </If.Else>
+                  </If>
+                </Sequence>
+              </ActivityAction>
+            </uix:NApplicationCard.Body>
+            <uix:NApplicationCard.TargetApp>
+              <uix:TargetApp Area="-8, -8, 1382, 736" BrowserType="Edge" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAK0SURBVDhPjVJbSFRRFN3XHv6ETY4hQtEQEZWV1E8ffQcR9FURBdVEEVRURiSF4VUxRyfHaZzm5ah3ymbsIUr9+WH2UspXJVpqOlOmWNp4c1Skn7Pad7pUDEQtWJzD5qzFOntv+huU+XlTzez3SDXTw3e9/B9QFAP56/L3vuxRq2e+Q+PBzt4IuQIKeZR/GFXWmakypEqVIZFW2xgXazQG7oEqapjVKtn92frrBPhC2VJlEOStheStFQv9IeRGZ1EQncPiqjohOapA1/2gcp/GI7pKh6fORL6gqok5KtIfNmNrZAJZw5+xaXAMG/pHkdbQBCpzQ7J5tVMl2W7Q1QxvkP93C0yR0diELeEv2Px+HJkDo1j/bgRrez9gTU8YKcodSNfcgqw3BJU65bhW6/YBbpLxZj2S3QGRNTSOjQNjODoyiYbpOSjRGewbHsOq7kGs7OxHUqFNGCv8Yvej1imPqpooPiq9WWe6+5DJcdf1fURwagYP2OD+tzkE1VnUMH1cc0ZjKGPama6pWIRqYr8NzK0dv+LeUedQr4sDUz/FNziNbZINvsbgYAN3lA0Udd60p7VLNVaFsOBygVj9Zggmjrtn8BNck9Pw8uOdvWGkPXuFZU+6kHT4OFKPnRT7bt8N28f5C3E4/DKVc3dlq0gpLseK9rfIeNGL9LYeLH/+GqlPurG0pQPJRTZQjgzKLQKduaj8FGuw8/bZPCpdc4FOnRdLrE6ksdD49BUMLZ1IaW7HosuFoOOnhZRvFZRfymO0JGyl1WXm0YCKHYLO5ogk8wlsd/qwzVMNaf8hSKcvCCmvRJBcArpSck5XJaC4IpssDpWu2rHM5salgXCchjJOls/CPItKecUJW5gIi93EBsqulrZIITdR446mxywslSlb/mP7/gGZO1w4MR0pYGp3vZwAoh+wp93GQ78NrwAAAABJRU5ErkJggg==" InformativeScreenshot="2752c2d789e1fa157ba36fe81fe34548.jpg" Selector="&lt;html app='msedge.exe' title='*Dynamics 365 Business Central*' /&gt;" Title="*Dynamics 365 Business Central*" />
+            </uix:NApplicationCard.TargetApp>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </uix:NApplicationCard>
+          <Assign DisplayName="Assign out_BooObtainUnstampedImage" sap:VirtualizedContainerService.HintSize="506,82" sap2010:WorkflowViewState.IdRef="Assign_3">
             <Assign.To>
               <OutArgument x:TypeArguments="x:Boolean">[out_BooObtainUnstampedImage]</OutArgument>
             </Assign.To>
@@ -144,7 +190,7 @@
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="502,394" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="572,516" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -155,7 +201,7 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Exception" sap:VirtualizedContainerService.HintSize="496,325" sap2010:WorkflowViewState.IdRef="Sequence_8">
+            <Sequence DisplayName="Exception" sap:VirtualizedContainerService.HintSize="496,447" sap2010:WorkflowViewState.IdRef="Sequence_8">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -168,6 +214,14 @@
                 </Assign.To>
                 <Assign.Value>
                   <InArgument x:TypeArguments="x:String">["Obtain Unstamped Image Exception Message " + exception.Source + " - " + exception.Message]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign DisplayName="Assign out_BooDynamic365Error" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_4">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Boolean">[out_BooDynamic365Error]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Boolean">True</InArgument>
                 </Assign.Value>
               </Assign>
             </Sequence>
