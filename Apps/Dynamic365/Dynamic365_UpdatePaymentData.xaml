@@ -6,6 +6,7 @@
     <x:Property Name="out_StrExceptionMessage" Type="OutArgument(x:String)" />
     <x:Property Name="in_TspDelay" Type="InArgument(x:TimeSpan)" />
     <x:Property Name="out_BooDynamic365Error" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="out_StrDescriptionError" Type="OutArgument(x:String)" />
   </x:Members>
   <this:Dynamic365_UpdatePaymentData.in_TspDelay>
     <InArgument x:TypeArguments="x:TimeSpan" />
@@ -13,7 +14,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>636,2602</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>655,2931</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Dynamic365_UpdatePaymentData_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -112,13 +113,13 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="Dynamic365_UpdatePaymentData" sap:VirtualizedContainerService.HintSize="646,2537" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Dynamic365_UpdatePaymentData" sap:VirtualizedContainerService.HintSize="646,2866" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch Dynamic365_UpdatePaymentData" sap:VirtualizedContainerService.HintSize="584,2426" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch Dynamic365_UpdatePaymentData" sap:VirtualizedContainerService.HintSize="584,2755" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -126,20 +127,20 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="546,1567" sap2010:WorkflowViewState.IdRef="Sequence_4">
+        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="546,1896" sap2010:WorkflowViewState.IdRef="Sequence_4">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Update Payment Data&quot;]" />
-          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: Update Payment Data" sap:VirtualizedContainerService.HintSize="484,1202" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="daf24825-0c13-47d0-ba0d-10d1c9419c51" Version="V2" WindowResize="Maximize">
+          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: Update Payment Data" sap:VirtualizedContainerService.HintSize="484,1531" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="daf24825-0c13-47d0-ba0d-10d1c9419c51" Version="V2" WindowResize="Maximize">
             <uix:NApplicationCard.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,985" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,1314" sap2010:WorkflowViewState.IdRef="Sequence_3">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -159,6 +160,12 @@
                     </uix:NGetText.Target>
                   </uix:NGetText>
                   <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;PAC Tax Invoice Number &quot; + out_StrPACTaxInvoiceNumber]" />
+                  <uix:NGetText DisplayName="Get Text out_StrDescriptionError" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NGetText_3" ScopeIdentifier="daf24825-0c13-47d0-ba0d-10d1c9419c51" TextString="[out_StrDescriptionError]" Version="V3">
+                    <uix:NGetText.Target>
+                      <uix:TargetAnchorable BrowserURL="https://crm.bulkmatic.mx/BLKMX_PROD/?runinframe=1" CvType="AnyWordGroup" DesignTimeRectangle="1114, 334, 208, 25" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Documento en'" FullSelectorArgument="&lt;webctrl src='https://crm.bulkmatic.mx*' tag='IFRAME' /&gt;&lt;webctrl aria-role='grid' tag='TABLE' /&gt;&lt;webctrl aria-label='Descripción del error*' tableRow='3' tag='SPAN' /&gt;" Guid="15714783-8cc5-48b7-8b1e-62e8258bb274" ImageBase64="" InformativeScreenshot="ab9130d3a86e7237d60b5c76f1196370.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*Dynamics 365 Business Central*' /&gt;" SearchSteps="Selector" Version="V2" />
+                    </uix:NGetText.Target>
+                  </uix:NGetText>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;Description Error &quot; + out_StrDescriptionError]" />
                 </Sequence>
               </ActivityAction>
             </uix:NApplicationCard.Body>

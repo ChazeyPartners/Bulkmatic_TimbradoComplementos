@@ -4,11 +4,12 @@
     <x:Property Name="in_StrMessageStamp" Type="InArgument(x:String)" />
     <x:Property Name="out_BooStampProcessDocument" Type="OutArgument(x:Boolean)" />
     <x:Property Name="out_StrExceptionMessage" Type="OutArgument(x:String)" />
+    <x:Property Name="in_StrDescriptionError" Type="InArgument(x:String)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>655,1238</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>588,1238</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>File_ValidateStampedProcessDocument_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -111,7 +112,7 @@
               <OutArgument x:TypeArguments="x:Boolean">[out_BooStampProcessDocument]</OutArgument>
             </Assign.To>
             <Assign.Value>
-              <InArgument x:TypeArguments="x:Boolean">[in_StrPACTaxInvoiceNumber.ToUpper.Equals(in_StrMessageStamp.ToUpper)]</InArgument>
+              <InArgument x:TypeArguments="x:Boolean">[in_StrPACTaxInvoiceNumber.ToUpper.Equals(in_StrMessageStamp.ToUpper) OrElse in_StrDescriptionError.ToUpper.Equals(in_StrMessageStamp.ToUpper)]</InArgument>
             </Assign.Value>
           </Assign>
         </Sequence>

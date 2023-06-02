@@ -234,6 +234,7 @@
       "Path": "Framework/Process.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "vStrDescriptionError&Sequence_1",
         "vBooStampProcessDocument&Sequence_1",
         "vBooPaymentStampError&Sequence_1",
         "vBooSelectModule&Sequence_1",
@@ -407,6 +408,7 @@
       "SortBy": 0,
       "VariablesSectionElementsOrder": [],
       "ArgumentsSectionElementsOrder": [
+        "out_StrDescriptionError",
         "out_BooDynamic365Error",
         "in_TspDelay",
         "out_StrFolioPayment",
@@ -592,6 +594,7 @@
       "SortBy": 0,
       "VariablesSectionElementsOrder": [],
       "ArgumentsSectionElementsOrder": [
+        "in_StrDescriptionError",
         "out_StrExceptionMessage",
         "out_BooStampProcessDocument",
         "in_StrMessageStamp",

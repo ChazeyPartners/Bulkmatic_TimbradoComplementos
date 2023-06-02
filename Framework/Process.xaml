@@ -10,7 +10,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1126,2297</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1126,2290</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="50">
@@ -104,7 +104,7 @@
       <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1136,2232" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1136,2225" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="vStrExceptionMessage" />
       <Variable x:TypeArguments="x:Boolean" Name="vBooSearchDocumentNumber" />
@@ -126,6 +126,7 @@
       <Variable x:TypeArguments="x:Boolean" Name="vBooSelectModule" />
       <Variable x:TypeArguments="x:Boolean" Name="vBooPaymentStampError" />
       <Variable x:TypeArguments="x:Boolean" Name="vBooStampProcessDocument" />
+      <Variable x:TypeArguments="x:String" Name="vStrDescriptionError" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -133,8 +134,8 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="1074,94" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
-    <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="1074,57" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Invoke steps of the process" />
+    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="1074,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
+    <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="1074,56" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Invoke steps of the process" />
     <Flowchart DisplayName="Flowchart Process" sap:VirtualizedContainerService.HintSize="1074,1689" sap2010:WorkflowViewState.IdRef="Flowchart_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -148,17 +149,17 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <Flowchart.StartNode>
-        <x:Reference>__ReferenceID73</x:Reference>
+        <x:Reference>__ReferenceID81</x:Reference>
       </Flowchart.StartNode>
-      <FlowStep x:Name="__ReferenceID73">
+      <FlowStep x:Name="__ReferenceID81">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:Point x:Key="ShapeLocation">700,127.5</av:Point>
-            <av:Size x:Key="ShapeSize">200,83</av:Size>
-            <av:PointCollection x:Key="ConnectorLocation">800,210.5 800,240.5 800.1416666666667,240.5 800.1416666666667,258.5</av:PointCollection>
+            <av:Size x:Key="ShapeSize">200,81</av:Size>
+            <av:PointCollection x:Key="ConnectorLocation">800,208.5 800,238.5 800.1416666666667,238.5 800.1416666666667,258.5</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <Sequence DisplayName="Search Document Number" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence DisplayName="Search Document Number" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -166,26 +167,16 @@
           </sap:WorkflowViewStateService.ViewState>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Apps\Dynamic365\Dynamic365_SearchDocumentNumber.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Apps\Dynamic365\Dynamic365_SearchDocumentNumber.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="in_StrFilterColumn">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;FilterDocumentNumber&quot;).ToString" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_StrFilterDocumentNumber">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TransactionItem.SpecificContent(&quot;DocumentNumber&quot;).ToString" />
-              </InArgument>
-              <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooSearchDocumentNumber">
-                <VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="vBooSearchDocumentNumber" />
-              </OutArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="out_StrExceptionMessage">
-                <VisualBasicReference x:TypeArguments="x:String" ExpressionText="vStrExceptionMessage" />
-              </OutArgument>
-              <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooDynamic365Error">
-                <VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="vBooDynamic365Error" />
-              </OutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_StrFilterColumn">[in_Config("FilterDocumentNumber").ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_StrFilterDocumentNumber">[in_TransactionItem.SpecificContent("DocumentNumber").ToString]</InArgument>
+              <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooSearchDocumentNumber">[vBooSearchDocumentNumber]</OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_StrExceptionMessage">[vStrExceptionMessage]</OutArgument>
+              <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooDynamic365Error">[vBooDynamic365Error]</OutArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
         </Sequence>
         <FlowStep.Next>
-          <FlowDecision x:Name="__ReferenceID56" Condition="[vBooSearchDocumentNumber]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
+          <FlowDecision x:Name="__ReferenceID64" Condition="[vBooSearchDocumentNumber]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -196,15 +187,15 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <FlowDecision.True>
-              <FlowStep x:Name="__ReferenceID58">
+              <FlowStep x:Name="__ReferenceID66">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <av:Point x:Key="ShapeLocation">560,348.53999999999996</av:Point>
-                    <av:Size x:Key="ShapeSize">200,83</av:Size>
-                    <av:PointCollection x:Key="ConnectorLocation">660,431.53999999999996 660,479.53999999999996</av:PointCollection>
+                    <av:Size x:Key="ShapeSize">200,81</av:Size>
+                    <av:PointCollection x:Key="ConnectorLocation">660,429.53999999999996 660,479.53999999999996</av:PointCollection>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Sequence DisplayName="Identify Stamped Type" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                <Sequence DisplayName="Identify Stamped Type" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_4">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -220,7 +211,7 @@
                   </ui:InvokeWorkflowFile>
                 </Sequence>
                 <FlowStep.Next>
-                  <FlowSwitch x:TypeArguments="x:String" x:Name="__ReferenceID59" DisplayName="Flow Switch" Expression="[vStrStampedType]" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_1">
+                  <FlowSwitch x:TypeArguments="x:String" x:Name="__ReferenceID67" DisplayName="Flow Switch" Expression="[vStrStampedType]" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_1">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <av:Point x:Key="ShapeLocation">625,479.53999999999996</av:Point>
@@ -230,21 +221,21 @@
                         <av:PointCollection x:Key="ValidarConnector">695,523.04 800,523.04 800,569.5</av:PointCollection>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <FlowStep x:Key="Timbrar" x:Name="__ReferenceID61">
+                    <FlowStep x:Key="Timbrar" x:Name="__ReferenceID69">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <av:Point x:Key="ShapeLocation">420,569.5</av:Point>
-                          <av:Size x:Key="ShapeSize">200,83</av:Size>
-                          <av:PointCollection x:Key="ConnectorLocation">520,652.5 520,787.5400000000001 660,787.5400000000001 660,817.54</av:PointCollection>
+                          <av:Size x:Key="ShapeSize">200,81</av:Size>
+                          <av:PointCollection x:Key="ConnectorLocation">520,650.5 520,787.54 660,787.54 660,817.54</av:PointCollection>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Sequence DisplayName="Stamped" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                      <Sequence DisplayName="Stamped" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_6">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1354,94" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Stamped&quot;]" />
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1354,92" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Stamped&quot;]" />
                         <Flowchart DisplayName="Flowchart Stamped" sap:VirtualizedContainerService.HintSize="1354,2679" sap2010:WorkflowViewState.IdRef="Flowchart_2">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -276,18 +267,10 @@
                               </sap:WorkflowViewStateService.ViewState>
                               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Apps\Dynamic365\Dynamic365_DownloadReconciledMovements.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Apps\Dynamic365\Dynamic365_DownloadReconciledMovements.xaml">
                                 <ui:InvokeWorkflowFile.Arguments>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrDownloadPath">
-                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Path.Combine(in_Config(&quot;RutaArchivosRecibidos&quot;).ToString, in_Config(&quot;FileReconciledMovements&quot;).ToString)" />
-                                  </InArgument>
-                                  <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooDownloadReconciledMovements">
-                                    <VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="vBooDownloadReconciledMovements" />
-                                  </OutArgument>
-                                  <OutArgument x:TypeArguments="x:String" x:Key="out_StrExceptionMessage">
-                                    <VisualBasicReference x:TypeArguments="x:String" ExpressionText="vStrExceptionMessage" />
-                                  </OutArgument>
-                                  <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooDynamic365Error">
-                                    <VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="vBooDynamic365Error" />
-                                  </OutArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrDownloadPath">[Path.Combine(in_Config("RutaArchivosRecibidos").ToString, in_Config("FileReconciledMovements").ToString)]</InArgument>
+                                  <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooDownloadReconciledMovements">[vBooDownloadReconciledMovements]</OutArgument>
+                                  <OutArgument x:TypeArguments="x:String" x:Key="out_StrExceptionMessage">[vStrExceptionMessage]</OutArgument>
+                                  <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooDynamic365Error">[vBooDynamic365Error]</OutArgument>
                                 </ui:InvokeWorkflowFile.Arguments>
                               </ui:InvokeWorkflowFile>
                             </Sequence>
@@ -344,11 +327,11 @@
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                 <av:Point x:Key="ShapeLocation">700,1008.54</av:Point>
-                                                <av:Size x:Key="ShapeSize">200,83</av:Size>
-                                                <av:PointCollection x:Key="ConnectorLocation">800,1091.54 800,1121.54 800.1416666666667,1121.54 800.1416666666667,1139.54</av:PointCollection>
+                                                <av:Size x:Key="ShapeSize">200,81</av:Size>
+                                                <av:PointCollection x:Key="ConnectorLocation">800,1089.54 800,1119.54 800.1416666666667,1119.54 800.1416666666667,1139.54</av:PointCollection>
                                               </scg:Dictionary>
                                             </sap:WorkflowViewStateService.ViewState>
-                                            <Sequence DisplayName="Validate Document Type" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                                            <Sequence DisplayName="Validate Document Type" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_12">
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -380,11 +363,11 @@
                                                     <sap:WorkflowViewStateService.ViewState>
                                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                         <av:Point x:Key="ShapeLocation">560,1228.54</av:Point>
-                                                        <av:Size x:Key="ShapeSize">200,83</av:Size>
-                                                        <av:PointCollection x:Key="ConnectorLocation">660,1311.54 660,1359.54</av:PointCollection>
+                                                        <av:Size x:Key="ShapeSize">200,81</av:Size>
+                                                        <av:PointCollection x:Key="ConnectorLocation">660,1309.54 660,1359.54</av:PointCollection>
                                                       </scg:Dictionary>
                                                     </sap:WorkflowViewStateService.ViewState>
-                                                    <Sequence DisplayName="Stamp Payment" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                                                    <Sequence DisplayName="Stamp Payment" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_14">
                                                       <sap:WorkflowViewStateService.ViewState>
                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -392,15 +375,9 @@
                                                       </sap:WorkflowViewStateService.ViewState>
                                                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Apps\Dynamic365\Dynamic365_StampPayment.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="Apps\Dynamic365\Dynamic365_StampPayment.xaml">
                                                         <ui:InvokeWorkflowFile.Arguments>
-                                                          <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooStampPayment">
-                                                            <VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="vBooStampPayment" />
-                                                          </OutArgument>
-                                                          <OutArgument x:TypeArguments="x:String" x:Key="out_StrExceptionMessage">
-                                                            <VisualBasicReference x:TypeArguments="x:String" ExpressionText="vStrExceptionMessage" />
-                                                          </OutArgument>
-                                                          <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooDynamic365Error">
-                                                            <VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="vBooDynamic365Error" />
-                                                          </OutArgument>
+                                                          <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooStampPayment">[vBooStampPayment]</OutArgument>
+                                                          <OutArgument x:TypeArguments="x:String" x:Key="out_StrExceptionMessage">[vStrExceptionMessage]</OutArgument>
+                                                          <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooDynamic365Error">[vBooDynamic365Error]</OutArgument>
                                                         </ui:InvokeWorkflowFile.Arguments>
                                                       </ui:InvokeWorkflowFile>
                                                     </Sequence>
@@ -420,11 +397,11 @@
                                                             <sap:WorkflowViewStateService.ViewState>
                                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                 <av:Point x:Key="ShapeLocation">420,1448.54</av:Point>
-                                                                <av:Size x:Key="ShapeSize">200,83</av:Size>
-                                                                <av:PointCollection x:Key="ConnectorLocation">520,1531.54 520,1561.54 520.1416666666667,1561.54 520.1416666666667,1579.54</av:PointCollection>
+                                                                <av:Size x:Key="ShapeSize">200,81</av:Size>
+                                                                <av:PointCollection x:Key="ConnectorLocation">520,1529.54 520,1559.54 520.1416666666667,1559.54 520.1416666666667,1579.54</av:PointCollection>
                                                               </scg:Dictionary>
                                                             </sap:WorkflowViewStateService.ViewState>
-                                                            <Sequence DisplayName="Validate Payment Stamped Error Message" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_53">
+                                                            <Sequence DisplayName="Validate Payment Stamped Error Message" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_53">
                                                               <sap:WorkflowViewStateService.ViewState>
                                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -432,23 +409,14 @@
                                                               </sap:WorkflowViewStateService.ViewState>
                                                               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Apps\Dynamic365\Dynamic365_ValidatePaymentStampedErrorMessage.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_51" UnSafe="False" WorkflowFileName="Apps\Dynamic365\Dynamic365_ValidatePaymentStampedErrorMessage.xaml">
                                                                 <ui:InvokeWorkflowFile.Arguments>
-                                                                  <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooPaymentStampError">
-                                                                    <VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="vBooPaymentStampError" />
-                                                                  </OutArgument>
-                                                                  <OutArgument x:TypeArguments="x:String" x:Key="out_StrExceptionMessage">
-                                                                    <VisualBasicReference x:TypeArguments="x:String" ExpressionText="vStrExceptionMessage" />
-                                                                  </OutArgument>
-                                                                  <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooDynamic365Error">
-                                                                    <VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="vBooDynamic365Error" />
-                                                                  </OutArgument>
+                                                                  <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooPaymentStampError">[vBooPaymentStampError]</OutArgument>
+                                                                  <OutArgument x:TypeArguments="x:String" x:Key="out_StrExceptionMessage">[vStrExceptionMessage]</OutArgument>
+                                                                  <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooDynamic365Error">[vBooDynamic365Error]</OutArgument>
                                                                 </ui:InvokeWorkflowFile.Arguments>
                                                               </ui:InvokeWorkflowFile>
                                                             </Sequence>
                                                             <FlowStep.Next>
-                                                              <FlowDecision x:Name="__ReferenceID32" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_22">
-                                                                <FlowDecision.Condition>
-                                                                  <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="vBooPaymentStampError" />
-                                                                </FlowDecision.Condition>
+                                                              <FlowDecision x:Name="__ReferenceID32" Condition="[vBooPaymentStampError]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_22">
                                                                 <sap:WorkflowViewStateService.ViewState>
                                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -463,11 +431,11 @@
                                                                     <sap:WorkflowViewStateService.ViewState>
                                                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                         <av:Point x:Key="ShapeLocation">140,2118.54</av:Point>
-                                                                        <av:Size x:Key="ShapeSize">200,83</av:Size>
-                                                                        <av:PointCollection x:Key="ConnectorLocation">240,2201.54 240,2231.54 240.14166666666665,2231.54 240.14166666666665,2249.54</av:PointCollection>
+                                                                        <av:Size x:Key="ShapeSize">200,81</av:Size>
+                                                                        <av:PointCollection x:Key="ConnectorLocation">240,2199.54 240,2229.54 240.14166666666665,2229.54 240.14166666666665,2249.54</av:PointCollection>
                                                                       </scg:Dictionary>
                                                                     </sap:WorkflowViewStateService.ViewState>
-                                                                    <Sequence DisplayName="Obtain Unstamped Image" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_57">
+                                                                    <Sequence DisplayName="Obtain Unstamped Image" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_57">
                                                                       <sap:WorkflowViewStateService.ViewState>
                                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -498,11 +466,11 @@
                                                                             <sap:WorkflowViewStateService.ViewState>
                                                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                                 <av:Point x:Key="ShapeLocation">0,2338.54</av:Point>
-                                                                                <av:Size x:Key="ShapeSize">200,83</av:Size>
-                                                                                <av:PointCollection x:Key="ConnectorLocation">100,2421.54 100,2469.54</av:PointCollection>
+                                                                                <av:Size x:Key="ShapeSize">200,81</av:Size>
+                                                                                <av:PointCollection x:Key="ConnectorLocation">100,2419.54 100,2469.54</av:PointCollection>
                                                                               </scg:Dictionary>
                                                                             </sap:WorkflowViewStateService.ViewState>
-                                                                            <Sequence DisplayName="Send Notification Payment Not Stamped" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_55">
+                                                                            <Sequence DisplayName="Send Notification Payment Not Stamped" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_55">
                                                                               <sap:WorkflowViewStateService.ViewState>
                                                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -510,30 +478,14 @@
                                                                               </sap:WorkflowViewStateService.ViewState>
                                                                               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Apps\Mail\Mail_SendNotifications.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_48" UnSafe="False" WorkflowFileName="Apps\Mail\Mail_SendNotifications.xaml">
                                                                                 <ui:InvokeWorkflowFile.Arguments>
-                                                                                  <InArgument x:TypeArguments="scg:IEnumerable(x:String)" x:Key="in_CstAttachmentsCollection">
-                                                                                    <VisualBasicValue x:TypeArguments="scg:IEnumerable(x:String)" ExpressionText="{}{Path.Combine(in_Config(&quot;RutaArchivosGenerados&quot;).ToString, in_TransactionItem.SpecificContent(&quot;DocumentNumber&quot;).ToString.Replace(&quot;/&quot;, &quot;-&quot;).Replace(&quot;\&quot;, &quot;-&quot;) + &quot;.png&quot;)}" />
-                                                                                  </InArgument>
-                                                                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrTemplate">
-                                                                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Path.Combine(in_Config(&quot;RutaFormatos&quot;).ToString, in_Config(&quot;StartTemplate&quot;).ToString)" />
-                                                                                  </InArgument>
-                                                                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrBody">
-                                                                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;BodyPaymentNotStamped&quot;).ToString" />
-                                                                                  </InArgument>
-                                                                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrSubject">
-                                                                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SubjectPaymentNotStamped&quot;).ToString + &quot; &quot; + in_TransactionItem.SpecificContent(&quot;DocumentNumber&quot;).ToString" />
-                                                                                  </InArgument>
-                                                                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrTo">
-                                                                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;ToPaymentNotStamped&quot;).ToString" />
-                                                                                  </InArgument>
-                                                                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrBcc">
-                                                                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Nothing" />
-                                                                                  </InArgument>
-                                                                                  <InArgument x:TypeArguments="x:String" x:Key="in_SrtCc">
-                                                                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Nothing" />
-                                                                                  </InArgument>
-                                                                                  <InArgument x:TypeArguments="x:Boolean" x:Key="in_BooAlert">
-                                                                                    <Literal x:TypeArguments="x:Boolean" />
-                                                                                  </InArgument>
+                                                                                  <InArgument x:TypeArguments="scg:IEnumerable(x:String)" x:Key="in_CstAttachmentsCollection">[{Path.Combine(in_Config("RutaArchivosGenerados").ToString, in_TransactionItem.SpecificContent("DocumentNumber").ToString.Replace("/", "-").Replace("\", "-") + ".png")}]</InArgument>
+                                                                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrTemplate">[Path.Combine(in_Config("RutaFormatos").ToString, in_Config("StartTemplate").ToString)]</InArgument>
+                                                                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrBody">[in_Config("BodyPaymentNotStamped").ToString]</InArgument>
+                                                                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrSubject">[in_Config("SubjectPaymentNotStamped").ToString + " " + in_TransactionItem.SpecificContent("DocumentNumber").ToString]</InArgument>
+                                                                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrTo">[in_Config("ToPaymentNotStamped").ToString]</InArgument>
+                                                                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrBcc">[Nothing]</InArgument>
+                                                                                  <InArgument x:TypeArguments="x:String" x:Key="in_SrtCc">[Nothing]</InArgument>
+                                                                                  <InArgument x:TypeArguments="x:Boolean" x:Key="in_BooAlert">False</InArgument>
                                                                                 </ui:InvokeWorkflowFile.Arguments>
                                                                               </ui:InvokeWorkflowFile>
                                                                             </Sequence>
@@ -542,10 +494,10 @@
                                                                                 <sap:WorkflowViewStateService.ViewState>
                                                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                                     <av:Point x:Key="ShapeLocation">0,2469.54</av:Point>
-                                                                                    <av:Size x:Key="ShapeSize">200,83</av:Size>
+                                                                                    <av:Size x:Key="ShapeSize">200,81</av:Size>
                                                                                   </scg:Dictionary>
                                                                                 </sap:WorkflowViewStateService.ViewState>
-                                                                                <Sequence DisplayName="Add Tracking Observations Send Notification Payment Not Stamped" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_54">
+                                                                                <Sequence DisplayName="Add Tracking Observations Send Notification Payment Not Stamped" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_54">
                                                                                   <sap:WorkflowViewStateService.ViewState>
                                                                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -569,10 +521,10 @@
                                                                             <sap:WorkflowViewStateService.ViewState>
                                                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                                 <av:Point x:Key="ShapeLocation">280,2339.5</av:Point>
-                                                                                <av:Size x:Key="ShapeSize">200,83</av:Size>
+                                                                                <av:Size x:Key="ShapeSize">200,81</av:Size>
                                                                               </scg:Dictionary>
                                                                             </sap:WorkflowViewStateService.ViewState>
-                                                                            <Sequence DisplayName="Add Tracking Observations Obtain Unstamped Image" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_59">
+                                                                            <Sequence DisplayName="Add Tracking Observations Obtain Unstamped Image" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_59">
                                                                               <sap:WorkflowViewStateService.ViewState>
                                                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -598,11 +550,11 @@
                                                                     <sap:WorkflowViewStateService.ViewState>
                                                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                         <av:Point x:Key="ShapeLocation">560,1667.5</av:Point>
-                                                                        <av:Size x:Key="ShapeSize">200,83</av:Size>
-                                                                        <av:PointCollection x:Key="ConnectorLocation">660,1750.5 660,1780.5 660.1416666666667,1780.5 660.1416666666667,1808.5</av:PointCollection>
+                                                                        <av:Size x:Key="ShapeSize">200,81</av:Size>
+                                                                        <av:PointCollection x:Key="ConnectorLocation">660,1748.5 660,1778.5 660.1416666666667,1778.5 660.1416666666667,1808.5</av:PointCollection>
                                                                       </scg:Dictionary>
                                                                     </sap:WorkflowViewStateService.ViewState>
-                                                                    <Sequence DisplayName="Update Payment Data" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                                                                    <Sequence DisplayName="Update Payment Data" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_38">
                                                                       <sap:WorkflowViewStateService.ViewState>
                                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -610,24 +562,13 @@
                                                                       </sap:WorkflowViewStateService.ViewState>
                                                                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Apps\Dynamic365\Dynamic365_UpdatePaymentData.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_32" UnSafe="False" WorkflowFileName="Apps\Dynamic365\Dynamic365_UpdatePaymentData.xaml">
                                                                         <ui:InvokeWorkflowFile.Arguments>
-                                                                          <OutArgument x:TypeArguments="x:String" x:Key="out_StrFolioPayment">
-                                                                            <VisualBasicReference x:TypeArguments="x:String" ExpressionText="vStrFolioPayment" />
-                                                                          </OutArgument>
-                                                                          <OutArgument x:TypeArguments="x:String" x:Key="out_StrPACTaxInvoiceNumber">
-                                                                            <VisualBasicReference x:TypeArguments="x:String" ExpressionText="vStrPACTaxInvoiceNumber" />
-                                                                          </OutArgument>
-                                                                          <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooUpdatePaymentData">
-                                                                            <VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="vBooUpdatePaymentData" />
-                                                                          </OutArgument>
-                                                                          <OutArgument x:TypeArguments="x:String" x:Key="out_StrExceptionMessage">
-                                                                            <VisualBasicReference x:TypeArguments="x:String" ExpressionText="vStrExceptionMessage" />
-                                                                          </OutArgument>
-                                                                          <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_TspDelay">
-                                                                            <VisualBasicValue x:TypeArguments="x:TimeSpan" ExpressionText="TimeSpan.Parse(in_Config(&quot;DelayStamped&quot;).ToString)" />
-                                                                          </InArgument>
-                                                                          <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooDynamic365Error">
-                                                                            <VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="vBooDynamic365Error" />
-                                                                          </OutArgument>
+                                                                          <OutArgument x:TypeArguments="x:String" x:Key="out_StrFolioPayment">[vStrFolioPayment]</OutArgument>
+                                                                          <OutArgument x:TypeArguments="x:String" x:Key="out_StrPACTaxInvoiceNumber">[vStrPACTaxInvoiceNumber]</OutArgument>
+                                                                          <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooUpdatePaymentData">[vBooUpdatePaymentData]</OutArgument>
+                                                                          <OutArgument x:TypeArguments="x:String" x:Key="out_StrExceptionMessage">[vStrExceptionMessage]</OutArgument>
+                                                                          <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_TspDelay">[TimeSpan.Parse(in_Config("DelayStamped").ToString)]</InArgument>
+                                                                          <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooDynamic365Error">[vBooDynamic365Error]</OutArgument>
+                                                                          <OutArgument x:TypeArguments="x:String" x:Key="out_StrDescriptionError">[vStrDescriptionError]</OutArgument>
                                                                         </ui:InvokeWorkflowFile.Arguments>
                                                                       </ui:InvokeWorkflowFile>
                                                                     </Sequence>
@@ -647,11 +588,11 @@
                                                                             <sap:WorkflowViewStateService.ViewState>
                                                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                                 <av:Point x:Key="ShapeLocation">420,1899.5</av:Point>
-                                                                                <av:Size x:Key="ShapeSize">200,83</av:Size>
-                                                                                <av:PointCollection x:Key="ConnectorLocation">520,1982.5 520,2012.5 520.1416666666667,2012.5 520.1416666666667,2030.5</av:PointCollection>
+                                                                                <av:Size x:Key="ShapeSize">200,81</av:Size>
+                                                                                <av:PointCollection x:Key="ConnectorLocation">520,1980.5 520,2010.5 520.1416666666667,2010.5 520.1416666666667,2030.5</av:PointCollection>
                                                                               </scg:Dictionary>
                                                                             </sap:WorkflowViewStateService.ViewState>
-                                                                            <Sequence DisplayName="Validate Stamped Process Document" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_58">
+                                                                            <Sequence DisplayName="Validate Stamped Process Document" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_58">
                                                                               <sap:WorkflowViewStateService.ViewState>
                                                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -659,26 +600,16 @@
                                                                               </sap:WorkflowViewStateService.ViewState>
                                                                               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Apps\File\File_ValidateStampedProcessDocument.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_53" UnSafe="False" WorkflowFileName="Apps\File\File_ValidateStampedProcessDocument.xaml">
                                                                                 <ui:InvokeWorkflowFile.Arguments>
-                                                                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrPACTaxInvoiceNumber">
-                                                                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="vStrPACTaxInvoiceNumber" />
-                                                                                  </InArgument>
-                                                                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrMessageStamp">
-                                                                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;MessageStamp&quot;).ToString" />
-                                                                                  </InArgument>
-                                                                                  <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooStampProcessDocument">
-                                                                                    <VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="vBooStampProcessDocument" />
-                                                                                  </OutArgument>
-                                                                                  <OutArgument x:TypeArguments="x:String" x:Key="out_StrExceptionMessage">
-                                                                                    <VisualBasicReference x:TypeArguments="x:String" ExpressionText="vStrExceptionMessage" />
-                                                                                  </OutArgument>
+                                                                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrPACTaxInvoiceNumber">[vStrPACTaxInvoiceNumber]</InArgument>
+                                                                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrMessageStamp">[in_Config("MessageStamp").ToString]</InArgument>
+                                                                                  <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooStampProcessDocument">[vBooStampProcessDocument]</OutArgument>
+                                                                                  <OutArgument x:TypeArguments="x:String" x:Key="out_StrExceptionMessage">[vStrExceptionMessage]</OutArgument>
+                                                                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrDescriptionError">[vStrDescriptionError]</InArgument>
                                                                                 </ui:InvokeWorkflowFile.Arguments>
                                                                               </ui:InvokeWorkflowFile>
                                                                             </Sequence>
                                                                             <FlowStep.Next>
-                                                                              <FlowDecision x:Name="__ReferenceID34" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_23">
-                                                                                <FlowDecision.Condition>
-                                                                                  <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="vBooStampProcessDocument" />
-                                                                                </FlowDecision.Condition>
+                                                                              <FlowDecision x:Name="__ReferenceID34" Condition="[vBooStampProcessDocument]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_23" True="{x:Reference __ReferenceID0}">
                                                                                 <sap:WorkflowViewStateService.ViewState>
                                                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -688,19 +619,16 @@
                                                                                     <av:PointCollection x:Key="FalseConnector">559.6416666666667,2074 800,2074 800,2118.54</av:PointCollection>
                                                                                   </scg:Dictionary>
                                                                                 </sap:WorkflowViewStateService.ViewState>
-                                                                                <FlowDecision.True>
-                                                                                  <x:Reference>__ReferenceID0</x:Reference>
-                                                                                </FlowDecision.True>
                                                                                 <FlowDecision.False>
                                                                                   <FlowStep x:Name="__ReferenceID18">
                                                                                     <sap:WorkflowViewStateService.ViewState>
                                                                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                                         <av:Point x:Key="ShapeLocation">700,2118.54</av:Point>
-                                                                                        <av:Size x:Key="ShapeSize">200,83</av:Size>
-                                                                                        <av:PointCollection x:Key="ConnectorLocation">800,2201.54 800,2231.54 800.1416666666667,2231.54 800.1416666666667,2249.54</av:PointCollection>
+                                                                                        <av:Size x:Key="ShapeSize">200,81</av:Size>
+                                                                                        <av:PointCollection x:Key="ConnectorLocation">800,2199.54 800,2229.54 800.1416666666667,2229.54 800.1416666666667,2249.54</av:PointCollection>
                                                                                       </scg:Dictionary>
                                                                                     </sap:WorkflowViewStateService.ViewState>
-                                                                                    <Sequence DisplayName="Validate Fiscal Invoice Folio" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_39">
+                                                                                    <Sequence DisplayName="Validate Fiscal Invoice Folio" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_39">
                                                                                       <sap:WorkflowViewStateService.ViewState>
                                                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -731,10 +659,10 @@
                                                                                             <sap:WorkflowViewStateService.ViewState>
                                                                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                                                 <av:Point x:Key="ShapeLocation">560,2338.54</av:Point>
-                                                                                                <av:Size x:Key="ShapeSize">200,83</av:Size>
+                                                                                                <av:Size x:Key="ShapeSize">200,81</av:Size>
                                                                                               </scg:Dictionary>
                                                                                             </sap:WorkflowViewStateService.ViewState>
-                                                                                            <Sequence DisplayName="Add Tracking Observations Stamp Payment Successful" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_40">
+                                                                                            <Sequence DisplayName="Add Tracking Observations Stamp Payment Successful" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_40">
                                                                                               <sap:WorkflowViewStateService.ViewState>
                                                                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -756,11 +684,11 @@
                                                                                             <sap:WorkflowViewStateService.ViewState>
                                                                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                                                 <av:Point x:Key="ShapeLocation">840,2338.54</av:Point>
-                                                                                                <av:Size x:Key="ShapeSize">200,83</av:Size>
-                                                                                                <av:PointCollection x:Key="ConnectorLocation">940,2421.54 940,2469.54</av:PointCollection>
+                                                                                                <av:Size x:Key="ShapeSize">200,81</av:Size>
+                                                                                                <av:PointCollection x:Key="ConnectorLocation">940,2419.54 940,2469.54</av:PointCollection>
                                                                                               </scg:Dictionary>
                                                                                             </sap:WorkflowViewStateService.ViewState>
-                                                                                            <Sequence DisplayName="Add Queue Validate Stamped" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                                                                                            <Sequence DisplayName="Add Queue Validate Stamped" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_16">
                                                                                               <sap:WorkflowViewStateService.ViewState>
                                                                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -792,10 +720,10 @@
                                                                                                     <sap:WorkflowViewStateService.ViewState>
                                                                                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                                                         <av:Point x:Key="ShapeLocation">700,2558.54</av:Point>
-                                                                                                        <av:Size x:Key="ShapeSize">200,83</av:Size>
+                                                                                                        <av:Size x:Key="ShapeSize">200,81</av:Size>
                                                                                                       </scg:Dictionary>
                                                                                                     </sap:WorkflowViewStateService.ViewState>
-                                                                                                    <Sequence DisplayName="Add Tracking Observations Payment Stamped" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                                                                                                    <Sequence DisplayName="Add Tracking Observations Payment Stamped" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_17">
                                                                                                       <sap:WorkflowViewStateService.ViewState>
                                                                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -854,10 +782,10 @@
                                                                             <sap:WorkflowViewStateService.ViewState>
                                                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                                 <av:Point x:Key="ShapeLocation">700,1899.5</av:Point>
-                                                                                <av:Size x:Key="ShapeSize">200,83</av:Size>
+                                                                                <av:Size x:Key="ShapeSize">200,81</av:Size>
                                                                               </scg:Dictionary>
                                                                             </sap:WorkflowViewStateService.ViewState>
-                                                                            <Sequence DisplayName="Add Tracking Observations Update Payment Data" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_41">
+                                                                            <Sequence DisplayName="Add Tracking Observations Update Payment Data" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_41">
                                                                               <sap:WorkflowViewStateService.ViewState>
                                                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -887,10 +815,10 @@
                                                             <sap:WorkflowViewStateService.ViewState>
                                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                 <av:Point x:Key="ShapeLocation">700,1448.54</av:Point>
-                                                                <av:Size x:Key="ShapeSize">200,83</av:Size>
+                                                                <av:Size x:Key="ShapeSize">200,81</av:Size>
                                                               </scg:Dictionary>
                                                             </sap:WorkflowViewStateService.ViewState>
-                                                            <Sequence DisplayName="Add Tracking Observations Stamp Payment" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                                                            <Sequence DisplayName="Add Tracking Observations Stamp Payment" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_15">
                                                               <sap:WorkflowViewStateService.ViewState>
                                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1022,10 +950,10 @@
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <av:Point x:Key="ShapeLocation">700,568.54</av:Point>
-                                <av:Size x:Key="ShapeSize">200,83</av:Size>
+                                <av:Size x:Key="ShapeSize">200,81</av:Size>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Sequence DisplayName="Add Tracking Observations Stamp Payment Successful" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_42">
+                            <Sequence DisplayName="Add Tracking Observations Stamp Payment Successful" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_42">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1129,24 +1057,13 @@
                               </sap:WorkflowViewStateService.ViewState>
                               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Apps\Dynamic365\Dynamic365_UpdatePaymentData.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_39" UnSafe="False" WorkflowFileName="Apps\Dynamic365\Dynamic365_UpdatePaymentData.xaml">
                                 <ui:InvokeWorkflowFile.Arguments>
-                                  <OutArgument x:TypeArguments="x:String" x:Key="out_StrFolioPayment">
-                                    <VisualBasicReference x:TypeArguments="x:String" ExpressionText="vStrFolioPayment" />
-                                  </OutArgument>
-                                  <OutArgument x:TypeArguments="x:String" x:Key="out_StrPACTaxInvoiceNumber">
-                                    <VisualBasicReference x:TypeArguments="x:String" ExpressionText="vStrPACTaxInvoiceNumber" />
-                                  </OutArgument>
-                                  <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooUpdatePaymentData">
-                                    <VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="vBooUpdatePaymentData" />
-                                  </OutArgument>
-                                  <OutArgument x:TypeArguments="x:String" x:Key="out_StrExceptionMessage">
-                                    <VisualBasicReference x:TypeArguments="x:String" ExpressionText="vStrExceptionMessage" />
-                                  </OutArgument>
-                                  <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_TspDelay">
-                                    <VisualBasicValue x:TypeArguments="x:TimeSpan" ExpressionText="TimeSpan.Parse(in_Config(&quot;DelayStamped&quot;).ToString)" />
-                                  </InArgument>
-                                  <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooDynamic365Error">
-                                    <VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="vBooDynamic365Error" />
-                                  </OutArgument>
+                                  <OutArgument x:TypeArguments="x:String" x:Key="out_StrFolioPayment">[vStrFolioPayment]</OutArgument>
+                                  <OutArgument x:TypeArguments="x:String" x:Key="out_StrPACTaxInvoiceNumber">[vStrPACTaxInvoiceNumber]</OutArgument>
+                                  <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooUpdatePaymentData">[vBooUpdatePaymentData]</OutArgument>
+                                  <OutArgument x:TypeArguments="x:String" x:Key="out_StrExceptionMessage">[vStrExceptionMessage]</OutArgument>
+                                  <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_TspDelay">[TimeSpan.Parse(in_Config("DelayStamped").ToString)]</InArgument>
+                                  <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooDynamic365Error">[vBooDynamic365Error]</OutArgument>
+                                  <OutArgument x:TypeArguments="x:String" x:Key="out_StrDescriptionError">[vStrDescriptionError]</OutArgument>
                                 </ui:InvokeWorkflowFile.Arguments>
                               </ui:InvokeWorkflowFile>
                             </Sequence>
@@ -1166,10 +1083,7 @@
                         </Flowchart>
                       </Sequence>
                       <FlowStep.Next>
-                        <FlowDecision x:Name="__ReferenceID55" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_17">
-                          <FlowDecision.Condition>
-                            <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="vBooDynamic365Error" />
-                          </FlowDecision.Condition>
+                        <FlowDecision x:Name="__ReferenceID55" Condition="[vBooDynamic365Error]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_17">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1179,7 +1093,7 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <FlowDecision.True>
-                            <FlowStep x:Name="__ReferenceID63">
+                            <FlowStep x:Name="__ReferenceID71">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <av:Point x:Key="ShapeLocation">420,908.54</av:Point>
@@ -1195,20 +1109,13 @@
                                 </sap:WorkflowViewStateService.ViewState>
                                 <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Apps\Dynamic365\Dynamic365_ValidateMessageThereWereProblems.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_40" UnSafe="False" WorkflowFileName="Apps\Dynamic365\Dynamic365_ValidateMessageThereWereProblems.xaml">
                                   <ui:InvokeWorkflowFile.Arguments>
-                                    <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooMessageThereWereProblems">
-                                      <VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="vBooMessageThereWereProblems" />
-                                    </OutArgument>
-                                    <OutArgument x:TypeArguments="x:String" x:Key="out_StrExceptionMessage">
-                                      <VisualBasicReference x:TypeArguments="x:String" ExpressionText="vStrExceptionMessage" />
-                                    </OutArgument>
+                                    <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooMessageThereWereProblems">[vBooMessageThereWereProblems]</OutArgument>
+                                    <OutArgument x:TypeArguments="x:String" x:Key="out_StrExceptionMessage">[vStrExceptionMessage]</OutArgument>
                                   </ui:InvokeWorkflowFile.Arguments>
                                 </ui:InvokeWorkflowFile>
                               </Sequence>
                               <FlowStep.Next>
-                                <FlowDecision x:Name="__ReferenceID64" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_18">
-                                  <FlowDecision.Condition>
-                                    <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="vBooMessageThereWereProblems" />
-                                  </FlowDecision.Condition>
+                                <FlowDecision x:Name="__ReferenceID72" Condition="[vBooMessageThereWereProblems]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_18">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1219,7 +1126,7 @@
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
                                   <FlowDecision.True>
-                                    <FlowStep x:Name="__ReferenceID66">
+                                    <FlowStep x:Name="__ReferenceID74">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <av:Point x:Key="ShapeLocation">280,1128.54</av:Point>
@@ -1235,23 +1142,14 @@
                                         </sap:WorkflowViewStateService.ViewState>
                                         <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Apps\Dynamic365\Dynamic365_SelectModule.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_42" UnSafe="False" WorkflowFileName="Apps\Dynamic365\Dynamic365_SelectModule.xaml">
                                           <ui:InvokeWorkflowFile.Arguments>
-                                            <InArgument x:TypeArguments="x:String" x:Key="in_StrDynamic365Module">
-                                              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;Dynamic365Module&quot;).ToString" />
-                                            </InArgument>
-                                            <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooSelectModule">
-                                              <VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="vBooSelectModule" />
-                                            </OutArgument>
-                                            <OutArgument x:TypeArguments="x:String" x:Key="out_StrExceptionMessage">
-                                              <VisualBasicReference x:TypeArguments="x:String" ExpressionText="vStrExceptionMessage" />
-                                            </OutArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="in_StrDynamic365Module">[in_Config("Dynamic365Module").ToString]</InArgument>
+                                            <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooSelectModule">[vBooSelectModule]</OutArgument>
+                                            <OutArgument x:TypeArguments="x:String" x:Key="out_StrExceptionMessage">[vStrExceptionMessage]</OutArgument>
                                           </ui:InvokeWorkflowFile.Arguments>
                                         </ui:InvokeWorkflowFile>
                                       </Sequence>
                                       <FlowStep.Next>
-                                        <FlowDecision x:Name="__ReferenceID67" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_19">
-                                          <FlowDecision.Condition>
-                                            <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="vBooSelectModule" />
-                                          </FlowDecision.Condition>
+                                        <FlowDecision x:Name="__ReferenceID75" Condition="[vBooSelectModule]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_19">
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1262,7 +1160,7 @@
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
                                           <FlowDecision.True>
-                                            <FlowStep x:Name="__ReferenceID70">
+                                            <FlowStep x:Name="__ReferenceID78">
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <av:Point x:Key="ShapeLocation">140,1348.54</av:Point>
@@ -1287,7 +1185,7 @@
                                                 </ui:InvokeWorkflowFile>
                                               </Sequence>
                                               <FlowStep.Next>
-                                                <FlowDecision x:Name="__ReferenceID69" Condition="[vBooAddQueues]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_20">
+                                                <FlowDecision x:Name="__ReferenceID77" Condition="[vBooAddQueues]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_20">
                                                   <sap:WorkflowViewStateService.ViewState>
                                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1298,7 +1196,7 @@
                                                     </scg:Dictionary>
                                                   </sap:WorkflowViewStateService.ViewState>
                                                   <FlowDecision.True>
-                                                    <FlowStep x:Name="__ReferenceID72">
+                                                    <FlowStep x:Name="__ReferenceID80">
                                                       <sap:WorkflowViewStateService.ViewState>
                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                           <av:Point x:Key="ShapeLocation">0,1568.54</av:Point>
@@ -1313,25 +1211,17 @@
                                                         </sap:WorkflowViewStateService.ViewState>
                                                         <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Apps\Excel\Excel_AddTrackingObservations.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_46" UnSafe="False" WorkflowFileName="Apps\Excel\Excel_AddTrackingObservations.xaml">
                                                           <ui:InvokeWorkflowFile.Arguments>
-                                                            <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DtbProcessMonitoring">
-                                                              <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="in_DtbProcessMonitoring" />
-                                                            </InArgument>
-                                                            <InArgument x:TypeArguments="x:String" x:Key="in_StrPathProcessMonitoring">
-                                                              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Path.Combine(in_Config(&quot;RutaArchivosGenerados&quot;).ToString, in_Config(&quot;FileTracing&quot;).ToString)" />
-                                                            </InArgument>
-                                                            <InArgument x:TypeArguments="x:String" x:Key="in_StrSheetsProcessMonitoring">
-                                                              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SheetTracing&quot;).ToString" />
-                                                            </InArgument>
-                                                            <InArgument x:TypeArguments="s:Object[]" x:Key="in_AobAddDataRow">
-                                                              <VisualBasicValue x:TypeArguments="s:Object[]" ExpressionText="{}{in_TransactionItem.SpecificContent(&quot;Client&quot;).ToString, in_TransactionItem.SpecificContent(&quot;FolioPayment&quot;).ToString, in_TransactionItem.SpecificContent(&quot;RegistrationDate&quot;).ToString, in_TransactionItem.SpecificContent(&quot;TypeDocument&quot;).ToString, in_TransactionItem.SpecificContent(&quot;DocumentNumber&quot;).ToString, in_TransactionItem.SpecificContent(&quot;Description&quot;).ToString, in_TransactionItem.SpecificContent(&quot;CurrencyCode&quot;).ToString, in_TransactionItem.SpecificContent(&quot;InitialImport&quot;).ToString, in_TransactionItem.SpecificContent(&quot;Import&quot;).ToString, in_TransactionItem.SpecificContent(&quot;PendingImport&quot;).ToString, in_TransactionItem.SpecificContent(&quot;ExpirationDate&quot;).ToString, in_TransactionItem.SpecificContent(&quot;PaymentMethodCode&quot;).ToString, in_TransactionItem.SpecificContent(&quot;MovementNumber&quot;).ToString, in_TransactionItem.SpecificContent(&quot;ExternalDocumentNumber&quot;).ToString, in_TransactionItem.SpecificContent(&quot;ElectronicDocumentStatus&quot;).ToString, in_TransactionItem.SpecificContent(&quot;PACTaxInvoiceNumber&quot;).ToString, in_TransactionItem.SpecificContent(&quot;ErrorCode&quot;).ToString, in_TransactionItem.SpecificContent(&quot;ErrorDescription&quot;).ToString, If(String.IsNullOrEmpty(vStrExceptionMessage), in_Config(&quot;Successful&quot;).ToString, in_Config(&quot;Failed&quot;).ToString), If(String.IsNullOrEmpty(vStrExceptionMessage), in_Config(&quot;ObservationStamp&quot;).ToString, vStrExceptionMessage)}" />
-                                                            </InArgument>
+                                                            <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DtbProcessMonitoring">[in_DtbProcessMonitoring]</InArgument>
+                                                            <InArgument x:TypeArguments="x:String" x:Key="in_StrPathProcessMonitoring">[Path.Combine(in_Config("RutaArchivosGenerados").ToString, in_Config("FileTracing").ToString)]</InArgument>
+                                                            <InArgument x:TypeArguments="x:String" x:Key="in_StrSheetsProcessMonitoring">[in_Config("SheetTracing").ToString]</InArgument>
+                                                            <InArgument x:TypeArguments="s:Object[]" x:Key="in_AobAddDataRow">[{in_TransactionItem.SpecificContent("Client").ToString, in_TransactionItem.SpecificContent("FolioPayment").ToString, in_TransactionItem.SpecificContent("RegistrationDate").ToString, in_TransactionItem.SpecificContent("TypeDocument").ToString, in_TransactionItem.SpecificContent("DocumentNumber").ToString, in_TransactionItem.SpecificContent("Description").ToString, in_TransactionItem.SpecificContent("CurrencyCode").ToString, in_TransactionItem.SpecificContent("InitialImport").ToString, in_TransactionItem.SpecificContent("Import").ToString, in_TransactionItem.SpecificContent("PendingImport").ToString, in_TransactionItem.SpecificContent("ExpirationDate").ToString, in_TransactionItem.SpecificContent("PaymentMethodCode").ToString, in_TransactionItem.SpecificContent("MovementNumber").ToString, in_TransactionItem.SpecificContent("ExternalDocumentNumber").ToString, in_TransactionItem.SpecificContent("ElectronicDocumentStatus").ToString, in_TransactionItem.SpecificContent("PACTaxInvoiceNumber").ToString, in_TransactionItem.SpecificContent("ErrorCode").ToString, in_TransactionItem.SpecificContent("ErrorDescription").ToString, If(String.IsNullOrEmpty(vStrExceptionMessage), in_Config("Successful").ToString, in_Config("Failed").ToString), If(String.IsNullOrEmpty(vStrExceptionMessage), in_Config("ObservationStamp").ToString, vStrExceptionMessage)}]</InArgument>
                                                           </ui:InvokeWorkflowFile.Arguments>
                                                         </ui:InvokeWorkflowFile>
                                                       </Sequence>
                                                     </FlowStep>
                                                   </FlowDecision.True>
                                                   <FlowDecision.False>
-                                                    <FlowStep x:Name="__ReferenceID68">
+                                                    <FlowStep x:Name="__ReferenceID76">
                                                       <sap:WorkflowViewStateService.ViewState>
                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                           <av:Point x:Key="ShapeLocation">280,1568.54</av:Point>
@@ -1360,7 +1250,7 @@
                                             </FlowStep>
                                           </FlowDecision.True>
                                           <FlowDecision.False>
-                                            <FlowStep x:Name="__ReferenceID71">
+                                            <FlowStep x:Name="__ReferenceID79">
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <av:Point x:Key="ShapeLocation">420,1348.54</av:Point>
@@ -1375,18 +1265,10 @@
                                                 </sap:WorkflowViewStateService.ViewState>
                                                 <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Apps\Excel\Excel_AddTrackingObservations.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_45" UnSafe="False" WorkflowFileName="Apps\Excel\Excel_AddTrackingObservations.xaml">
                                                   <ui:InvokeWorkflowFile.Arguments>
-                                                    <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DtbProcessMonitoring">
-                                                      <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="in_DtbProcessMonitoring" />
-                                                    </InArgument>
-                                                    <InArgument x:TypeArguments="x:String" x:Key="in_StrPathProcessMonitoring">
-                                                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Path.Combine(in_Config(&quot;RutaArchivosGenerados&quot;).ToString, in_Config(&quot;FileTracing&quot;).ToString)" />
-                                                    </InArgument>
-                                                    <InArgument x:TypeArguments="x:String" x:Key="in_StrSheetsProcessMonitoring">
-                                                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SheetTracing&quot;).ToString" />
-                                                    </InArgument>
-                                                    <InArgument x:TypeArguments="s:Object[]" x:Key="in_AobAddDataRow">
-                                                      <VisualBasicValue x:TypeArguments="s:Object[]" ExpressionText="{}{in_TransactionItem.SpecificContent(&quot;Client&quot;).ToString, in_TransactionItem.SpecificContent(&quot;FolioPayment&quot;).ToString, in_TransactionItem.SpecificContent(&quot;RegistrationDate&quot;).ToString, in_TransactionItem.SpecificContent(&quot;TypeDocument&quot;).ToString, in_TransactionItem.SpecificContent(&quot;DocumentNumber&quot;).ToString, in_TransactionItem.SpecificContent(&quot;Description&quot;).ToString, in_TransactionItem.SpecificContent(&quot;CurrencyCode&quot;).ToString, in_TransactionItem.SpecificContent(&quot;InitialImport&quot;).ToString, in_TransactionItem.SpecificContent(&quot;Import&quot;).ToString, in_TransactionItem.SpecificContent(&quot;PendingImport&quot;).ToString, in_TransactionItem.SpecificContent(&quot;ExpirationDate&quot;).ToString, in_TransactionItem.SpecificContent(&quot;PaymentMethodCode&quot;).ToString, in_TransactionItem.SpecificContent(&quot;MovementNumber&quot;).ToString, in_TransactionItem.SpecificContent(&quot;ExternalDocumentNumber&quot;).ToString, in_TransactionItem.SpecificContent(&quot;ElectronicDocumentStatus&quot;).ToString, in_TransactionItem.SpecificContent(&quot;PACTaxInvoiceNumber&quot;).ToString, in_TransactionItem.SpecificContent(&quot;ErrorCode&quot;).ToString, in_TransactionItem.SpecificContent(&quot;ErrorDescription&quot;).ToString, If(String.IsNullOrEmpty(vStrExceptionMessage), in_Config(&quot;Successful&quot;).ToString, in_Config(&quot;Failed&quot;).ToString), If(String.IsNullOrEmpty(vStrExceptionMessage), in_Config(&quot;ObservationSelectModule&quot;).ToString, vStrExceptionMessage)}" />
-                                                    </InArgument>
+                                                    <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DtbProcessMonitoring">[in_DtbProcessMonitoring]</InArgument>
+                                                    <InArgument x:TypeArguments="x:String" x:Key="in_StrPathProcessMonitoring">[Path.Combine(in_Config("RutaArchivosGenerados").ToString, in_Config("FileTracing").ToString)]</InArgument>
+                                                    <InArgument x:TypeArguments="x:String" x:Key="in_StrSheetsProcessMonitoring">[in_Config("SheetTracing").ToString]</InArgument>
+                                                    <InArgument x:TypeArguments="s:Object[]" x:Key="in_AobAddDataRow">[{in_TransactionItem.SpecificContent("Client").ToString, in_TransactionItem.SpecificContent("FolioPayment").ToString, in_TransactionItem.SpecificContent("RegistrationDate").ToString, in_TransactionItem.SpecificContent("TypeDocument").ToString, in_TransactionItem.SpecificContent("DocumentNumber").ToString, in_TransactionItem.SpecificContent("Description").ToString, in_TransactionItem.SpecificContent("CurrencyCode").ToString, in_TransactionItem.SpecificContent("InitialImport").ToString, in_TransactionItem.SpecificContent("Import").ToString, in_TransactionItem.SpecificContent("PendingImport").ToString, in_TransactionItem.SpecificContent("ExpirationDate").ToString, in_TransactionItem.SpecificContent("PaymentMethodCode").ToString, in_TransactionItem.SpecificContent("MovementNumber").ToString, in_TransactionItem.SpecificContent("ExternalDocumentNumber").ToString, in_TransactionItem.SpecificContent("ElectronicDocumentStatus").ToString, in_TransactionItem.SpecificContent("PACTaxInvoiceNumber").ToString, in_TransactionItem.SpecificContent("ErrorCode").ToString, in_TransactionItem.SpecificContent("ErrorDescription").ToString, If(String.IsNullOrEmpty(vStrExceptionMessage), in_Config("Successful").ToString, in_Config("Failed").ToString), If(String.IsNullOrEmpty(vStrExceptionMessage), in_Config("ObservationSelectModule").ToString, vStrExceptionMessage)}]</InArgument>
                                                   </ui:InvokeWorkflowFile.Arguments>
                                                 </ui:InvokeWorkflowFile>
                                               </Sequence>
@@ -1397,7 +1279,7 @@
                                     </FlowStep>
                                   </FlowDecision.True>
                                   <FlowDecision.False>
-                                    <FlowStep x:Name="__ReferenceID65">
+                                    <FlowStep x:Name="__ReferenceID73">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <av:Point x:Key="ShapeLocation">560,1128.54</av:Point>
@@ -1412,18 +1294,10 @@
                                         </sap:WorkflowViewStateService.ViewState>
                                         <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Apps\Excel\Excel_AddTrackingObservations.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_41" UnSafe="False" WorkflowFileName="Apps\Excel\Excel_AddTrackingObservations.xaml">
                                           <ui:InvokeWorkflowFile.Arguments>
-                                            <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DtbProcessMonitoring">
-                                              <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="in_DtbProcessMonitoring" />
-                                            </InArgument>
-                                            <InArgument x:TypeArguments="x:String" x:Key="in_StrPathProcessMonitoring">
-                                              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Path.Combine(in_Config(&quot;RutaArchivosGenerados&quot;).ToString, in_Config(&quot;FileTracing&quot;).ToString)" />
-                                            </InArgument>
-                                            <InArgument x:TypeArguments="x:String" x:Key="in_StrSheetsProcessMonitoring">
-                                              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SheetTracing&quot;).ToString" />
-                                            </InArgument>
-                                            <InArgument x:TypeArguments="s:Object[]" x:Key="in_AobAddDataRow">
-                                              <VisualBasicValue x:TypeArguments="s:Object[]" ExpressionText="{}{in_TransactionItem.SpecificContent(&quot;Client&quot;).ToString, in_TransactionItem.SpecificContent(&quot;FolioPayment&quot;).ToString, in_TransactionItem.SpecificContent(&quot;RegistrationDate&quot;).ToString, in_TransactionItem.SpecificContent(&quot;TypeDocument&quot;).ToString, in_TransactionItem.SpecificContent(&quot;DocumentNumber&quot;).ToString, in_TransactionItem.SpecificContent(&quot;Description&quot;).ToString, in_TransactionItem.SpecificContent(&quot;CurrencyCode&quot;).ToString, in_TransactionItem.SpecificContent(&quot;InitialImport&quot;).ToString, in_TransactionItem.SpecificContent(&quot;Import&quot;).ToString, in_TransactionItem.SpecificContent(&quot;PendingImport&quot;).ToString, in_TransactionItem.SpecificContent(&quot;ExpirationDate&quot;).ToString, in_TransactionItem.SpecificContent(&quot;PaymentMethodCode&quot;).ToString, in_TransactionItem.SpecificContent(&quot;MovementNumber&quot;).ToString, in_TransactionItem.SpecificContent(&quot;ExternalDocumentNumber&quot;).ToString, in_TransactionItem.SpecificContent(&quot;ElectronicDocumentStatus&quot;).ToString, in_TransactionItem.SpecificContent(&quot;PACTaxInvoiceNumber&quot;).ToString, in_TransactionItem.SpecificContent(&quot;ErrorCode&quot;).ToString, in_TransactionItem.SpecificContent(&quot;ErrorDescription&quot;).ToString, If(String.IsNullOrEmpty(vStrExceptionMessage), in_Config(&quot;Successful&quot;).ToString, in_Config(&quot;Failed&quot;).ToString), If(String.IsNullOrEmpty(vStrExceptionMessage), in_Config(&quot;ObservationValidateMessageThereWereProblems&quot;).ToString, vStrExceptionMessage)}" />
-                                            </InArgument>
+                                            <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DtbProcessMonitoring">[in_DtbProcessMonitoring]</InArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="in_StrPathProcessMonitoring">[Path.Combine(in_Config("RutaArchivosGenerados").ToString, in_Config("FileTracing").ToString)]</InArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="in_StrSheetsProcessMonitoring">[in_Config("SheetTracing").ToString]</InArgument>
+                                            <InArgument x:TypeArguments="s:Object[]" x:Key="in_AobAddDataRow">[{in_TransactionItem.SpecificContent("Client").ToString, in_TransactionItem.SpecificContent("FolioPayment").ToString, in_TransactionItem.SpecificContent("RegistrationDate").ToString, in_TransactionItem.SpecificContent("TypeDocument").ToString, in_TransactionItem.SpecificContent("DocumentNumber").ToString, in_TransactionItem.SpecificContent("Description").ToString, in_TransactionItem.SpecificContent("CurrencyCode").ToString, in_TransactionItem.SpecificContent("InitialImport").ToString, in_TransactionItem.SpecificContent("Import").ToString, in_TransactionItem.SpecificContent("PendingImport").ToString, in_TransactionItem.SpecificContent("ExpirationDate").ToString, in_TransactionItem.SpecificContent("PaymentMethodCode").ToString, in_TransactionItem.SpecificContent("MovementNumber").ToString, in_TransactionItem.SpecificContent("ExternalDocumentNumber").ToString, in_TransactionItem.SpecificContent("ElectronicDocumentStatus").ToString, in_TransactionItem.SpecificContent("PACTaxInvoiceNumber").ToString, in_TransactionItem.SpecificContent("ErrorCode").ToString, in_TransactionItem.SpecificContent("ErrorDescription").ToString, If(String.IsNullOrEmpty(vStrExceptionMessage), in_Config("Successful").ToString, in_Config("Failed").ToString), If(String.IsNullOrEmpty(vStrExceptionMessage), in_Config("ObservationValidateMessageThereWereProblems").ToString, vStrExceptionMessage)}]</InArgument>
                                           </ui:InvokeWorkflowFile.Arguments>
                                         </ui:InvokeWorkflowFile>
                                       </Sequence>
@@ -1436,21 +1310,21 @@
                         </FlowDecision>
                       </FlowStep.Next>
                     </FlowStep>
-                    <FlowStep x:Key="Validar" x:Name="__ReferenceID60">
+                    <FlowStep x:Key="Validar" x:Name="__ReferenceID68">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <av:Point x:Key="ShapeLocation">700,569.5</av:Point>
-                          <av:Size x:Key="ShapeSize">200,83</av:Size>
-                          <av:PointCollection x:Key="ConnectorLocation">800,652.5 800,787.5400000000001 660,787.5400000000001 660,817.54</av:PointCollection>
+                          <av:Size x:Key="ShapeSize">200,81</av:Size>
+                          <av:PointCollection x:Key="ConnectorLocation">800,650.5 800,787.54 660,787.54 660,817.54</av:PointCollection>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Sequence DisplayName="Validate" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                      <Sequence DisplayName="Validate" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_35">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="834,94" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Validate&quot;]" />
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="834,92" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Validate&quot;]" />
                         <Flowchart DisplayName="Flowchart Validate" sap:VirtualizedContainerService.HintSize="834,1490" sap2010:WorkflowViewState.IdRef="Flowchart_3">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -1470,11 +1344,11 @@
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <av:Point x:Key="ShapeLocation">180,127.5</av:Point>
-                                <av:Size x:Key="ShapeSize">200,83</av:Size>
-                                <av:PointCollection x:Key="ConnectorLocation">280,210.5 280,240.5 280.14166666666665,240.5 280.14166666666665,258.5</av:PointCollection>
+                                <av:Size x:Key="ShapeSize">200,81</av:Size>
+                                <av:PointCollection x:Key="ConnectorLocation">280,208.5 280,238.5 280.14166666666665,238.5 280.14166666666665,258.5</av:PointCollection>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Sequence DisplayName="Update Payment Data" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                            <Sequence DisplayName="Update Payment Data" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_19">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1482,24 +1356,13 @@
                               </sap:WorkflowViewStateService.ViewState>
                               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Apps\Dynamic365\Dynamic365_UpdatePaymentData.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_16" UnSafe="False" WorkflowFileName="Apps\Dynamic365\Dynamic365_UpdatePaymentData.xaml">
                                 <ui:InvokeWorkflowFile.Arguments>
-                                  <OutArgument x:TypeArguments="x:String" x:Key="out_StrFolioPayment">
-                                    <VisualBasicReference x:TypeArguments="x:String" ExpressionText="vStrFolioPayment" />
-                                  </OutArgument>
-                                  <OutArgument x:TypeArguments="x:String" x:Key="out_StrPACTaxInvoiceNumber">
-                                    <VisualBasicReference x:TypeArguments="x:String" ExpressionText="vStrPACTaxInvoiceNumber" />
-                                  </OutArgument>
-                                  <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooUpdatePaymentData">
-                                    <VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="vBooUpdatePaymentData" />
-                                  </OutArgument>
-                                  <OutArgument x:TypeArguments="x:String" x:Key="out_StrExceptionMessage">
-                                    <VisualBasicReference x:TypeArguments="x:String" ExpressionText="vStrExceptionMessage" />
-                                  </OutArgument>
-                                  <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_TspDelay">
-                                    <VisualBasicValue x:TypeArguments="x:TimeSpan" ExpressionText="TimeSpan.Parse(in_Config(&quot;Delay&quot;).ToString)" />
-                                  </InArgument>
-                                  <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooDynamic365Error">
-                                    <VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="vBooDynamic365Error" />
-                                  </OutArgument>
+                                  <OutArgument x:TypeArguments="x:String" x:Key="out_StrFolioPayment">[vStrFolioPayment]</OutArgument>
+                                  <OutArgument x:TypeArguments="x:String" x:Key="out_StrPACTaxInvoiceNumber">[vStrPACTaxInvoiceNumber]</OutArgument>
+                                  <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooUpdatePaymentData">[vBooUpdatePaymentData]</OutArgument>
+                                  <OutArgument x:TypeArguments="x:String" x:Key="out_StrExceptionMessage">[vStrExceptionMessage]</OutArgument>
+                                  <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_TspDelay">[TimeSpan.Parse(in_Config("Delay").ToString)]</InArgument>
+                                  <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooDynamic365Error">[vBooDynamic365Error]</OutArgument>
+                                  <OutArgument x:TypeArguments="x:String" x:Key="out_StrDescriptionError">[vStrDescriptionError]</OutArgument>
                                 </ui:InvokeWorkflowFile.Arguments>
                               </ui:InvokeWorkflowFile>
                             </Sequence>
@@ -1519,11 +1382,11 @@
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <av:Point x:Key="ShapeLocation">40,349.5</av:Point>
-                                        <av:Size x:Key="ShapeSize">200,83</av:Size>
-                                        <av:PointCollection x:Key="ConnectorLocation">140,432.5 140,462.5 140.14166666666665,462.5 140.14166666666665,480.5</av:PointCollection>
+                                        <av:Size x:Key="ShapeSize">200,81</av:Size>
+                                        <av:PointCollection x:Key="ConnectorLocation">140,430.5 140,460.5 140.14166666666665,460.5 140.14166666666665,480.5</av:PointCollection>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <Sequence DisplayName="Validate Stamped Process Document" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_60">
+                                    <Sequence DisplayName="Validate Stamped Process Document" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_60">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1535,6 +1398,7 @@
                                           <InArgument x:TypeArguments="x:String" x:Key="in_StrMessageStamp">[in_Config("MessageStamp").ToString]</InArgument>
                                           <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooStampProcessDocument">[vBooStampProcessDocument]</OutArgument>
                                           <OutArgument x:TypeArguments="x:String" x:Key="out_StrExceptionMessage">[vStrExceptionMessage]</OutArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="in_StrDescriptionError">[vStrDescriptionError]</InArgument>
                                         </ui:InvokeWorkflowFile.Arguments>
                                       </ui:InvokeWorkflowFile>
                                     </Sequence>
@@ -1554,11 +1418,11 @@
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                 <av:Point x:Key="ShapeLocation">180,1018.54</av:Point>
-                                                <av:Size x:Key="ShapeSize">200,83</av:Size>
-                                                <av:PointCollection x:Key="ConnectorLocation">280,1101.54 280,1131.54 280.14166666666665,1131.54 280.14166666666665,1149.54</av:PointCollection>
+                                                <av:Size x:Key="ShapeSize">200,81</av:Size>
+                                                <av:PointCollection x:Key="ConnectorLocation">280,1099.54 280,1129.54 280.14166666666665,1129.54 280.14166666666665,1149.54</av:PointCollection>
                                               </scg:Dictionary>
                                             </sap:WorkflowViewStateService.ViewState>
-                                            <Sequence DisplayName="Obtain Unstamped Image" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                                            <Sequence DisplayName="Obtain Unstamped Image" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_30">
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1566,21 +1430,11 @@
                                               </sap:WorkflowViewStateService.ViewState>
                                               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Apps\Dynamic365\Dynamic365_ObtainUnstampedImage.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_26" UnSafe="False" WorkflowFileName="Apps\Dynamic365\Dynamic365_ObtainUnstampedImage.xaml">
                                                 <ui:InvokeWorkflowFile.Arguments>
-                                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrPathWithoutPictureStamp">
-                                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Path.Combine(in_Config(&quot;RutaArchivosGenerados&quot;).ToString, in_TransactionItem.SpecificContent(&quot;DocumentNumber&quot;).ToString.Replace(&quot;/&quot;, &quot;-&quot;).Replace(&quot;\&quot;, &quot;-&quot;) + &quot;.png&quot;)" />
-                                                  </InArgument>
-                                                  <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooObtainUnstampedImage">
-                                                    <VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="vBooObtainUnstamped" />
-                                                  </OutArgument>
-                                                  <OutArgument x:TypeArguments="x:String" x:Key="out_StrExceptionMessage">
-                                                    <VisualBasicReference x:TypeArguments="x:String" ExpressionText="vStrExceptionMessage" />
-                                                  </OutArgument>
-                                                  <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooDynamic365Error">
-                                                    <VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="vBooDynamic365Error" />
-                                                  </OutArgument>
-                                                  <InArgument x:TypeArguments="x:Boolean" x:Key="in_BooPaymentStampError">
-                                                    <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="vBooPaymentStampError" />
-                                                  </InArgument>
+                                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrPathWithoutPictureStamp">[Path.Combine(in_Config("RutaArchivosGenerados").ToString, in_TransactionItem.SpecificContent("DocumentNumber").ToString.Replace("/", "-").Replace("\", "-") + ".png")]</InArgument>
+                                                  <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooObtainUnstampedImage">[vBooObtainUnstamped]</OutArgument>
+                                                  <OutArgument x:TypeArguments="x:String" x:Key="out_StrExceptionMessage">[vStrExceptionMessage]</OutArgument>
+                                                  <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooDynamic365Error">[vBooDynamic365Error]</OutArgument>
+                                                  <InArgument x:TypeArguments="x:Boolean" x:Key="in_BooPaymentStampError">[vBooPaymentStampError]</InArgument>
                                                 </ui:InvokeWorkflowFile.Arguments>
                                               </ui:InvokeWorkflowFile>
                                             </Sequence>
@@ -1600,11 +1454,11 @@
                                                     <sap:WorkflowViewStateService.ViewState>
                                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                         <av:Point x:Key="ShapeLocation">40,1238.54</av:Point>
-                                                        <av:Size x:Key="ShapeSize">200,83</av:Size>
-                                                        <av:PointCollection x:Key="ConnectorLocation">140,1321.54 140,1369.54</av:PointCollection>
+                                                        <av:Size x:Key="ShapeSize">200,81</av:Size>
+                                                        <av:PointCollection x:Key="ConnectorLocation">140,1319.54 140,1369.54</av:PointCollection>
                                                       </scg:Dictionary>
                                                     </sap:WorkflowViewStateService.ViewState>
-                                                    <Sequence DisplayName="Send Notification Payment Not Stamped" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                                                    <Sequence DisplayName="Send Notification Payment Not Stamped" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_32">
                                                       <sap:WorkflowViewStateService.ViewState>
                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1612,30 +1466,14 @@
                                                       </sap:WorkflowViewStateService.ViewState>
                                                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Apps\Mail\Mail_SendNotifications.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_28" UnSafe="False" WorkflowFileName="Apps\Mail\Mail_SendNotifications.xaml">
                                                         <ui:InvokeWorkflowFile.Arguments>
-                                                          <InArgument x:TypeArguments="scg:IEnumerable(x:String)" x:Key="in_CstAttachmentsCollection">
-                                                            <VisualBasicValue x:TypeArguments="scg:IEnumerable(x:String)" ExpressionText="{}{Path.Combine(in_Config(&quot;RutaArchivosGenerados&quot;).ToString, in_TransactionItem.SpecificContent(&quot;DocumentNumber&quot;).ToString.Replace(&quot;/&quot;, &quot;-&quot;).Replace(&quot;\&quot;, &quot;-&quot;) + &quot;.png&quot;)}" />
-                                                          </InArgument>
-                                                          <InArgument x:TypeArguments="x:String" x:Key="in_StrTemplate">
-                                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Path.Combine(in_Config(&quot;RutaFormatos&quot;).ToString, in_Config(&quot;StartTemplate&quot;).ToString)" />
-                                                          </InArgument>
-                                                          <InArgument x:TypeArguments="x:String" x:Key="in_StrBody">
-                                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;BodyPaymentNotStamped&quot;).ToString" />
-                                                          </InArgument>
-                                                          <InArgument x:TypeArguments="x:String" x:Key="in_StrSubject">
-                                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SubjectPaymentNotStamped&quot;).ToString + &quot; &quot; + in_TransactionItem.SpecificContent(&quot;DocumentNumber&quot;).ToString" />
-                                                          </InArgument>
-                                                          <InArgument x:TypeArguments="x:String" x:Key="in_StrTo">
-                                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;ToPaymentNotStamped&quot;).ToString" />
-                                                          </InArgument>
-                                                          <InArgument x:TypeArguments="x:String" x:Key="in_StrBcc">
-                                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Nothing" />
-                                                          </InArgument>
-                                                          <InArgument x:TypeArguments="x:String" x:Key="in_SrtCc">
-                                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Nothing" />
-                                                          </InArgument>
-                                                          <InArgument x:TypeArguments="x:Boolean" x:Key="in_BooAlert">
-                                                            <Literal x:TypeArguments="x:Boolean" />
-                                                          </InArgument>
+                                                          <InArgument x:TypeArguments="scg:IEnumerable(x:String)" x:Key="in_CstAttachmentsCollection">[{Path.Combine(in_Config("RutaArchivosGenerados").ToString, in_TransactionItem.SpecificContent("DocumentNumber").ToString.Replace("/", "-").Replace("\", "-") + ".png")}]</InArgument>
+                                                          <InArgument x:TypeArguments="x:String" x:Key="in_StrTemplate">[Path.Combine(in_Config("RutaFormatos").ToString, in_Config("StartTemplate").ToString)]</InArgument>
+                                                          <InArgument x:TypeArguments="x:String" x:Key="in_StrBody">[in_Config("BodyPaymentNotStamped").ToString]</InArgument>
+                                                          <InArgument x:TypeArguments="x:String" x:Key="in_StrSubject">[in_Config("SubjectPaymentNotStamped").ToString + " " + in_TransactionItem.SpecificContent("DocumentNumber").ToString]</InArgument>
+                                                          <InArgument x:TypeArguments="x:String" x:Key="in_StrTo">[in_Config("ToPaymentNotStamped").ToString]</InArgument>
+                                                          <InArgument x:TypeArguments="x:String" x:Key="in_StrBcc">[Nothing]</InArgument>
+                                                          <InArgument x:TypeArguments="x:String" x:Key="in_SrtCc">[Nothing]</InArgument>
+                                                          <InArgument x:TypeArguments="x:Boolean" x:Key="in_BooAlert">False</InArgument>
                                                         </ui:InvokeWorkflowFile.Arguments>
                                                       </ui:InvokeWorkflowFile>
                                                     </Sequence>
@@ -1644,10 +1482,10 @@
                                                         <sap:WorkflowViewStateService.ViewState>
                                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                             <av:Point x:Key="ShapeLocation">40,1369.54</av:Point>
-                                                            <av:Size x:Key="ShapeSize">200,83</av:Size>
+                                                            <av:Size x:Key="ShapeSize">200,81</av:Size>
                                                           </scg:Dictionary>
                                                         </sap:WorkflowViewStateService.ViewState>
-                                                        <Sequence DisplayName="Add Tracking Observations Send Notification Payment Not Stamped" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                                                        <Sequence DisplayName="Add Tracking Observations Send Notification Payment Not Stamped" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_33">
                                                           <sap:WorkflowViewStateService.ViewState>
                                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1671,10 +1509,10 @@
                                                     <sap:WorkflowViewStateService.ViewState>
                                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                         <av:Point x:Key="ShapeLocation">320,1239.5</av:Point>
-                                                        <av:Size x:Key="ShapeSize">200,83</av:Size>
+                                                        <av:Size x:Key="ShapeSize">200,81</av:Size>
                                                       </scg:Dictionary>
                                                     </sap:WorkflowViewStateService.ViewState>
-                                                    <Sequence DisplayName="Add Tracking Observations Obtain Unstamped Image" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                                                    <Sequence DisplayName="Add Tracking Observations Obtain Unstamped Image" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_31">
                                                       <sap:WorkflowViewStateService.ViewState>
                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1700,11 +1538,11 @@
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                 <av:Point x:Key="ShapeLocation">180,568.54</av:Point>
-                                                <av:Size x:Key="ShapeSize">200,83</av:Size>
-                                                <av:PointCollection x:Key="ConnectorLocation">280,651.54 280,681.54 280.14166666666665,681.54 280.14166666666665,699.54</av:PointCollection>
+                                                <av:Size x:Key="ShapeSize">200,81</av:Size>
+                                                <av:PointCollection x:Key="ConnectorLocation">280,649.54 280,679.54 280.14166666666665,679.54 280.14166666666665,699.54</av:PointCollection>
                                               </scg:Dictionary>
                                             </sap:WorkflowViewStateService.ViewState>
-                                            <Sequence DisplayName="Validate Fiscal Invoice Folio" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                                            <Sequence DisplayName="Validate Fiscal Invoice Folio" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_21">
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1735,10 +1573,10 @@
                                                     <sap:WorkflowViewStateService.ViewState>
                                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                         <av:Point x:Key="ShapeLocation">40,798.54</av:Point>
-                                                        <av:Size x:Key="ShapeSize">200,83</av:Size>
+                                                        <av:Size x:Key="ShapeSize">200,81</av:Size>
                                                       </scg:Dictionary>
                                                     </sap:WorkflowViewStateService.ViewState>
-                                                    <Sequence DisplayName="Add Tracking Observations Stamp Payment Successful" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                                                    <Sequence DisplayName="Add Tracking Observations Stamp Payment Successful" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_22">
                                                       <sap:WorkflowViewStateService.ViewState>
                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1760,11 +1598,11 @@
                                                     <sap:WorkflowViewStateService.ViewState>
                                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                         <av:Point x:Key="ShapeLocation">320,798.54</av:Point>
-                                                        <av:Size x:Key="ShapeSize">200,83</av:Size>
-                                                        <av:PointCollection x:Key="ConnectorLocation">420,881.54 420,929.54</av:PointCollection>
+                                                        <av:Size x:Key="ShapeSize">200,81</av:Size>
+                                                        <av:PointCollection x:Key="ConnectorLocation">420,879.54 420,929.54</av:PointCollection>
                                                       </scg:Dictionary>
                                                     </sap:WorkflowViewStateService.ViewState>
-                                                    <Sequence DisplayName="Validate Verification Attempts" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                                                    <Sequence DisplayName="Validate Verification Attempts" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_23">
                                                       <sap:WorkflowViewStateService.ViewState>
                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1795,11 +1633,11 @@
                                                             <sap:WorkflowViewStateService.ViewState>
                                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                 <av:Point x:Key="ShapeLocation">460,1018.54</av:Point>
-                                                                <av:Size x:Key="ShapeSize">200,83</av:Size>
-                                                                <av:PointCollection x:Key="ConnectorLocation">560,1101.54 560,1149.54</av:PointCollection>
+                                                                <av:Size x:Key="ShapeSize">200,81</av:Size>
+                                                                <av:PointCollection x:Key="ConnectorLocation">560,1099.54 560,1149.54</av:PointCollection>
                                                               </scg:Dictionary>
                                                             </sap:WorkflowViewStateService.ViewState>
-                                                            <Sequence DisplayName="Add Queue Validate Stamped" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                                                            <Sequence DisplayName="Add Queue Validate Stamped" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_27">
                                                               <sap:WorkflowViewStateService.ViewState>
                                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1830,10 +1668,10 @@
                                                                     <sap:WorkflowViewStateService.ViewState>
                                                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                         <av:Point x:Key="ShapeLocation">600,1239.5</av:Point>
-                                                                        <av:Size x:Key="ShapeSize">200,83</av:Size>
+                                                                        <av:Size x:Key="ShapeSize">200,81</av:Size>
                                                                       </scg:Dictionary>
                                                                     </sap:WorkflowViewStateService.ViewState>
-                                                                    <Sequence DisplayName="Add Tracking Observations Add Queue Validate Stamped" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                                                                    <Sequence DisplayName="Add Tracking Observations Add Queue Validate Stamped" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_28">
                                                                       <sap:WorkflowViewStateService.ViewState>
                                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1871,10 +1709,10 @@
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <av:Point x:Key="ShapeLocation">320,348.53999999999996</av:Point>
-                                        <av:Size x:Key="ShapeSize">200,83</av:Size>
+                                        <av:Size x:Key="ShapeSize">200,81</av:Size>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <Sequence DisplayName="Add Tracking Observations Update Payment Data" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                                    <Sequence DisplayName="Add Tracking Observations Update Payment Data" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_20">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1917,27 +1755,230 @@
                         <x:Reference>__ReferenceID55</x:Reference>
                       </FlowStep.Next>
                     </FlowStep>
-                    <FlowStep x:Key="No Aplica" x:Name="__ReferenceID62">
+                    <FlowStep x:Key="No Aplica" x:Name="__ReferenceID70">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <av:Point x:Key="ShapeLocation">560,676.54</av:Point>
-                          <av:Size x:Key="ShapeSize">200,83</av:Size>
+                          <av:Size x:Key="ShapeSize">200,81</av:Size>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Sequence DisplayName="Add Tracking Observations Does Not Apply" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                      <Sequence DisplayName="Does Not Apply" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_7">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Apps\Excel\Excel_AddTrackingObservations.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Apps\Excel\Excel_AddTrackingObservations.xaml">
-                          <ui:InvokeWorkflowFile.Arguments>
-                            <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DtbProcessMonitoring">[in_DtbProcessMonitoring]</InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="in_StrPathProcessMonitoring">[Path.Combine(in_Config("RutaArchivosGenerados").ToString, in_Config("FileTracing").ToString)]</InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="in_StrSheetsProcessMonitoring">[in_Config("SheetTracing").ToString]</InArgument>
-                            <InArgument x:TypeArguments="s:Object[]" x:Key="in_AobAddDataRow">[{in_TransactionItem.SpecificContent("Client").ToString, in_TransactionItem.SpecificContent("FolioPayment").ToString, in_TransactionItem.SpecificContent("RegistrationDate").ToString, in_TransactionItem.SpecificContent("TypeDocument").ToString, in_TransactionItem.SpecificContent("DocumentNumber").ToString, in_TransactionItem.SpecificContent("Description").ToString, in_TransactionItem.SpecificContent("CurrencyCode").ToString, in_TransactionItem.SpecificContent("InitialImport").ToString, in_TransactionItem.SpecificContent("Import").ToString, in_TransactionItem.SpecificContent("PendingImport").ToString, in_TransactionItem.SpecificContent("ExpirationDate").ToString, in_TransactionItem.SpecificContent("PaymentMethodCode").ToString, in_TransactionItem.SpecificContent("MovementNumber").ToString, in_TransactionItem.SpecificContent("ExternalDocumentNumber").ToString, in_TransactionItem.SpecificContent("ElectronicDocumentStatus").ToString, in_TransactionItem.SpecificContent("PACTaxInvoiceNumber").ToString, in_TransactionItem.SpecificContent("ErrorCode").ToString, in_TransactionItem.SpecificContent("ErrorDescription").ToString, If(String.IsNullOrEmpty(vStrExceptionMessage), in_Config("Successful").ToString, in_Config("Failed").ToString), If(String.IsNullOrEmpty(vStrExceptionMessage), in_Config("ObservationDoesNotApply").ToString, vStrExceptionMessage)}]</InArgument>
-                          </ui:InvokeWorkflowFile.Arguments>
-                        </ui:InvokeWorkflowFile>
+                        <Flowchart DisplayName="Flowchart Does Not Apply" sap:VirtualizedContainerService.HintSize="654,820" sap2010:WorkflowViewState.IdRef="Flowchart_4">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              <av:Point x:Key="ShapeLocation">280,2.5</av:Point>
+                              <av:Size x:Key="ShapeSize">60,75</av:Size>
+                              <x:Double x:Key="Width">620</x:Double>
+                              <x:Double x:Key="Height">782.54</x:Double>
+                              <av:PointCollection x:Key="ConnectorLocation">340,40 380,40 380,127.5</av:PointCollection>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Flowchart.StartNode>
+                            <x:Reference>__ReferenceID63</x:Reference>
+                          </Flowchart.StartNode>
+                          <FlowStep x:Name="__ReferenceID56">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <av:Point x:Key="ShapeLocation">0,699.54</av:Point>
+                                <av:Size x:Key="ShapeSize">200,83</av:Size>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Sequence DisplayName="Add Tracking Observations Send Notification Payment Not Stamped" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_61">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Apps\Excel\Excel_AddTrackingObservations.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_56" UnSafe="False" WorkflowFileName="Apps\Excel\Excel_AddTrackingObservations.xaml">
+                                <ui:InvokeWorkflowFile.Arguments>
+                                  <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DtbProcessMonitoring">[in_DtbProcessMonitoring]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrPathProcessMonitoring">[Path.Combine(in_Config("RutaArchivosGenerados").ToString, in_Config("FileTracing").ToString)]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrSheetsProcessMonitoring">[in_Config("SheetTracing").ToString]</InArgument>
+                                  <InArgument x:TypeArguments="s:Object[]" x:Key="in_AobAddDataRow">[{in_TransactionItem.SpecificContent("Client").ToString, vStrFolioPayment, in_TransactionItem.SpecificContent("RegistrationDate").ToString, in_TransactionItem.SpecificContent("TypeDocument").ToString, in_TransactionItem.SpecificContent("DocumentNumber").ToString, in_TransactionItem.SpecificContent("Description").ToString, in_TransactionItem.SpecificContent("CurrencyCode").ToString, in_TransactionItem.SpecificContent("InitialImport").ToString, in_TransactionItem.SpecificContent("Import").ToString, in_TransactionItem.SpecificContent("PendingImport").ToString, in_TransactionItem.SpecificContent("ExpirationDate").ToString, in_TransactionItem.SpecificContent("PaymentMethodCode").ToString, in_TransactionItem.SpecificContent("MovementNumber").ToString, in_TransactionItem.SpecificContent("ExternalDocumentNumber").ToString, in_TransactionItem.SpecificContent("ElectronicDocumentStatus").ToString, vStrPACTaxInvoiceNumber, in_TransactionItem.SpecificContent("ErrorCode").ToString, in_TransactionItem.SpecificContent("ErrorDescription").ToString, If(String.IsNullOrEmpty(vStrExceptionMessage), in_Config("Successful").ToString, in_Config("Failed").ToString), If(String.IsNullOrEmpty(vStrExceptionMessage), in_Config("ObservationSendNotificationPaymentNotStamped").ToString, vStrExceptionMessage)}]</InArgument>
+                                </ui:InvokeWorkflowFile.Arguments>
+                              </ui:InvokeWorkflowFile>
+                            </Sequence>
+                          </FlowStep>
+                          <FlowStep x:Name="__ReferenceID58">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <av:Point x:Key="ShapeLocation">280,569.5</av:Point>
+                                <av:Size x:Key="ShapeSize">200,83</av:Size>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Sequence DisplayName="Add Tracking Observations Obtain Unstamped Image" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_62">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Apps\Excel\Excel_AddTrackingObservations.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_57" UnSafe="False" WorkflowFileName="Apps\Excel\Excel_AddTrackingObservations.xaml">
+                                <ui:InvokeWorkflowFile.Arguments>
+                                  <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DtbProcessMonitoring">[in_DtbProcessMonitoring]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrPathProcessMonitoring">[Path.Combine(in_Config("RutaArchivosGenerados").ToString, in_Config("FileTracing").ToString)]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrSheetsProcessMonitoring">[in_Config("SheetTracing").ToString]</InArgument>
+                                  <InArgument x:TypeArguments="s:Object[]" x:Key="in_AobAddDataRow">[{in_TransactionItem.SpecificContent("Client").ToString, vStrFolioPayment, in_TransactionItem.SpecificContent("RegistrationDate").ToString, in_TransactionItem.SpecificContent("TypeDocument").ToString, in_TransactionItem.SpecificContent("DocumentNumber").ToString, in_TransactionItem.SpecificContent("Description").ToString, in_TransactionItem.SpecificContent("CurrencyCode").ToString, in_TransactionItem.SpecificContent("InitialImport").ToString, in_TransactionItem.SpecificContent("Import").ToString, in_TransactionItem.SpecificContent("PendingImport").ToString, in_TransactionItem.SpecificContent("ExpirationDate").ToString, in_TransactionItem.SpecificContent("PaymentMethodCode").ToString, in_TransactionItem.SpecificContent("MovementNumber").ToString, in_TransactionItem.SpecificContent("ExternalDocumentNumber").ToString, in_TransactionItem.SpecificContent("ElectronicDocumentStatus").ToString, vStrPACTaxInvoiceNumber, in_TransactionItem.SpecificContent("ErrorCode").ToString, in_TransactionItem.SpecificContent("ErrorDescription").ToString, If(String.IsNullOrEmpty(vStrExceptionMessage), in_Config("Successful").ToString, in_Config("Failed").ToString), If(String.IsNullOrEmpty(vStrExceptionMessage), in_Config("ObservationObtainUnstampedImage").ToString, vStrExceptionMessage)}]</InArgument>
+                                </ui:InvokeWorkflowFile.Arguments>
+                              </ui:InvokeWorkflowFile>
+                            </Sequence>
+                          </FlowStep>
+                          <FlowStep x:Name="__ReferenceID57">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <av:Point x:Key="ShapeLocation">0,568.54</av:Point>
+                                <av:Size x:Key="ShapeSize">200,83</av:Size>
+                                <av:PointCollection x:Key="ConnectorLocation">100,651.54 100,699.54</av:PointCollection>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Sequence DisplayName="Send Notification Payment Not Stamped" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_63">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Apps\Mail\Mail_SendNotifications.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_58" UnSafe="False" WorkflowFileName="Apps\Mail\Mail_SendNotifications.xaml">
+                                <ui:InvokeWorkflowFile.Arguments>
+                                  <InArgument x:TypeArguments="scg:IEnumerable(x:String)" x:Key="in_CstAttachmentsCollection">[{Path.Combine(in_Config("RutaArchivosGenerados").ToString, in_TransactionItem.SpecificContent("DocumentNumber").ToString.Replace("/", "-").Replace("\", "-") + ".png")}]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrTemplate">[Path.Combine(in_Config("RutaFormatos").ToString, in_Config("StartTemplate").ToString)]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrBody">[in_Config("BodyPaymentNotStamped").ToString]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrSubject">[in_Config("SubjectPaymentNotStamped").ToString + " " + in_TransactionItem.SpecificContent("DocumentNumber").ToString]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrTo">[in_Config("ToPaymentNotStamped").ToString]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrBcc">[Nothing]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_SrtCc">[Nothing]</InArgument>
+                                  <InArgument x:TypeArguments="x:Boolean" x:Key="in_BooAlert">False</InArgument>
+                                </ui:InvokeWorkflowFile.Arguments>
+                              </ui:InvokeWorkflowFile>
+                            </Sequence>
+                            <FlowStep.Next>
+                              <x:Reference>__ReferenceID56</x:Reference>
+                            </FlowStep.Next>
+                          </FlowStep>
+                          <FlowDecision x:Name="__ReferenceID59" Condition="[vBooObtainUnstamped]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_25" True="{x:Reference __ReferenceID57}" False="{x:Reference __ReferenceID58}">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <av:Point x:Key="ShapeLocation">200.64166666666665,479.53999999999996</av:Point>
+                                <av:Size x:Key="ShapeSize">79,87</av:Size>
+                                <av:PointCollection x:Key="FalseConnector">279.64166666666665,523.04 380,523.04 380,569.5</av:PointCollection>
+                                <av:PointCollection x:Key="TrueConnector">200.64166666666665,523.04 100,523.04 100,568.54</av:PointCollection>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </FlowDecision>
+                          <FlowStep x:Name="__ReferenceID60">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <av:Point x:Key="ShapeLocation">140,348.53999999999996</av:Point>
+                                <av:Size x:Key="ShapeSize">200,81</av:Size>
+                                <av:PointCollection x:Key="ConnectorLocation">240,429.53999999999996 240,459.53999999999996 240.14166666666665,459.53999999999996 240.14166666666665,479.53999999999996</av:PointCollection>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Sequence DisplayName="Obtain Unstamped Image" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_64">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Apps\Dynamic365\Dynamic365_ObtainUnstampedImage.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_59" UnSafe="False" WorkflowFileName="Apps\Dynamic365\Dynamic365_ObtainUnstampedImage.xaml">
+                                <ui:InvokeWorkflowFile.Arguments>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrPathWithoutPictureStamp">[Path.Combine(in_Config("RutaArchivosGenerados").ToString, in_TransactionItem.SpecificContent("DocumentNumber").ToString.Replace("/", "-").Replace("\", "-") + ".png")]</InArgument>
+                                  <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooObtainUnstampedImage">[vBooObtainUnstamped]</OutArgument>
+                                  <OutArgument x:TypeArguments="x:String" x:Key="out_StrExceptionMessage">[vStrExceptionMessage]</OutArgument>
+                                  <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooDynamic365Error">[vBooDynamic365Error]</OutArgument>
+                                </ui:InvokeWorkflowFile.Arguments>
+                              </ui:InvokeWorkflowFile>
+                            </Sequence>
+                            <FlowStep.Next>
+                              <x:Reference>__ReferenceID59</x:Reference>
+                            </FlowStep.Next>
+                          </FlowStep>
+                          <FlowDecision x:Name="__ReferenceID61" Condition="[vBooStampProcessDocument]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_26" True="{x:Reference __ReferenceID60}">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <av:Point x:Key="ShapeLocation">340.5,258.5</av:Point>
+                                <av:Size x:Key="ShapeSize">79,87</av:Size>
+                                <av:PointCollection x:Key="TrueConnector">340.5,302 240,302 240,348.53999999999996</av:PointCollection>
+                                <av:PointCollection x:Key="FalseConnector">419.5,302 520,302 520,349.5</av:PointCollection>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <FlowDecision.False>
+                              <FlowStep x:Name="__ReferenceID62">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <av:Point x:Key="ShapeLocation">420,349.5</av:Point>
+                                    <av:Size x:Key="ShapeSize">200,81</av:Size>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Sequence DisplayName="Add Tracking Observations Does Not Apply" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_66">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Apps\Excel\Excel_AddTrackingObservations.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_61" UnSafe="False" WorkflowFileName="Apps\Excel\Excel_AddTrackingObservations.xaml">
+                                    <ui:InvokeWorkflowFile.Arguments>
+                                      <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DtbProcessMonitoring">[in_DtbProcessMonitoring]</InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="in_StrPathProcessMonitoring">[Path.Combine(in_Config("RutaArchivosGenerados").ToString, in_Config("FileTracing").ToString)]</InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="in_StrSheetsProcessMonitoring">[in_Config("SheetTracing").ToString]</InArgument>
+                                      <InArgument x:TypeArguments="s:Object[]" x:Key="in_AobAddDataRow">[{in_TransactionItem.SpecificContent("Client").ToString, in_TransactionItem.SpecificContent("FolioPayment").ToString, in_TransactionItem.SpecificContent("RegistrationDate").ToString, in_TransactionItem.SpecificContent("TypeDocument").ToString, in_TransactionItem.SpecificContent("DocumentNumber").ToString, in_TransactionItem.SpecificContent("Description").ToString, in_TransactionItem.SpecificContent("CurrencyCode").ToString, in_TransactionItem.SpecificContent("InitialImport").ToString, in_TransactionItem.SpecificContent("Import").ToString, in_TransactionItem.SpecificContent("PendingImport").ToString, in_TransactionItem.SpecificContent("ExpirationDate").ToString, in_TransactionItem.SpecificContent("PaymentMethodCode").ToString, in_TransactionItem.SpecificContent("MovementNumber").ToString, in_TransactionItem.SpecificContent("ExternalDocumentNumber").ToString, in_TransactionItem.SpecificContent("ElectronicDocumentStatus").ToString, in_TransactionItem.SpecificContent("PACTaxInvoiceNumber").ToString, in_TransactionItem.SpecificContent("ErrorCode").ToString, in_TransactionItem.SpecificContent("ErrorDescription").ToString, If(String.IsNullOrEmpty(vStrExceptionMessage), in_Config("Successful").ToString, in_Config("Failed").ToString), If(String.IsNullOrEmpty(vStrExceptionMessage), in_Config("ObservationDoesNotApply").ToString, vStrExceptionMessage)}]</InArgument>
+                                    </ui:InvokeWorkflowFile.Arguments>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </ui:InvokeWorkflowFile>
+                                </Sequence>
+                              </FlowStep>
+                            </FlowDecision.False>
+                          </FlowDecision>
+                          <FlowStep x:Name="__ReferenceID63">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <av:Point x:Key="ShapeLocation">280,127.5</av:Point>
+                                <av:Size x:Key="ShapeSize">200,81</av:Size>
+                                <av:PointCollection x:Key="ConnectorLocation">380,208.5 380,258.5</av:PointCollection>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Sequence DisplayName="Validate Stamped Process Document" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_65">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Apps\File\File_ValidateStampedProcessDocument.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_60" UnSafe="False" WorkflowFileName="Apps\File\File_ValidateStampedProcessDocument.xaml">
+                                <ui:InvokeWorkflowFile.Arguments>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrPACTaxInvoiceNumber">
+                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TransactionItem.SpecificContent(&quot;PACTaxInvoiceNumber&quot;).ToString" />
+                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrMessageStamp">
+                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;MessageStamp&quot;).ToString" />
+                                  </InArgument>
+                                  <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooStampProcessDocument">
+                                    <VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="vBooStampProcessDocument" />
+                                  </OutArgument>
+                                  <OutArgument x:TypeArguments="x:String" x:Key="out_StrExceptionMessage">
+                                    <VisualBasicReference x:TypeArguments="x:String" ExpressionText="vStrExceptionMessage" />
+                                  </OutArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrDescriptionError">
+                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TransactionItem.SpecificContent(&quot;ErrorDescription&quot;).ToString" />
+                                  </InArgument>
+                                </ui:InvokeWorkflowFile.Arguments>
+                              </ui:InvokeWorkflowFile>
+                            </Sequence>
+                            <FlowStep.Next>
+                              <x:Reference>__ReferenceID61</x:Reference>
+                            </FlowStep.Next>
+                          </FlowStep>
+                          <x:Reference>__ReferenceID62</x:Reference>
+                        </Flowchart>
                       </Sequence>
                     </FlowStep>
                   </FlowSwitch>
@@ -1945,14 +1986,14 @@
               </FlowStep>
             </FlowDecision.True>
             <FlowDecision.False>
-              <FlowStep x:Name="__ReferenceID57">
+              <FlowStep x:Name="__ReferenceID65">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <av:Point x:Key="ShapeLocation">840,348.54</av:Point>
-                    <av:Size x:Key="ShapeSize">200,83</av:Size>
+                    <av:Size x:Key="ShapeSize">200,81</av:Size>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Sequence DisplayName="Add Tracking Observations Search Document Number" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <Sequence DisplayName="Add Tracking Observations Search Document Number" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_3">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1972,15 +2013,6 @@
           </FlowDecision>
         </FlowStep.Next>
       </FlowStep>
-      <x:Reference>__ReferenceID56</x:Reference>
-      <x:Reference>__ReferenceID57</x:Reference>
-      <x:Reference>__ReferenceID58</x:Reference>
-      <x:Reference>__ReferenceID59</x:Reference>
-      <x:Reference>__ReferenceID60</x:Reference>
-      <x:Reference>__ReferenceID61</x:Reference>
-      <x:Reference>__ReferenceID62</x:Reference>
-      <x:Reference>__ReferenceID55</x:Reference>
-      <x:Reference>__ReferenceID63</x:Reference>
       <x:Reference>__ReferenceID64</x:Reference>
       <x:Reference>__ReferenceID65</x:Reference>
       <x:Reference>__ReferenceID66</x:Reference>
@@ -1988,8 +2020,17 @@
       <x:Reference>__ReferenceID68</x:Reference>
       <x:Reference>__ReferenceID69</x:Reference>
       <x:Reference>__ReferenceID70</x:Reference>
+      <x:Reference>__ReferenceID55</x:Reference>
       <x:Reference>__ReferenceID71</x:Reference>
       <x:Reference>__ReferenceID72</x:Reference>
+      <x:Reference>__ReferenceID73</x:Reference>
+      <x:Reference>__ReferenceID74</x:Reference>
+      <x:Reference>__ReferenceID75</x:Reference>
+      <x:Reference>__ReferenceID76</x:Reference>
+      <x:Reference>__ReferenceID77</x:Reference>
+      <x:Reference>__ReferenceID78</x:Reference>
+      <x:Reference>__ReferenceID79</x:Reference>
+      <x:Reference>__ReferenceID80</x:Reference>
     </Flowchart>
     <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="1074,85" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Revisar&quot;]" />
   </Sequence>
