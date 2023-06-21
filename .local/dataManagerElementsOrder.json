@@ -141,6 +141,7 @@
       "VariablesSectionElementsOrder": [],
       "ArgumentsSectionElementsOrder": [
         "out_BooDownloadStampedPaymentsList",
+        "in_StrGeneratedFilesPath",
         "in_StrDownloadPath"
       ],
       "ConstantsSectionElementsOrder": [],
@@ -330,6 +331,7 @@
       "SortBy": 0,
       "VariablesSectionElementsOrder": [],
       "ArgumentsSectionElementsOrder": [
+        "in_StrGeneratedFilesPath",
         "out_BooDynamic365Error",
         "out_StrExceptionMessage",
         "out_BooDownloadReconciledMovements",
@@ -599,6 +601,22 @@
         "out_BooStampProcessDocument",
         "in_StrMessageStamp",
         "in_StrPACTaxInvoiceNumber"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Apps/UiPath/UiPath_Download.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "vBooDownloadedFileExists&Sequence_1",
+        "vBooFolderExist&Sequence_1",
+        "vFifDownload&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_StrDownloadPath",
+        "in_StrGeneratedFilesPath",
+        "out_BooDownload"
       ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null

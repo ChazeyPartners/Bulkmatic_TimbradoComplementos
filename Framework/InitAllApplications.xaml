@@ -309,15 +309,9 @@
                                       </sap:WorkflowViewStateService.ViewState>
                                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Apps\Dynamic365\Dynamic365_SelectModule.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Apps\Dynamic365\Dynamic365_SelectModule.xaml">
                                         <ui:InvokeWorkflowFile.Arguments>
-                                          <InArgument x:TypeArguments="x:String" x:Key="in_StrDynamic365Module">
-                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;Dynamic365Module&quot;).ToString" />
-                                          </InArgument>
-                                          <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooSelectModule">
-                                            <VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="vBooSelectModule" />
-                                          </OutArgument>
-                                          <OutArgument x:TypeArguments="x:String" x:Key="out_StrExceptionMessage">
-                                            <VisualBasicReference x:TypeArguments="x:String" ExpressionText="vStrExceptionMessage" />
-                                          </OutArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="in_StrDynamic365Module">[in_Config("Dynamic365Module").ToString]</InArgument>
+                                          <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooSelectModule">[vBooSelectModule]</OutArgument>
+                                          <OutArgument x:TypeArguments="x:String" x:Key="out_StrExceptionMessage">[vStrExceptionMessage]</OutArgument>
                                         </ui:InvokeWorkflowFile.Arguments>
                                       </ui:InvokeWorkflowFile>
                                     </Sequence>
@@ -385,8 +379,15 @@
                                                       </sap:WorkflowViewStateService.ViewState>
                                                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Apps\Dynamic365\Dynamic365_DownloadStampedPaymentsList.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Apps\Dynamic365\Dynamic365_DownloadStampedPaymentsList.xaml">
                                                         <ui:InvokeWorkflowFile.Arguments>
-                                                          <InArgument x:TypeArguments="x:String" x:Key="in_StrDownloadPath">[Path.Combine(in_Config("RutaArchivosRecibidos").ToString, in_Config("FileStampedPaymentList").ToString)]</InArgument>
-                                                          <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooDownloadStampedPaymentsList">[vBooDownloadStampedPaymentsList]</OutArgument>
+                                                          <InArgument x:TypeArguments="x:String" x:Key="in_StrDownloadPath">
+                                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;FileDownload&quot;).ToString" />
+                                                          </InArgument>
+                                                          <InArgument x:TypeArguments="x:String" x:Key="in_StrGeneratedFilesPath">
+                                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Path.Combine(in_Config(&quot;RutaArchivosRecibidos&quot;).ToString, in_Config(&quot;FileStampedPaymentList&quot;).ToString)" />
+                                                          </InArgument>
+                                                          <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooDownloadStampedPaymentsList">
+                                                            <VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="vBooDownloadStampedPaymentsList" />
+                                                          </OutArgument>
                                                         </ui:InvokeWorkflowFile.Arguments>
                                                       </ui:InvokeWorkflowFile>
                                                     </Sequence>

@@ -4,11 +4,12 @@
     <x:Property Name="out_BooDownloadReconciledMovements" Type="OutArgument(x:Boolean)" />
     <x:Property Name="out_StrExceptionMessage" Type="OutArgument(x:String)" />
     <x:Property Name="out_BooDynamic365Error" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="in_StrGeneratedFilesPath" Type="InArgument(x:String)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>682,3655</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>682,3768</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Dynamic365_DownloadReconciledMovements_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -106,13 +107,13 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="Dynamic365_DownloadReconciledMovements" sap:VirtualizedContainerService.HintSize="692,3590" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Dynamic365_DownloadReconciledMovements" sap:VirtualizedContainerService.HintSize="692,3703" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch Dynamic365_DownloadStampedPaymentsList" sap:VirtualizedContainerService.HintSize="630,3479" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch Dynamic365_DownloadStampedPaymentsList" sap:VirtualizedContainerService.HintSize="630,3592" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -120,20 +121,20 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="592,2620" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="592,2733" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="530,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Download Reconciled Movements&quot;]" />
-          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: Download Reconciled Movements" sap:VirtualizedContainerService.HintSize="530,1441" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="daf24825-0c13-47d0-ba0d-10d1c9419c51" Version="V2" WindowResize="Maximize">
+          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: Download Reconciled Movements" sap:VirtualizedContainerService.HintSize="530,1554" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="daf24825-0c13-47d0-ba0d-10d1c9419c51" Version="V2" WindowResize="Maximize">
             <uix:NApplicationCard.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="496,1184" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="496,1337" sap2010:WorkflowViewState.IdRef="Sequence_2">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -152,6 +153,16 @@
                     </uix:NClick.Target>
                   </uix:NClick>
                   <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Click Open In Excel&quot;]" />
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Apps\UiPath\UiPath_ClearDownload.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Apps\UiPath\UiPath_ClearDownload.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_StrDownloadPath">
+                        <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_StrDownloadPath" />
+                      </InArgument>
+                      <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooDownload">
+                        <VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="out_BooDownloadReconciledMovements" />
+                      </OutArgument>
+                    </ui:InvokeWorkflowFile.Arguments>
+                  </ui:InvokeWorkflowFile>
                   <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="5" DisplayName="Click Open In Excel" sap:VirtualizedContainerService.HintSize="434,157" sap2010:WorkflowViewState.IdRef="NClick_3" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="daf24825-0c13-47d0-ba0d-10d1c9419c51" Version="V3">
                     <uix:NClick.Target>
                       <uix:TargetAnchorable BrowserURL="https://crm.bulkmatic.mx/BULKQA/?node=00000000-7fd0-0000-1521-5f00836bd2d2&amp;page=50200&amp;company=BDM&amp;dc=0&amp;bookmark=12%3bFQAAAACHHFNv&amp;signInRedirected=1&amp;runinframe=1" DesignTimeRectangle="696, 191, 104, 36" DesignTimeScaleFactor="1" FriendlyName="'Abrir en Excel'" FullSelectorArgument="&lt;webctrl src='https://crm.bulkmatic.mx/*' tag='IFRAME' /&gt;&lt;webctrl tag='DIV' innertext='Movs. clientes liquidados*Abrir en ExcelMás opciones*' /&gt;&lt;webctrl aaname='Abrir en Excel' aria-role='menuitem' tag='A' aria-label='Abrir en Excel' /&gt;" FuzzySelectorArgument="&lt;webctrl src='https://crm.bulkmatic.mx/BULKQA/?node=00000000-7fd0-0000-1521-5f*' tag='IFRAME' /&gt;&lt;webctrl parentid='commandBarItemButton_70' tag='SPAN' type='' class='ms-Button-flexContainer flexContainer-51' aaname='' check:innerText='Abrir en Excel' /&gt;" Guid="693181a8-a4d9-49d6-848f-b203c9953835" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGwAAAAoCAYAAAAbrx+3AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANSSURBVHhe7Zkxa1RBFIXzU9w/4B9IerExhSBWbi3EQoJgQCwkKQQLC5UQsYrbKLKp1EQtXBAhwUJiUgS10YiNEUGi3cgZOMvZu/c9s7tZzcB98PHezL137p05b+YtycT+r98pKIcQrDBCsMIIwQojBCuMEKwwQrDCCMEKIwQrjBCsMEKwwgjBCqNSsDcft9PiiwfpYut6OnnjfDo2e8L1C/4tXcFarx6nq49upzO3ZrM4HvDz+gHHCcZLVzBPBEudH8cJxstQgumltmD89An2Y/9n+rT3NT9v7X7IbRUFd73UVsXLTidNTk6lzXdbPf3f9r6nmZkL2a79dXze/ZJOTU8PFHOYIG+j0ehhfn7B9R0V5ML6YJ3Y1yfYzdXlLMS9Tjvf0VZR+GzhOBYkuzw3l1m+3+qzDSrY/8ZbxHFxIMGOXzmddxUu3NFWUfhs4TgW7CqItb6+kZrNZt4htIVg9RxIMPBwYy0Lhrv2008vtXlgVwFPHPY9ebqa7zxi6EP70tLdfKTiGYLrOJwUXgqNVTiOd4QxHjk8u4X+uogALyaOah77PLp5qtgadAz4sB8xfKm9XEPtML3UZkEiLCQngcJ0MTgJ/b7pxGnXotlHYXDHRNm20N8unI2nHXlRT9V49Fd0LNaqc7U1gHZ7pevHGPRrnI7HuD7B+O26trKY76N8w2xCLIYei5wIJ0xQMAr37LbPm5RicwLE1C0K87Ot1OVjbditmrMqhv6wsw8x6MPdi+sRbGrhXBbp9fu3uY1fi7rL6OfBcRRM3L6NgIvhFQxgPyzBYPdqYIwXP6xgwNuhGIsviAJRcJrY2njieLl6BIMwZ+9cysKhjTvaVjC90KZNQTF4y5BY+7UIgGedHOCCeXbb501KQX4cy1V2L34UwRAL1KcqBm39ZFi8OPdHRxX000ttSlWRKiRs8LGT44eXdvQx3vZV5SH0H0SAYQXTnaRjcCfpmFXfMMXLNZRgHhwHIEHdIvEtpB9/BepxAD/aKY7XV7eAxDt66uL/JpiOAxC/9ux5T+1WJFsDhQV41vFo82rrChZ//C2DrmCW+PfK0aRSsOBoEoIVRghWGCFYYYRghRGCFUYIVhghWGGEYIURghVGCFYYE5vbOykohZ30BwUkZR8mpmE4AAAAAElFTkSuQmCC" InformativeScreenshot="5e271e3a2eb34451f065a94e4e12ef36.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*Dynamics 365 Business Central' /&gt;" SearchSteps="Selector" Version="V2" />
@@ -178,10 +189,17 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </uix:NApplicationCard>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Apps\Dynamic365\Dynamic365_Download.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="530,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Apps\Dynamic365\Dynamic365_Download.xaml">
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Apps\UiPath\UiPath_Download.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="530,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Apps\UiPath\UiPath_Download.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="in_StrDownloadPath">[in_StrDownloadPath]</InArgument>
-              <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooDownload">[out_BooDownloadReconciledMovements]</OutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_StrDownloadPath">
+                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_StrDownloadPath" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_StrGeneratedFilesPath">
+                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_StrGeneratedFilesPath" />
+              </InArgument>
+              <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooDownload">
+                <VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="out_BooDownloadReconciledMovements" />
+              </OutArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
           <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: Back Download Reconciled Movements" sap:VirtualizedContainerService.HintSize="530,743" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="daf24825-0c13-47d0-ba0d-10d1c9419c51" Version="V2" WindowResize="Maximize">
@@ -229,7 +247,7 @@
         <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="596,516" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
