@@ -8,7 +8,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>758,4649</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1134,4589</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Dynamic365_Login_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="38">
@@ -113,17 +113,18 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="Dynamic365_Login" sap:VirtualizedContainerService.HintSize="768,4584" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Dynamic365_Login" sap:VirtualizedContainerService.HintSize="768,4524" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ss:SecureString" Name="vSstPassword" />
       <Variable x:TypeArguments="x:String" Name="vStrUsername" />
+      <Variable x:TypeArguments="x:Boolean" Name="vBooLogin" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch Dynamic365_Login" sap:VirtualizedContainerService.HintSize="706,4473" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch Dynamic365_Login" sap:VirtualizedContainerService.HintSize="706,4413" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -131,25 +132,20 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="668,3614" sap2010:WorkflowViewState.IdRef="Sequence_5">
+        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="668,3554" sap2010:WorkflowViewState.IdRef="Sequence_5">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="606,92" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Login&quot;]" />
-          <ui:GetRobotCredential AssetName="[in_StrOrchestratorAssetName]" CacheStrategy="None" DisplayName="Get Credential in_StrOrchestratorAssetName" FolderPath="[in_StrOrchestratorFolderPath]" sap:VirtualizedContainerService.HintSize="606,141" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[vSstPassword]" Username="[vStrUsername]">
-            <ui:GetRobotCredential.TimeoutMS>
-              <InArgument x:TypeArguments="x:Int32" />
-            </ui:GetRobotCredential.TimeoutMS>
-          </ui:GetRobotCredential>
-          <uix:NApplicationCard AttachMode="SingleWindow" CloseMode="Always" DisplayName="Use Browser Edge: https://crm.bulkmatic.mx/BLKMX_PROD/Default" sap:VirtualizedContainerService.HintSize="606,322" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="5e34596a-5e87-4458-8866-21ab45c4cfc4" Version="V2" WindowResize="Maximize">
+          <uix:NApplicationCard AttachMode="SingleWindow" CloseMode="Always" DisplayName="Use Browser Edge: in_StrDynamic365URL" sap:VirtualizedContainerService.HintSize="606,360" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="5e34596a-5e87-4458-8866-21ab45c4cfc4" Version="V2" WindowResize="Maximize">
             <uix:NApplicationCard.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,105" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,103" sap2010:WorkflowViewState.IdRef="Sequence_19">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -168,7 +164,12 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </uix:NApplicationCard>
-          <uix:NApplicationCard AttachMode="SingleWindow" CloseMode="Never" DisplayName="Use Browser Edge: https://crm.bulkmatic.mx/BLKMX_PROD/Default" sap:VirtualizedContainerService.HintSize="606,322" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="5e34596a-5e87-4458-8866-21ab45c4cfc4" Version="V2" WindowResize="Maximize">
+          <ui:GetRobotCredential AssetName="[in_StrOrchestratorAssetName]" CacheStrategy="None" DisplayName="Get Credential in_StrOrchestratorAssetName" FolderPath="[in_StrOrchestratorFolderPath]" sap:VirtualizedContainerService.HintSize="606,143" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[vSstPassword]" Username="[vStrUsername]">
+            <ui:GetRobotCredential.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:GetRobotCredential.TimeoutMS>
+          </ui:GetRobotCredential>
+          <uix:NApplicationCard AttachMode="SingleWindow" CloseMode="Never" DisplayName="Use Browser Edge: in_StrDynamic365URL" sap:VirtualizedContainerService.HintSize="606,322" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="5e34596a-5e87-4458-8866-21ab45c4cfc4" Version="V2" WindowResize="Maximize">
             <uix:NApplicationCard.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
@@ -193,19 +194,19 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </uix:NApplicationCard>
-          <uix:NApplicationCard AttachMode="SingleWindow" CloseMode="Never" DisplayName="Use Application: Windows Security" sap:VirtualizedContainerService.HintSize="606,2466" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="5e34596a-5e87-4458-8866-21ab45c4cfc4" Version="V2" WindowResize="Maximize">
+          <uix:NApplicationCard AttachMode="SingleWindow" CloseMode="Never" DisplayName="Use Application: Windows Security" sap:VirtualizedContainerService.HintSize="606,2366" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="5e34596a-5e87-4458-8866-21ab45c4cfc4" Version="V2" WindowResize="Maximize">
             <uix:NApplicationCard.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="572,2175" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="572,2075" sap2010:WorkflowViewState.IdRef="Sequence_4">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <uix:NCheckState DelayBefore="3" DisplayName="Check App State out_BooLogin" EnableIfNotExists="False" Exists="[out_BooLogin]" sap:VirtualizedContainerService.HintSize="510,247" sap2010:WorkflowViewState.IdRef="NCheckState_1" Mode="WaitDisappear" ScopeIdentifier="5e34596a-5e87-4458-8866-21ab45c4cfc4" Timeout="30" Version="V3">
+                  <uix:NCheckState DelayBefore="3" DisplayName="Check App State vBooLogin" EnableIfNotExists="False" Exists="[vBooLogin]" sap:VirtualizedContainerService.HintSize="510,247" sap2010:WorkflowViewState.IdRef="NCheckState_1" Mode="WaitDisappear" ScopeIdentifier="5e34596a-5e87-4458-8866-21ab45c4cfc4" Timeout="30" Version="V3">
                     <uix:NCheckState.IfNotExists>
                       <Sequence DisplayName="Target does not disappear" sap:VirtualizedContainerService.HintSize="450,105" sap2010:WorkflowViewState.IdRef="Sequence_7">
                         <sap:WorkflowViewStateService.ViewState>
@@ -226,41 +227,32 @@
                     </sap:WorkflowViewStateService.ViewState>
                   </uix:NCheckState>
                   <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="510,92" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info" Message="[&quot;Should You Sign In to Dynamic 365? &quot; + out_BooLogin.ToString]" />
-                  <If Condition="[out_BooLogin]" DisplayName="If out_BooLogin" sap:VirtualizedContainerService.HintSize="510,1641" sap2010:WorkflowViewState.IdRef="If_1">
+                  <If Condition="[vBooLogin]" DisplayName="If vBooLogin" sap:VirtualizedContainerService.HintSize="510,1541" sap2010:WorkflowViewState.IdRef="If_1">
                     <If.Then>
-                      <Sequence sap:VirtualizedContainerService.HintSize="376,1157" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                      <Sequence sap:VirtualizedContainerService.HintSize="476,1279" sap2010:WorkflowViewState.IdRef="Sequence_17">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Enter Username&quot;]" />
-                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into vStrUsername" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,218" sap2010:WorkflowViewState.IdRef="NTypeInto_3" InteractionMode="Simulate" ScopeIdentifier="5e34596a-5e87-4458-8866-21ab45c4cfc4" Text="[vStrUsername]" Version="V3">
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Enter Username&quot;]" />
+                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into vStrUsername" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="434,218" sap2010:WorkflowViewState.IdRef="NTypeInto_3" InteractionMode="Simulate" ScopeIdentifier="5e34596a-5e87-4458-8866-21ab45c4cfc4" Text="[vStrUsername]" Version="V3">
                           <uix:NTypeInto.Target>
-                            <uix:TargetAnchorable CvElementArea="26, 143, 346, 33" CvTextArea="33, 155, 67, 12" CvType="InputBox" DesignTimeRectangle="25, 144, 346, 32" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'User name'" FullSelectorArgument="&lt;ctrl name='User name' /&gt;" Guid="f1020149-c48e-4ea9-b2d6-a2d2cd385af1" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAV4AAAAkCAYAAADB5VIJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMuSURBVHhe7d29ThRRGIfxvSwLL8JLsPNWTJROYkViQUtHZUi0oKLQkFhQ0YgNFR+7sMAuxzyTeeFlXMkys3uq55e8Yed8zRmKv4eJhFGRJFVl8EpSZf8E73Q6LZeXl+Xs7MyyLMsaUOPxuMnUrifBS+BOJpMym83aFklSX2QpmUoAZw/BSyozQJK0WgTvzc1Ne5WCl9PufD5vryRJq8LJN596H4KX9xGSpNW7v78v5+fn7ZXBK0lV5Iw1eCWpgt7BOxo9DJckvYDBK0mVGbySVJnBK0mVGbySVNmg4N3Z2SknJydtyyPaDw4O2itJUmbwSlJlBq8kVbb24D09PS3b29tlY2OjbG5ulqOjo6YdfN7a2mr6GMPYwBqHh4dNP5+7uC/t+/v7zbqswedwfX1ddnd3m3Zqb2+vaQu0cf88l/vHfvia95Ofg778HJL0EmsPXj5HSLFuhNnx8XETejGf8QRaYB5B97+9MI8QJJzBulzn9ekjbCnWjrFgLGGMmBthG6Ed/eyBvcb8uPcy3ydJ6srZsZbgjQDrrkl7DkLk4MyBvQj3JZizfN8u2nMf98onYObmEzPBTRvYJ/vN6OvuX5KWMTh4CaiuHICEG8HLiTG/TmAM4detCHL6F4V6oI8xWfe+BCltnGRZuxu8WZ6LvD7teY9RebwkLWtQ8HIKzKfEQNAtCk2CKsKMr8+daOkfErxx0mYcIUx7DkqCM8tz0Q3eeO0gSUMNCt54TxsBGqfb/AqAAIv1+NE8wow58U4VjMmnZ8YNCd78TpexXPcNXvbG+Ngfz/ncPxqS9JxBwQvCKH6UpzhpEkwhXjPQl181gKCLud1gHBq8EbasTTsn877BC56T/TOP5+G58nNK0rIGB68k6WUMXkmqzOCVpMoMXkmqrHfwSpL6WRi8/Olh/gSxJGm15vN5ubi4aK9S8I7H4zKdTtsrSdKq8N9QJ5NJe5WC9/b2tjkKX11dldls1rZKkvoiS8lUsvXu7q5tTcGLN59/ldG775ZlWdYK6+2Xp7/1+iR48fHr7/Lq/Y+Fky3Lsqzl6/WHn+XTtz9tuj76J3glSetl8EpSVaX8BT6M8UDjtPP3AAAAAElFTkSuQmCC" InformativeScreenshot="01ce585e5624713ab25eec748e1df652.png" ScopeSelectorArgument="&lt;wnd app='credentialuibroker.exe' cls='Credential Dialog Xaml Host' title='Windows Security' /&gt;" SearchSteps="Selector" Version="V2" />
+                            <uix:TargetAnchorable CvElementArea="26, 143, 346, 33" CvTextArea="33, 155, 67, 12" CvType="InputBox" DesignTimeRectangle="25, 144, 346, 32" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'User name'" FullSelectorArgument="&lt;ctrl name='Nombre de usuario' /&gt;" Guid="f1020149-c48e-4ea9-b2d6-a2d2cd385af1" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAV4AAAAkCAYAAADB5VIJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMuSURBVHhe7d29ThRRGIfxvSwLL8JLsPNWTJROYkViQUtHZUi0oKLQkFhQ0YgNFR+7sMAuxzyTeeFlXMkys3uq55e8Yed8zRmKv4eJhFGRJFVl8EpSZf8E73Q6LZeXl+Xs7MyyLMsaUOPxuMnUrifBS+BOJpMym83aFklSX2QpmUoAZw/BSyozQJK0WgTvzc1Ne5WCl9PufD5vryRJq8LJN596H4KX9xGSpNW7v78v5+fn7ZXBK0lV5Iw1eCWpgt7BOxo9DJckvYDBK0mVGbySVJnBK0mVGbySVNmg4N3Z2SknJydtyyPaDw4O2itJUmbwSlJlBq8kVbb24D09PS3b29tlY2OjbG5ulqOjo6YdfN7a2mr6GMPYwBqHh4dNP5+7uC/t+/v7zbqswedwfX1ddnd3m3Zqb2+vaQu0cf88l/vHfvia95Ofg778HJL0EmsPXj5HSLFuhNnx8XETejGf8QRaYB5B97+9MI8QJJzBulzn9ekjbCnWjrFgLGGMmBthG6Ed/eyBvcb8uPcy3ydJ6srZsZbgjQDrrkl7DkLk4MyBvQj3JZizfN8u2nMf98onYObmEzPBTRvYJ/vN6OvuX5KWMTh4CaiuHICEG8HLiTG/TmAM4detCHL6F4V6oI8xWfe+BCltnGRZuxu8WZ6LvD7teY9RebwkLWtQ8HIKzKfEQNAtCk2CKsKMr8+daOkfErxx0mYcIUx7DkqCM8tz0Q3eeO0gSUMNCt54TxsBGqfb/AqAAIv1+NE8wow58U4VjMmnZ8YNCd78TpexXPcNXvbG+Ngfz/ncPxqS9JxBwQvCKH6UpzhpEkwhXjPQl181gKCLud1gHBq8EbasTTsn877BC56T/TOP5+G58nNK0rIGB68k6WUMXkmqzOCVpMoMXkmqrHfwSpL6WRi8/Olh/gSxJGm15vN5ubi4aK9S8I7H4zKdTtsrSdKq8N9QJ5NJe5WC9/b2tjkKX11dldls1rZKkvoiS8lUsvXu7q5tTcGLN59/ldG775ZlWdYK6+2Xp7/1+iR48fHr7/Lq/Y+Fky3Lsqzl6/WHn+XTtz9tuj76J3glSetl8EpSVaX8BT6M8UDjtPP3AAAAAElFTkSuQmCC" InformativeScreenshot="01ce585e5624713ab25eec748e1df652.png" ScopeSelectorArgument="&lt;wnd app='credentialuibroker.exe' cls='Credential Dialog Xaml Host' title='Windows Security' /&gt;" SearchSteps="Selector" Version="V2" />
                           </uix:NTypeInto.Target>
                         </uix:NTypeInto>
-                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;Enter Password&quot;]" />
-                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into vSstPassword" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,218" sap2010:WorkflowViewState.IdRef="NTypeInto_4" InteractionMode="Simulate" IsPassword="True" ScopeIdentifier="5e34596a-5e87-4458-8866-21ab45c4cfc4" SecureText="[vSstPassword]" Version="V3">
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;Enter Password&quot;]" />
+                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into vSstPassword" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="434,218" sap2010:WorkflowViewState.IdRef="NTypeInto_4" InteractionMode="Simulate" IsPassword="True" ScopeIdentifier="5e34596a-5e87-4458-8866-21ab45c4cfc4" SecureText="[vSstPassword]" Version="V3">
                           <uix:NTypeInto.Target>
-                            <uix:TargetAnchorable CvElementArea="24, 187, 348, 33" CvTextArea="33, 198, 58, 13" CvType="InputBox" DesignTimeRectangle="25, 188, 346, 32" DesignTimeScaleFactor="1" ElementType="InputBoxPassword" FriendlyName="'Password'" FullSelectorArgument="&lt;ctrl name='Password' /&gt;" Guid="fa1ee611-da11-40af-8d40-3e1f0da78bf4" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAV4AAAAkCAYAAADB5VIJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMLSURBVHhe7d09S2NNGIDh/av29tb5Adb2KcTG1tZWRAhiZ2mZyo9EEkic5T47T3Y8m7PsmjMDwn3BYOZ85ORtbh7ChvdHkiQ1ZXglqbE/wrtardLb21t6fn52uVwu1wFrsVh0Te37FF6Cu1wu02azyUckSV9FS2kqAS7twkuVuUCSNC7Cu16v864IL9PudrvNO0nSWJh8y6l3F16+j5Akje/j4yO9vLzkneGVpCbKxhpeSWrA8EpSY4ZXkhozvJLUmOGVpMYMryQ1dlB4T09P09HR0W6xf3p6yme/r6urq25JUg0HhzcCxa/dLi8v0/Hxcff6OzO8kmoaLbyByffx8THvvifDK6mmauHlK4fJZNLtmYLL6/rnbm5uBo9fX193zwlcw/n5fN7tma7Zx5R9f3+fTk5Odu/BFF5O4BznfcvPxD7u4VncY3gl1TJaeInbdDrtwgmOE0FELPkL7ovYEtC/Hecv9waiyDPiOp4RYeY1QY2Jm3u5lnsC78XnLENd3sPfMsqSNLaDw0vIWMSqDFof10bczs7Oumtjag1Dx4lnRJzJlCmY60BU2YP743WIkAY+a/n+++5x4pVU02gTbx/TKnHkGsJH8CK8MR1znKjGxDt0nBCyCCbvx3URU0IcIS3jXuLZoXyNfffw32R4JdVSLbyEkUkyojYURe7nXF95nAATYt4vptOYgglv4Pp/mXhL++4h/oZXUi1VwssESuBiYuX72HLi5W9MqUQvAjt0HDEFx3mey778/nboO97yM/bDy3O4Jz5rhNrwSqql2sQbQSN0xJFrI4jxdQLnCGNEb+g4OMexwLky5qH8Fwr7AsrxPj5fPJfnsDe8kmo5KLySpP9neCWpMcMrSY0ZXklqzPBKUmOGV5IaGvzfu/PLsO12m3eSpLFsNpu0WCzyrgjvarVK7+/veSdJGstyuUzr9TrvivAyCt/d3aWHh4f0+vqaj0qSvoqW0tTZbJaP/LILL4gvvwI7Pz/vfnXmcrlcrq+vi4uLdHt7mwv726fwSpLqM7yS1FRKPwFYNQCH46GyJgAAAABJRU5ErkJggg==" InformativeScreenshot="0ca7cc4032952b1d8db6422b1707de6d.png" ScopeSelectorArgument="&lt;wnd app='credentialuibroker.exe' cls='Credential Dialog Xaml Host' title='Windows Security' /&gt;" SearchSteps="Selector" Version="V2" />
+                            <uix:TargetAnchorable CvElementArea="24, 187, 348, 33" CvTextArea="33, 198, 58, 13" CvType="InputBox" DesignTimeRectangle="25, 188, 346, 32" DesignTimeScaleFactor="1" ElementType="InputBoxPassword" FriendlyName="'Password'" FullSelectorArgument="&lt;ctrl name='Contraseña' /&gt;" Guid="fa1ee611-da11-40af-8d40-3e1f0da78bf4" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAV4AAAAkCAYAAADB5VIJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMLSURBVHhe7d09S2NNGIDh/av29tb5Adb2KcTG1tZWRAhiZ2mZyo9EEkic5T47T3Y8m7PsmjMDwn3BYOZ85ORtbh7ChvdHkiQ1ZXglqbE/wrtardLb21t6fn52uVwu1wFrsVh0Te37FF6Cu1wu02azyUckSV9FS2kqAS7twkuVuUCSNC7Cu16v864IL9PudrvNO0nSWJh8y6l3F16+j5Akje/j4yO9vLzkneGVpCbKxhpeSWrA8EpSY4ZXkhozvJLUmOGVpMYMryQ1dlB4T09P09HR0W6xf3p6yme/r6urq25JUg0HhzcCxa/dLi8v0/Hxcff6OzO8kmoaLbyByffx8THvvifDK6mmauHlK4fJZNLtmYLL6/rnbm5uBo9fX193zwlcw/n5fN7tma7Zx5R9f3+fTk5Odu/BFF5O4BznfcvPxD7u4VncY3gl1TJaeInbdDrtwgmOE0FELPkL7ovYEtC/Hecv9waiyDPiOp4RYeY1QY2Jm3u5lnsC78XnLENd3sPfMsqSNLaDw0vIWMSqDFof10bczs7Oumtjag1Dx4lnRJzJlCmY60BU2YP743WIkAY+a/n+++5x4pVU02gTbx/TKnHkGsJH8CK8MR1znKjGxDt0nBCyCCbvx3URU0IcIS3jXuLZoXyNfffw32R4JdVSLbyEkUkyojYURe7nXF95nAATYt4vptOYgglv4Pp/mXhL++4h/oZXUi1VwssESuBiYuX72HLi5W9MqUQvAjt0HDEFx3mey778/nboO97yM/bDy3O4Jz5rhNrwSqql2sQbQSN0xJFrI4jxdQLnCGNEb+g4OMexwLky5qH8Fwr7AsrxPj5fPJfnsDe8kmo5KLySpP9neCWpMcMrSY0ZXklqzPBKUmOGV5IaGvzfu/PLsO12m3eSpLFsNpu0WCzyrgjvarVK7+/veSdJGstyuUzr9TrvivAyCt/d3aWHh4f0+vqaj0qSvoqW0tTZbJaP/LILL4gvvwI7Pz/vfnXmcrlcrq+vi4uLdHt7mwv726fwSpLqM7yS1FRKPwFYNQCH46GyJgAAAABJRU5ErkJggg==" InformativeScreenshot="0ca7cc4032952b1d8db6422b1707de6d.png" ScopeSelectorArgument="&lt;wnd app='credentialuibroker.exe' cls='Credential Dialog Xaml Host' title='Windows Security' /&gt;" SearchSteps="Selector" Version="V2" />
                           </uix:NTypeInto.Target>
                         </uix:NTypeInto>
-                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Click Login&quot;]" />
-                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click Login" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NClick_4" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="5e34596a-5e87-4458-8866-21ab45c4cfc4" Version="V3">
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Click Login&quot;]" />
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click Login" sap:VirtualizedContainerService.HintSize="434,157" sap2010:WorkflowViewState.IdRef="NClick_4" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="5e34596a-5e87-4458-8866-21ab45c4cfc4" Version="V3">
                           <uix:NClick.Target>
-                            <uix:TargetAnchorable CvElementArea="24, 282, 203, 35" CvTextArea="114, 292, 22, 13" CvType="Button" DesignTimeRectangle="25, 283, 201, 32" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'OK'" FullSelectorArgument="&lt;ctrl name='OK' /&gt;" Guid="f7068884-dcf4-454f-925d-88cb98ec6362" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAM0AAAAkCAYAAAAq974jAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJoSURBVHhe7dy7axRRGIbxFdOaRgUr/Uu0sxO1s7AQFPEGJiFYpNnKztLCQixUVGKlkMJCdIPkohg04o1o1JAUCiGwJIoK8rnvZM7u2ZmJeAIzOzDPBz+yu3NOlX042Q1MzRiGCRqiYZjASUUzs7Bq527P2Y7hCaDSzrY6mJxvxmV0piuaw1de27aBJ9Z3ZtxqpxpApakD9XD02tu4kPVpRzPRKkoLsjYDVdbf6uLV4mpcihfN8evvbSsnDJCiE2fw7se4FC+aXRcmMzcAVbfldMN2j0zFpXjR6INP1gYAjagPN0QD/AeiAQIRDRCIaIBARAMEIpqSOHL1jc0urdn3X3+i38Hy2m+7P7tse0am22vOj36Irvn7Hr5bscWVn13rkC+iKQEFo1j8SPTa3LcfURBuXTKay4+Xon0EUyyiKQF3qiRfVwy6pjj03I/Ghaaf/h7kj2h6TG96zUanhWLSiaPHLpq9l15Eweh5cj3yRzQ9pje+TpOsa6LrCsQ91uhPtpvTX1NrUQyi6TGF4H9uSfKjctHoCwNJrkUxiKbHNvPnmdYqtKlPzdR65I9oSmAzXwS4zzXuGopDNCXgvglLfuWs08SdMuJH49ZoCKdYRFMSCkCfU9xknT7JaMT9r0b7/deRH6IBAhENEIhogEBEAwQiGiAQ0QCBMqPhFk5Atg1v4XTiBjcLBLLoZoG6r7ObdjTPvzRt+2D2JqDKdg6N29PPnRuht6PR7K/fs/5jt6zv5IPMzUCVqAP1cPDiWFzI+nRFoxl7Nm8H6qNW2zcMVNqh+h179HIhLqMzqWgYhvn3EA3DBI3ZX8zILuC17R2oAAAAAElFTkSuQmCC" InformativeScreenshot="310798f7c776afd8d91625572dee562b.png" ScopeSelectorArgument="&lt;wnd app='credentialuibroker.exe' cls='Credential Dialog Xaml Host' title='Windows Security' /&gt;" SearchSteps="Selector" Version="V2" />
+                            <uix:TargetAnchorable CvElementArea="24, 282, 203, 35" CvTextArea="114, 292, 22, 13" CvType="Button" DesignTimeRectangle="25, 283, 201, 32" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'OK'" FullSelectorArgument="&lt;ctrl name='Aceptar' /&gt;" Guid="f7068884-dcf4-454f-925d-88cb98ec6362" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAM0AAAAkCAYAAAAq974jAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJoSURBVHhe7dy7axRRGIbxFdOaRgUr/Uu0sxO1s7AQFPEGJiFYpNnKztLCQixUVGKlkMJCdIPkohg04o1o1JAUCiGwJIoK8rnvZM7u2ZmJeAIzOzDPBz+yu3NOlX042Q1MzRiGCRqiYZjASUUzs7Bq527P2Y7hCaDSzrY6mJxvxmV0piuaw1de27aBJ9Z3ZtxqpxpApakD9XD02tu4kPVpRzPRKkoLsjYDVdbf6uLV4mpcihfN8evvbSsnDJCiE2fw7se4FC+aXRcmMzcAVbfldMN2j0zFpXjR6INP1gYAjagPN0QD/AeiAQIRDRCIaIBARAMEIpqSOHL1jc0urdn3X3+i38Hy2m+7P7tse0am22vOj36Irvn7Hr5bscWVn13rkC+iKQEFo1j8SPTa3LcfURBuXTKay4+Xon0EUyyiKQF3qiRfVwy6pjj03I/Ghaaf/h7kj2h6TG96zUanhWLSiaPHLpq9l15Eweh5cj3yRzQ9pje+TpOsa6LrCsQ91uhPtpvTX1NrUQyi6TGF4H9uSfKjctHoCwNJrkUxiKbHNvPnmdYqtKlPzdR65I9oSmAzXwS4zzXuGopDNCXgvglLfuWs08SdMuJH49ZoCKdYRFMSCkCfU9xknT7JaMT9r0b7/deRH6IBAhENEIhogEBEAwQiGiAQ0QCBMqPhFk5Atg1v4XTiBjcLBLLoZoG6r7ObdjTPvzRt+2D2JqDKdg6N29PPnRuht6PR7K/fs/5jt6zv5IPMzUCVqAP1cPDiWFzI+nRFoxl7Nm8H6qNW2zcMVNqh+h179HIhLqMzqWgYhvn3EA3DBI3ZX8zILuC17R2oAAAAAElFTkSuQmCC" InformativeScreenshot="310798f7c776afd8d91625572dee562b.png" ScopeSelectorArgument="&lt;wnd app='credentialuibroker.exe' cls='Credential Dialog Xaml Host' title='Windows Security' /&gt;" SearchSteps="Selector" Version="V2" />
                           </uix:NClick.Target>
                         </uix:NClick>
-                      </Sequence>
-                    </If.Then>
-                    <If.Else>
-                      <Sequence sap:VirtualizedContainerService.HintSize="476,302" sap2010:WorkflowViewState.IdRef="Sequence_18">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
                         <Assign DisplayName="Assign out_BooLogin" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_9">
                           <Assign.To>
                             <OutArgument x:TypeArguments="x:Boolean">[out_BooLogin]</OutArgument>
@@ -269,7 +261,15 @@
                             <InArgument x:TypeArguments="x:Boolean">True</InArgument>
                           </Assign.Value>
                         </Assign>
-                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[&quot;Dynamic 365 Login Done&quot;]" />
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence sap:VirtualizedContainerService.HintSize="300,80" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
                       </Sequence>
                     </If.Else>
                   </If>
@@ -277,7 +277,7 @@
               </ActivityAction>
             </uix:NApplicationCard.Body>
             <uix:NApplicationCard.TargetApp>
-              <uix:TargetApp Area="455, 190, 456, 340" FilePath="C:\Windows\System32\credentialuibroker.exe" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAQ9SURBVFhH7ZfbU1tVFMYzffDF6av/gDP+Fb5jbbWWcmmh15RWqTN0KgUBgZJA7gGaBqiU0BAuIRACxWq1WF9rIfWhT/pU3/AFyO3k5Aqfa52TyymelItOfNA9880+7L3Z32+tvc7JOZr/27/eLHZHp67PjHKqz2jTkfVbpCMak8W289urdbz89XfSq39Un7U7VHuGIPN3JAizdUD8eTWIv6PVtRdYC/6CtReyVun6OY2x1NbnAN4lva2hdIixeALpVBKpZOIQkv8vqaLda9lDTGXyAO+RjhKAVeTBcuovAJlsVppYWXmGpz+93JdWfnyGbCYtKRgMqiof+fvXJyTxtSpANgfAG1d1LaC624+annnU6udwxuDDWZMP9TYv6vtncN4xhQvOSWntH+vrSCXiBaNSOhDAZfMytNaH0NqW0DCwiKuOAK45F/DpyDwaR+dw3eXD5+5ZBYCgGj1rXwD8x7YCoMn5HZqGv8WNe49w8z7JtYxm90Pc8iyhZXoRrd4A2ub8BYA0AfDGyaQo9wm5V4rNK3qHpWtVAEGUJ3jTtvEn6HD/gA7P9+icfowvyPyG24/GcS+ujLmhdY2jYcJVBBDjqtGz8gBsfuqerTRAVBALAHrvU9yeeYKGIR9OmsfwgXEIH1rv4kS/Ax/dGcRJZz9OjdgUALkMUOTS7cf9riywef1Mz/4Amh98gxOGUVT0DeOY2YnjNjIfuIOP7w7gk2G7tNnp+xYFQEw1elYegM0bHzeVBogpACr0I3LUFjIvRE3mI3ZUfm3F6TEzqh8YiwBUA0l6GCXoKPKGu8XmbwaIFwGOmXIp56gdZD5EKaeoK0ctqHKZUOM24IyntwCQoiNQi551AAB5gjc9bqeoBxUp56gp5dXjJtRO9OHspB51lNICQFw40GN8TwBloVWOWlFFKa+hlNd6yHxKR+d5G+d9XUUAOgK16FmHAlAWWnU+5ZO9qJvuwTlvNy7MdeKSv/01gFTuDlAz3K09AZSFJqV8Si9HPduFi/Nf4dJCO7SLrQWABNUAF6DaA4jHRJqLRqMIh8OIhEN7AygLrW5aR1Fzyjtx0d+By4E2XFlqRcPyrQJA8g23YTJB+xJgJBJGKBRCOLRVAkDxJFQW2rlZTjlFTSnXBr4k8xZcXW7GtUc3FQBR1ejzGYhTkXLkm5ub2NraVAeIi/KLwuTUorTxfjThCchHQAZq0bPigoBYNELGWzIASRUgEpMzwL/tvOlBFI8VM8A914MgxBClcT53jnpjY0NSSYBQNAH+ScZ2CumkACANZGksFUeGhO0kje2Qtkm0jueRwk5GLjI2ls1FCJSRGJlHKfIwnT2ff16cjZIAPFEuvQbA7+jdOkOCBw+jXqMVRosdFvsgTNZBGEw26FXWKdXc0j5E5vJbMTX+QOB3dB5gqnKIveTvAmpHchdMc7RMYi/5y+g/3jSaPwH2G61IeD/6MgAAAABJRU5ErkJggg==" InformativeScreenshot="4cdfa7eeed929c84156ffb5e1f2f287b.png" Selector="&lt;wnd app='credentialuibroker.exe' cls='Credential Dialog Xaml Host' title='Windows Security' /&gt;" Title="Este es Dynamics 365 Business Central." />
+              <uix:TargetApp Area="455, 190, 456, 340" FilePath="C:\Windows\System32\credentialuibroker.exe" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAQ9SURBVFhH7ZfbU1tVFMYzffDF6av/gDP+Fb5jbbWWcmmh15RWqTN0KgUBgZJA7gGaBqiU0BAuIRACxWq1WF9rIfWhT/pU3/AFyO3k5Aqfa52TyymelItOfNA9880+7L3Z32+tvc7JOZr/27/eLHZHp67PjHKqz2jTkfVbpCMak8W289urdbz89XfSq39Un7U7VHuGIPN3JAizdUD8eTWIv6PVtRdYC/6CtReyVun6OY2x1NbnAN4lva2hdIixeALpVBKpZOIQkv8vqaLda9lDTGXyAO+RjhKAVeTBcuovAJlsVppYWXmGpz+93JdWfnyGbCYtKRgMqiof+fvXJyTxtSpANgfAG1d1LaC624+annnU6udwxuDDWZMP9TYv6vtncN4xhQvOSWntH+vrSCXiBaNSOhDAZfMytNaH0NqW0DCwiKuOAK45F/DpyDwaR+dw3eXD5+5ZBYCgGj1rXwD8x7YCoMn5HZqGv8WNe49w8z7JtYxm90Pc8iyhZXoRrd4A2ub8BYA0AfDGyaQo9wm5V4rNK3qHpWtVAEGUJ3jTtvEn6HD/gA7P9+icfowvyPyG24/GcS+ujLmhdY2jYcJVBBDjqtGz8gBsfuqerTRAVBALAHrvU9yeeYKGIR9OmsfwgXEIH1rv4kS/Ax/dGcRJZz9OjdgUALkMUOTS7cf9riywef1Mz/4Amh98gxOGUVT0DeOY2YnjNjIfuIOP7w7gk2G7tNnp+xYFQEw1elYegM0bHzeVBogpACr0I3LUFjIvRE3mI3ZUfm3F6TEzqh8YiwBUA0l6GCXoKPKGu8XmbwaIFwGOmXIp56gdZD5EKaeoK0ctqHKZUOM24IyntwCQoiNQi551AAB5gjc9bqeoBxUp56gp5dXjJtRO9OHspB51lNICQFw40GN8TwBloVWOWlFFKa+hlNd6yHxKR+d5G+d9XUUAOgK16FmHAlAWWnU+5ZO9qJvuwTlvNy7MdeKSv/01gFTuDlAz3K09AZSFJqV8Si9HPduFi/Nf4dJCO7SLrQWABNUAF6DaA4jHRJqLRqMIh8OIhEN7AygLrW5aR1Fzyjtx0d+By4E2XFlqRcPyrQJA8g23YTJB+xJgJBJGKBRCOLRVAkDxJFQW2rlZTjlFTSnXBr4k8xZcXW7GtUc3FQBR1ejzGYhTkXLkm5ub2NraVAeIi/KLwuTUorTxfjThCchHQAZq0bPigoBYNELGWzIASRUgEpMzwL/tvOlBFI8VM8A914MgxBClcT53jnpjY0NSSYBQNAH+ScZ2CumkACANZGksFUeGhO0kje2Qtkm0jueRwk5GLjI2ls1FCJSRGJlHKfIwnT2ff16cjZIAPFEuvQbA7+jdOkOCBw+jXqMVRosdFvsgTNZBGEw26FXWKdXc0j5E5vJbMTX+QOB3dB5gqnKIveTvAmpHchdMc7RMYi/5y+g/3jSaPwH2G61IeD/6MgAAAABJRU5ErkJggg==" InformativeScreenshot="4cdfa7eeed929c84156ffb5e1f2f287b.png" Selector="&lt;wnd app='credentialuibroker.exe' cls='Credential Dialog Xaml Host' title='Seguridad de Windows' /&gt;" Title="Este es Dynamics 365 Business Central." />
             </uix:NApplicationCard.TargetApp>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -289,7 +289,7 @@
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="572,161" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="672,161" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>

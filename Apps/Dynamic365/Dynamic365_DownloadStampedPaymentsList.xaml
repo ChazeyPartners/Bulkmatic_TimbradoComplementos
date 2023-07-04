@@ -7,7 +7,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>682,1972</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1234,1972</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Dynamic365_DownloadStampedPaymentsList_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -143,15 +143,11 @@
                   <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Click Open In Excel&quot;]" />
                   <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Apps\UiPath\UiPath_ClearDownload.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Apps\UiPath\UiPath_ClearDownload.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_StrDownloadPath">
-                        <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_StrDownloadPath" />
-                      </InArgument>
-                      <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooDownload">
-                        <VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="out_BooDownloadStampedPaymentsList" />
-                      </OutArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_StrDownloadPath">[in_StrDownloadPath]</InArgument>
+                      <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooDownload">[out_BooDownloadStampedPaymentsList]</OutArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
-                  <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="5" DisplayName="Click Open In Excel" sap:VirtualizedContainerService.HintSize="434,157" sap2010:WorkflowViewState.IdRef="NClick_4" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="daf24825-0c13-47d0-ba0d-10d1c9419c51" Version="V3">
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="5" DelayBefore="5" DisplayName="Click Open In Excel" sap:VirtualizedContainerService.HintSize="434,157" sap2010:WorkflowViewState.IdRef="NClick_4" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="daf24825-0c13-47d0-ba0d-10d1c9419c51" Version="V3">
                     <uix:NClick.Target>
                       <uix:TargetAnchorable BrowserURL="https://crm.bulkmatic.mx/BULKQA/?company=BDM&amp;node=00000000-7fd0-0000-1521-5f00836bd2d2&amp;page=50200&amp;dc=0&amp;bookmark=12%3bFQAAAACHMh1E&amp;signInRedirected=1&amp;runinframe=1" CvElementArea="632, 176, 116, 42" CvTextArea="637, 188, 106, 17" CvType="Button" DesignTimeRectangle="634, 178, 114, 38" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Abrir en Excel'" FullSelectorArgument="&lt;webctrl src='https://crm.bulkmatic.mx/*' tag='IFRAME' /&gt;&lt;webctrl tag='A' aaname='Abrir en Excel' aria-label='Abrir en Excel' /&gt;" Guid="d02a9c92-ac84-4814-afe2-9c0a08b24695" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHYAAAAqCAYAAABm66+dAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOESURBVHhe7Zy7a1RBFMb3TzH/gLUQOwttgoUgNrGwEFEbFWNjY0B8VBohBERQgwSJovhYMQZBC5+gprAIGB+I+ApifES7kW/gW76czL7u3pjscAZ+zJ07Z86cM9+duQsLtxK8ZFkqX7/MBic/KvN//gYw+3s+zMz9DNPffzhdCLSDhtSzJqyL2v1Aw0XCpgyd7sOFzRQXNlNc2ExxYTPFhc0UFzZTXNhMcWEzpZCw1empcHRiLGw/fySsO74jrNq3PmnnLB8tCXvq3rWw5+JQ2Di0N4qYAnap+8D6c5aeloRNiWVpZGf9OUtP6cJq0T7n/9KWsHPzv8L7b5/i9csPM7Gt4qHWon31uPPsRVjT2xvGJ+8uuD/18XPYtnPXovuNePLmXdjQ19fWmDLBvD09PQsYODSYtO0UzIX1wTql+tsS9sTt0SjYmftXYo22isdri/WnIHGi94sIu9w0W+wyKVXY1Qc3xV2KghptFY/XFuuPYIchuMnnU2Fzf3/cvexzYRtTqrBg/OlEFBa13qedFu1LgeC4U1GfPHuu1kdhR6/fjDWPNhUa9rsHDsR+HOc3HjyK17Rh8rCxYxX4oX8c5XjgcJ/jjw2P1PrtyaLQ3i42Hlj45YPLVwbzZa6cQ300i60UYVvZsVq0LwUWiYttA2WyEIwLYhcISWs/x6hPLAjbKeDDLiTF43gKgHlSvwcI7RXaouY8Ogdj5hzg9Pilml2j2LTP0pawfLcOXh2JdSfvWCwSjl8+gaj1OGbCdhGRGBdBEwV2TLPkU3MgDtxDnRqv81sazce5sPs173pjisSmtCzs2sNbo5gPX03FNn4d666lXQrrD2Bx7NMN7JOsiXFcWcJigXAC2Bh4CqTGFxUWpHa8zYEUiU1pWVgIuGV4fxQYbdRoW2G1oM0+xQpAdBfXs9GF7VRY3Mf7l6eEJTW+E2ExFqhNvTFFYlNaFrYZtNOifYoKqPcRJIJF0Ly2i6A/IDoVFsBHPZvU+KLCaqzqgztTfdZ7xyrNcitd2BTWHxJTQRQm8/j121jjnYTjR48htVU/SBJj2hEWwIced/RZRFj1AzD+QvXWgtitmGxzjObUTmxKS8L6nwDdR0vCWvxvu5VPIWGdlY8LmykubKa4sJniwmaKC5spLmymuLCZ4sJmyiJh/VMF3U/yUwX+cZHuBtolPy7i5EVl7HI1OLlRDf8ApXZJQO8/tjgAAAAASUVORK5CYII=" InformativeScreenshot="385b80443b387a470c62afa1f2a2f127.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Lista Pagos Timbrados - Dynamics 365 Business Central' /&gt;" SearchSteps="Selector" Version="V2" />
                     </uix:NClick.Target>
@@ -179,15 +175,9 @@
           </uix:NApplicationCard>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Apps\UiPath\UiPath_Download.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="530,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Apps\UiPath\UiPath_Download.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="in_StrDownloadPath">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_StrDownloadPath" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_StrGeneratedFilesPath">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_StrGeneratedFilesPath" />
-              </InArgument>
-              <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooDownload">
-                <VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="out_BooDownloadStampedPaymentsList" />
-              </OutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_StrDownloadPath">[in_StrDownloadPath]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_StrGeneratedFilesPath">[in_StrGeneratedFilesPath]</InArgument>
+              <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooDownload">[out_BooDownloadStampedPaymentsList]</OutArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
         </Sequence>

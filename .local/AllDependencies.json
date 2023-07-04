@@ -20939,15 +20939,15 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jorge\\.nuget\\packages\\": {}
+    "C:\\Users\\Administrador.BULKMATIC\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "BULMATIC_TimbradoComplementos",
       "projectName": "BULMATIC_TimbradoComplementos",
-      "projectPath": "C:\\Users\\jorge\\Documents\\UiPath\\BULMATIC_TimbradoComplementos\\.local",
-      "packagesPath": "C:\\Users\\jorge\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jorge\\Documents\\UiPath\\BULMATIC_TimbradoComplementos\\.local"
+      "projectPath": "C:\\Users\\Administrador.BULKMATIC\\Documents\\UiPath\\BULMATIC_TimbradoComplementos\\BULMATIC_TimbradoComplementos\\.local",
+      "packagesPath": "C:\\Users\\Administrador.BULKMATIC\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Administrador.BULKMATIC\\Documents\\UiPath\\BULMATIC_TimbradoComplementos\\BULMATIC_TimbradoComplementos\\.local"
     },
     "frameworks": {
       "net6.0-windows7.0": {
@@ -20978,7 +20978,7 @@
             "version": "[23.4.5, 23.4.5]"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\jorge\\AppData\\Local\\Programs\\UiPath\\Studio\\runtime.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\UiPath\\Studio\\runtime.json"
       }
     },
     "runtimes": {

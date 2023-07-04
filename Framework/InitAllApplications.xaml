@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1156,2478</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1234,2478</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Initialization_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -42,6 +42,10 @@
       <x:String>System.Xml.Serialization</x:String>
       <x:String>System.ComponentModel</x:String>
       <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -99,6 +103,12 @@
       <AssemblyReference>System.Private.Xml</AssemblyReference>
       <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
       <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="1166,2413" sap2010:WorkflowViewState.IdRef="Sequence_9">
@@ -207,7 +217,7 @@
                         <av:PointCollection x:Key="ConnectorLocation">660,560.5 660,590.5 660.1416666666667,590.5 660.1416666666667,610.5</av:PointCollection>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Sequence DisplayName="Select Company Name" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                    <Sequence DisplayName="Select Company Name" sap:VirtualizedContainerService.HintSize="450,224" sap2010:WorkflowViewState.IdRef="Sequence_23">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -215,8 +225,18 @@
                       </sap:WorkflowViewStateService.ViewState>
                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Apps\Dynamic365\Dynamic365_SelectCompanyName.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" UnSafe="False" WorkflowFileName="Apps\Dynamic365\Dynamic365_SelectCompanyName.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_StrCompanyName">[in_Config("Dynamic365CompanyName").ToString.ToUpper]</InArgument>
-                          <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooSelectCompanyName">[vBooSelectCompanyName]</OutArgument>
+                          <OutArgument x:TypeArguments="x:String" x:Key="out_StrException">
+                            <VisualBasicReference x:TypeArguments="x:String" ExpressionText="vStrExceptionMessage" />
+                          </OutArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_StrCompanyName">
+                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;Dynamic365CompanyName&quot;).ToString.ToUpper" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="x:Int32" x:Key="in_intNumberRetries">
+                            <VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="CInt(in_Config(&quot;NumberRetriesSelectCompany&quot;).ToString)" />
+                          </InArgument>
+                          <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooSelectCompanyName">
+                            <VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="vBooSelectCompanyName" />
+                          </OutArgument>
                         </ui:InvokeWorkflowFile.Arguments>
                       </ui:InvokeWorkflowFile>
                     </Sequence>
@@ -379,15 +399,9 @@
                                                       </sap:WorkflowViewStateService.ViewState>
                                                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Apps\Dynamic365\Dynamic365_DownloadStampedPaymentsList.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Apps\Dynamic365\Dynamic365_DownloadStampedPaymentsList.xaml">
                                                         <ui:InvokeWorkflowFile.Arguments>
-                                                          <InArgument x:TypeArguments="x:String" x:Key="in_StrDownloadPath">
-                                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;FileDownload&quot;).ToString" />
-                                                          </InArgument>
-                                                          <InArgument x:TypeArguments="x:String" x:Key="in_StrGeneratedFilesPath">
-                                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Path.Combine(in_Config(&quot;RutaArchivosRecibidos&quot;).ToString, in_Config(&quot;FileStampedPaymentList&quot;).ToString)" />
-                                                          </InArgument>
-                                                          <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooDownloadStampedPaymentsList">
-                                                            <VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="vBooDownloadStampedPaymentsList" />
-                                                          </OutArgument>
+                                                          <InArgument x:TypeArguments="x:String" x:Key="in_StrDownloadPath">[in_Config("FileDownload").ToString]</InArgument>
+                                                          <InArgument x:TypeArguments="x:String" x:Key="in_StrGeneratedFilesPath">[Path.Combine(in_Config("RutaArchivosRecibidos").ToString, in_Config("FileStampedPaymentList").ToString)]</InArgument>
+                                                          <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooDownloadStampedPaymentsList">[vBooDownloadStampedPaymentsList]</OutArgument>
                                                         </ui:InvokeWorkflowFile.Arguments>
                                                       </ui:InvokeWorkflowFile>
                                                     </Sequence>
@@ -411,7 +425,7 @@
                                                                 <av:PointCollection x:Key="ConnectorLocation">240,1659.54 240,1709.54</av:PointCollection>
                                                               </scg:Dictionary>
                                                             </sap:WorkflowViewStateService.ViewState>
-                                                            <Sequence DisplayName="Read File Payments" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                                                            <Sequence DisplayName="Read File Payments" sap:VirtualizedContainerService.HintSize="450,224" sap2010:WorkflowViewState.IdRef="Sequence_19">
                                                               <sap:WorkflowViewStateService.ViewState>
                                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -422,9 +436,11 @@
                                                                   <InArgument x:TypeArguments="x:String" x:Key="in_StrFilePath">[Path.Combine(in_Config("RutaArchivosRecibidos").ToString, in_Config("FileStampedPaymentList").ToString)]</InArgument>
                                                                   <InArgument x:TypeArguments="x:String" x:Key="in_StrFileSheet">[in_Config("SheetStampedPaymentList").ToString]</InArgument>
                                                                   <InArgument x:TypeArguments="x:String" x:Key="in_StrFileRange">[in_Config("RangeStampedPaymentList").ToString]</InArgument>
-                                                                  <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_DtbDataTable">[vDtbPayments]</OutArgument>
+                                                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrFilterColumn">[in_Config("FilterRegistrationDate").ToString]</InArgument>
+                                                                  <InArgument x:TypeArguments="x:String" x:Key="in_StrDate">[Now.AddDays(CInt(in_Config("SubtractInitialDays").ToString)).ToString(in_Config("DateFormatFile").ToString)]</InArgument>
                                                                   <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooReadFile">[vBooReadFile]</OutArgument>
                                                                   <OutArgument x:TypeArguments="x:String" x:Key="out_StrExceptionMessage">[vStrExceptionMessage]</OutArgument>
+                                                                  <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_DtbDataTable">[vDtbPayments]</OutArgument>
                                                                 </ui:InvokeWorkflowFile.Arguments>
                                                               </ui:InvokeWorkflowFile>
                                                             </Sequence>

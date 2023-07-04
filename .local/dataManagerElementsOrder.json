@@ -183,21 +183,6 @@
       "AddedNamespaces": null
     },
     {
-      "Path": "Apps/Excel/Excel_ReadFile.xaml",
-      "SortBy": 0,
-      "VariablesSectionElementsOrder": [],
-      "ArgumentsSectionElementsOrder": [
-        "out_StrExceptionMessage",
-        "out_BooReadFile",
-        "out_DtbDataTable",
-        "in_StrFileRange",
-        "in_StrFileSheet",
-        "in_StrFilePath"
-      ],
-      "ConstantsSectionElementsOrder": [],
-      "AddedNamespaces": null
-    },
-    {
       "Path": "Apps/File/File_UpdateQueues.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
@@ -535,6 +520,7 @@
       "Path": "Apps/Dynamic365/Dynamic365_Login.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "vBooLogin&Sequence_1",
         "vSstPassword&Sequence_1",
         "vStrUsername&Sequence_1"
       ],
@@ -617,6 +603,26 @@
         "in_StrDownloadPath",
         "in_StrGeneratedFilesPath",
         "out_BooDownload"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Apps/Excel/Excel_ReadFile.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "vDtbDataTable&Sequence_1",
+        "vBooDate&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_StrFileSheet",
+        "in_StrFileRange",
+        "in_StrFilterColumn",
+        "in_StrDate",
+        "out_BooReadFile",
+        "out_StrExceptionMessage",
+        "out_DtbDataTable",
+        "in_StrFilePath"
       ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
