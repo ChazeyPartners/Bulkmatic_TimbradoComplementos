@@ -626,6 +626,36 @@
       ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
+    },
+    {
+      "Path": "Excel_ReadFile.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_StrFilePath",
+        "in_StrFileSheet",
+        "in_StrFileRange",
+        "out_DtbDataTable",
+        "out_BooReadFile",
+        "out_StrExceptionMessage"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Apps/Excel/Excel_ReadFileCustomerMovements.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "in_StrFilePath",
+        "in_StrFileSheet",
+        "in_StrFileRange",
+        "out_DtbDataTable",
+        "out_BooReadFile",
+        "out_StrExceptionMessage"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
     }
   ]
 }

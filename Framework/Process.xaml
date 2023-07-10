@@ -10,7 +10,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1234,2165</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1126,2165</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="50">
@@ -102,6 +102,7 @@
       <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
       <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
       <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1136,2100" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -259,7 +260,7 @@
                                 <av:PointCollection x:Key="ConnectorLocation">1080,648.5 1080,678.5 1080.1416666666667,678.5 1080.1416666666667,698.5</av:PointCollection>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Sequence DisplayName="Download Reconciled Movements" sap:VirtualizedContainerService.HintSize="450,224" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                            <Sequence DisplayName="Download Reconciled Movements" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_8">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -295,13 +296,13 @@
                                         <av:PointCollection x:Key="ConnectorLocation">940,869.54 940,899.54 940.1416666666667,899.54 940.1416666666667,919.54</av:PointCollection>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <Sequence DisplayName="Read File Reconciled Movements" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                                    <Sequence DisplayName="Read File Reconciled Movements" sap:VirtualizedContainerService.HintSize="450,224" sap2010:WorkflowViewState.IdRef="Sequence_10">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Apps\Excel\Excel_ReadFile.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Apps\Excel\Excel_ReadFile.xaml">
+                                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Apps\Excel\Excel_ReadFileCustomerMovements.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_62" UnSafe="False" WorkflowFileName="Apps\Excel\Excel_ReadFileCustomerMovements.xaml">
                                         <ui:InvokeWorkflowFile.Arguments>
                                           <InArgument x:TypeArguments="x:String" x:Key="in_StrFilePath">[Path.Combine(in_Config("RutaArchivosRecibidos").ToString, in_Config("FileReconciledMovements").ToString)]</InArgument>
                                           <InArgument x:TypeArguments="x:String" x:Key="in_StrFileSheet">[in_Config("SheetReconciledMovements").ToString]</InArgument>
@@ -1169,7 +1170,7 @@
                                                   <av:PointCollection x:Key="ConnectorLocation">240,1429.54 240,1479.54</av:PointCollection>
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
-                                              <Sequence DisplayName="Add Queue Stamped" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_49">
+                                              <Sequence DisplayName="Add Queue Stamped" sap:VirtualizedContainerService.HintSize="450,224" sap2010:WorkflowViewState.IdRef="Sequence_49">
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1177,11 +1178,21 @@
                                                 </sap:WorkflowViewStateService.ViewState>
                                                 <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Apps\File\File_AddQueue.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_43" UnSafe="False" WorkflowFileName="Apps\File\File_AddQueue.xaml">
                                                   <ui:InvokeWorkflowFile.Arguments>
-                                                    <InArgument x:TypeArguments="x:String" x:Key="in_StrOrchestratorQueueFolder">[in_Config("OrchestratorQueueFolder").ToString]</InArgument>
-                                                    <InArgument x:TypeArguments="x:String" x:Key="in_StrOrchestratorQueueName">[in_Config("OrchestratorQueueName").ToString]</InArgument>
-                                                    <InArgument x:TypeArguments="s:String[]" x:Key="in_AstQueueItems">[{in_TransactionItem.SpecificContent("Client").ToString, vStrFolioPayment, in_TransactionItem.SpecificContent("RegistrationDate").ToString, in_TransactionItem.SpecificContent("TypeDocument").ToString, in_TransactionItem.SpecificContent("DocumentNumber").ToString, in_TransactionItem.SpecificContent("Description").ToString, in_TransactionItem.SpecificContent("CurrencyCode").ToString, in_TransactionItem.SpecificContent("InitialImport").ToString, in_TransactionItem.SpecificContent("Import").ToString, in_TransactionItem.SpecificContent("PendingImport").ToString, in_TransactionItem.SpecificContent("ExpirationDate").ToString, in_TransactionItem.SpecificContent("PaymentMethodCode").ToString, in_TransactionItem.SpecificContent("MovementNumber").ToString, in_TransactionItem.SpecificContent("ExternalDocumentNumber").ToString, in_TransactionItem.SpecificContent("ElectronicDocumentStatus").ToString, in_TransactionItem.SpecificContent("PACTaxInvoiceNumber").ToString, in_TransactionItem.SpecificContent("ErrorCode").ToString, in_TransactionItem.SpecificContent("ErrorDescription").ToString, "0"}]</InArgument>
-                                                    <OutArgument x:TypeArguments="x:String" x:Key="out_StrExceptionMessage">[vStrExceptionMessage]</OutArgument>
-                                                    <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooAddQueues">[vBooAddQueues]</OutArgument>
+                                                    <InArgument x:TypeArguments="x:String" x:Key="in_StrOrchestratorQueueFolder">
+                                                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;OrchestratorQueueFolder&quot;).ToString" />
+                                                    </InArgument>
+                                                    <InArgument x:TypeArguments="x:String" x:Key="in_StrOrchestratorQueueName">
+                                                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;OrchestratorQueueName&quot;).ToString" />
+                                                    </InArgument>
+                                                    <InArgument x:TypeArguments="s:String[]" x:Key="in_AstQueueItems">
+                                                      <VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="{}{in_TransactionItem.SpecificContent(&quot;Client&quot;).ToString, If(String.IsNullOrEmpty(vStrFolioPayment), in_TransactionItem.SpecificContent(&quot;FolioPayment&quot;).ToString, vStrFolioPayment), in_TransactionItem.SpecificContent(&quot;RegistrationDate&quot;).ToString, in_TransactionItem.SpecificContent(&quot;TypeDocument&quot;).ToString, in_TransactionItem.SpecificContent(&quot;DocumentNumber&quot;).ToString, in_TransactionItem.SpecificContent(&quot;Description&quot;).ToString, in_TransactionItem.SpecificContent(&quot;CurrencyCode&quot;).ToString, in_TransactionItem.SpecificContent(&quot;InitialImport&quot;).ToString, in_TransactionItem.SpecificContent(&quot;Import&quot;).ToString, in_TransactionItem.SpecificContent(&quot;PendingImport&quot;).ToString, in_TransactionItem.SpecificContent(&quot;ExpirationDate&quot;).ToString, in_TransactionItem.SpecificContent(&quot;PaymentMethodCode&quot;).ToString, in_TransactionItem.SpecificContent(&quot;MovementNumber&quot;).ToString, in_TransactionItem.SpecificContent(&quot;ExternalDocumentNumber&quot;).ToString, in_TransactionItem.SpecificContent(&quot;ElectronicDocumentStatus&quot;).ToString, in_TransactionItem.SpecificContent(&quot;PACTaxInvoiceNumber&quot;).ToString, in_TransactionItem.SpecificContent(&quot;ErrorCode&quot;).ToString, in_TransactionItem.SpecificContent(&quot;ErrorDescription&quot;).ToString, &quot;0&quot;}" />
+                                                    </InArgument>
+                                                    <OutArgument x:TypeArguments="x:String" x:Key="out_StrExceptionMessage">
+                                                      <VisualBasicReference x:TypeArguments="x:String" ExpressionText="vStrExceptionMessage" />
+                                                    </OutArgument>
+                                                    <OutArgument x:TypeArguments="x:Boolean" x:Key="out_BooAddQueues">
+                                                      <VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="vBooAddQueues" />
+                                                    </OutArgument>
                                                   </ui:InvokeWorkflowFile.Arguments>
                                                 </ui:InvokeWorkflowFile>
                                               </Sequence>
